@@ -26,6 +26,7 @@ HEADER = f'''<header>
       <a href="../office-catering/">Office catering</a>
       <a href="../wedding-catering/">Weddings</a>
       <a href="../menu/">Menu &amp; prices</a>
+      <a href="../guides/">Guides</a>
     </nav>
     <div class="nav-cta">
       <a class="btn btn-wa js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question about catering.">{WA_ICON} WhatsApp</a>
@@ -42,7 +43,7 @@ FOOTER = f'''<footer>
         <p>Turkish kebab catering in Singapore: live kebab stations, office catering and weddings.</p>
       </div>
       <div><h4>Catering</h4><ul><li><a href="../live-kebab-station/">Live kebab station</a></li><li><a href="../office-catering/">Office catering</a></li><li><a href="../wedding-catering/">Wedding catering</a></li></ul></div>
-      <div><h4>Order</h4><ul><li><a href="../plan/">Plan my menu</a></li><li><a href="../menu/">Menu and prices</a></li><li><a href="../#faq">FAQ</a></li></ul></div>
+      <div><h4>Order</h4><ul><li><a href="../plan/">Plan my menu</a></li><li><a href="../menu/">Menu and prices</a></li><li><a href="../guides/">Catering guides</a></li><li><a href="../#faq">FAQ</a></li></ul></div>
       <div><h4>Contact</h4><ul><li><a class="js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question.">WhatsApp +65 9635 2294</a></li></ul></div>
     </div>
     <p class="copy">© <span id="year"></span> Singapore Kebab</p>
@@ -263,6 +264,6 @@ def build(p):
     print("built", p["slug"])
 
 
-if __name__ == "__main__":
+if __name__ == "__main__" and True:
     for p in PAGES:
         build(p)
