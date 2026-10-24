@@ -7,16 +7,16 @@
 <meta name="description" content="Plan your Turkish kebab catering in under a minute: guests, date, live station or drop-off, menu and budget. Get your quote on WhatsApp.">
 <link rel="canonical" href="https://singaporekebab.com/plan/">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#1C1A18">
+<meta name="theme-color" content="#FBF8F3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --char:#1C1A18; --char-2:#2B2622; --char-3:#353029; --line:#3A332D; --line-2:#4A4038;
+  --char:#FBF8F3; --char-2:#FFFFFF; --char-3:#F3ECE2; --line:#E7DED2; --line-2:#D8CDBE;
   --amber:#D9893A; --red:#C63A2B; --red-hover:#B5301F;
-  --cream:#F6EFE4; --sand:#CFC4B4;
-}
+  --cream:#1F1B17; --sand:#655A50;
+;--amber-ink:#A85A14}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{min-height:100%}
 body{background:var(--char);color:var(--cream);font:400 16px/1.5 "Figtree",system-ui,sans-serif;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100vh}
@@ -26,7 +26,7 @@ a{color:inherit}
 .display{font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.005em}
 .muted{color:var(--sand)}
 
-header{border-bottom:1px solid var(--line)}
+header{border-bottom:1px solid var(--line);background:#FBF8F3}
 .nav{max-width:1100px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{font-size:26px;text-decoration:none;white-space:nowrap}
 .nav a.alt{font-weight:600;font-size:15px;color:var(--sand);text-decoration:none}
@@ -58,7 +58,7 @@ main{flex:1;display:grid;place-items:center;padding:32px 16px 48px}
 /* Stepper */
 .stepper{background:var(--char);border:1.5px solid var(--line);border-radius:16px;padding:26px 16px;display:flex;align-items:center;justify-content:center;gap:22px}
 .stepper button{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line-2);font-size:26px;font-weight:700;display:grid;place-items:center}
-.stepper button:hover{border-color:var(--amber);color:var(--amber)}
+.stepper button:hover{border-color:var(--amber);color:var(--amber-ink)}
 .stepper input{width:120px;text-align:center;background:none;border:0;border-bottom:2px solid var(--line-2);color:var(--cream);font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;font-size:64px;line-height:1;padding-bottom:4px;-moz-appearance:textfield}
 .stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none}
 .stepper input:focus{outline:none;border-color:var(--amber)}
@@ -68,7 +68,7 @@ main{flex:1;display:grid;place-items:center;padding:32px 16px 48px}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
 .chip{border:1.5px solid var(--line-2);border-radius:999px;padding:10px 18px;font-weight:600;min-height:46px;display:inline-flex;align-items:center;gap:8px}
 .chip:hover{border-color:var(--sand)}
-.chip[aria-pressed="true"]{background:var(--amber);border-color:var(--amber);color:var(--char)}
+.chip[aria-pressed="true"]{background:var(--amber);border-color:var(--amber);color:#1F1B17}
 .chip small{font-weight:500;opacity:.8}
 
 /* Choice cards */
@@ -95,7 +95,7 @@ main{flex:1;display:grid;place-items:center;padding:32px 16px 48px}
 .dish .dn b{font-size:14.5px;line-height:1.25}
 .dish .dn span{font-size:13px;color:var(--sand)}
 .dish .tick{position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:50%;background:rgba(28,26,24,.75);border:1.5px solid rgba(246,239,228,.7);display:grid;place-items:center;font-size:14px;font-weight:800;color:transparent}
-.dish[aria-pressed="true"] .tick{background:var(--amber);border-color:var(--amber);color:var(--char)}
+.dish[aria-pressed="true"] .tick{background:var(--amber);border-color:var(--amber);color:#1F1B17}
 .dish .veg{position:absolute;top:8px;left:8px;font-size:11px;font-weight:700;padding:3px 7px;border-radius:999px;background:#23402A;color:#B9E8BC}
 
 /* Fields */
@@ -103,7 +103,7 @@ main{flex:1;display:grid;place-items:center;padding:32px 16px 48px}
 .field label{font-weight:600;font-size:14.5px}
 .field input,.field textarea,.field select{font:inherit;color:var(--cream);background:var(--char);border:1.5px solid var(--line-2);border-radius:10px;padding:12px 14px;width:100%}
 .field input:focus,.field textarea:focus{outline:none;border-color:var(--amber)}
-input[type=date]{color-scheme:dark}
+input[type=date]{color-scheme:light}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media (max-width:560px){.two{grid-template-columns:1fr}}
 
@@ -124,7 +124,7 @@ input[type=date]{color-scheme:dark}
 .srow:last-child{border-bottom:0}
 .srow .k{font-size:13px;color:var(--sand)}
 .srow .v{font-weight:600}
-.srow button{font-size:14px;color:var(--amber);font-weight:600;min-height:36px;padding:0 6px}
+.srow button{font-size:14px;color:var(--amber-ink);font-weight:600;min-height:36px;padding:0 6px}
 .estimate{margin-top:14px;padding:14px 16px;border-radius:12px;background:rgba(217,137,58,.12);border:1px solid rgba(217,137,58,.35);display:flex;justify-content:space-between;gap:12px;align-items:baseline}
 .estimate b{font-size:20px}
 
@@ -134,7 +134,7 @@ input[type=date]{color-scheme:dark}
 .btn-red:hover{background:var(--red-hover)}
 .btn-red[disabled]{opacity:.4;cursor:not-allowed}
 .btn-wide{width:100%}
-.err{color:#FF8A7A;font-weight:600;margin-top:10px;display:none}
+.err{color:#B3261E;font-weight:600;margin-top:10px;display:none}
 .note{font-size:13px;color:var(--sand);text-align:center;margin-top:10px}
 
 .done{text-align:center;padding:12px 0}

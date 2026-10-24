@@ -7,16 +7,16 @@
 <meta name="description" content="Build your Turkish food order: kebab wraps, iskender, pide, baked dishes and desserts. Pick your items and send the order on WhatsApp.">
 <link rel="canonical" href="https://singaporekebab.com/menu/">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#1C1A18">
+<meta name="theme-color" content="#FBF8F3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --char:#1C1A18; --char-2:#2B2622; --char-3:#353029; --line:#3A332D;
+  --char:#FBF8F3; --char-2:#FFFFFF; --char-3:#F3ECE2; --line:#E7DED2;
   --amber:#D9893A; --red:#C63A2B; --red-hover:#B5301F;
-  --cream:#F6EFE4; --sand:#CFC4B4; --green:#6FBF73;
-}
+  --cream:#1F1B17; --sand:#655A50; --green:#2E7D32;
+;--amber-ink:#A85A14}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--char);color:var(--cream);font:400 16px/1.5 "Figtree",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
@@ -25,7 +25,7 @@ a{color:inherit}
 .display{font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.005em}
 .muted{color:var(--sand)}
 
-header{border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--char);z-index:30}
+header{border-bottom:1px solid var(--line);background:#FBF8F3;position:sticky;top:0;background:var(--char);z-index:30}
 .nav{max-width:1400px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{font-size:26px;text-decoration:none}
 .nav a.back{font-weight:600;font-size:15px;text-decoration:none;color:var(--sand)}
@@ -39,7 +39,7 @@ header{border-bottom:1px solid var(--line);position:sticky;top:0;background:var(
 .cat{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:10px;border-radius:10px;font-weight:600;min-height:52px}
 .cat img{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none}
 .cat:hover{background:var(--char-2)}
-.cat[aria-current="true"]{background:var(--amber);color:var(--char)}
+.cat[aria-current="true"]{background:var(--amber);color:#1F1B17}
 
 /* Items */
 .items{padding:24px 28px 120px}
@@ -49,13 +49,13 @@ header{border-bottom:1px solid var(--line);position:sticky;top:0;background:var(
 .legend{display:flex;gap:16px;font-size:14px;color:var(--sand);flex-wrap:wrap}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .section{scroll-margin-top:84px;margin-bottom:40px}
-.section h2{font-size:38px;margin-bottom:16px;color:var(--amber)}
+.section h2{font-size:38px;margin-bottom:16px;color:var(--amber-ink)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}
 .card{background:var(--char-2);border:1.5px solid var(--line);border-radius:16px;padding:18px 16px 16px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;position:relative;transition:border-color .15s}
 .card:hover{border-color:var(--amber)}
 .card .pic{width:132px;height:132px;border-radius:50%;overflow:hidden;background:var(--char-3);display:grid;place-items:center}
 .card .pic img{width:100%;height:100%;object-fit:cover}
-.card .pic .ph{font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;font-size:40px;color:var(--amber)}
+.card .pic .ph{font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;font-size:40px;color:var(--amber-ink)}
 .card h3{font-size:17px;font-weight:700;line-height:1.25}
 .card .price{color:var(--sand);font-size:15px}
 .card .price b{color:var(--cream)}
@@ -66,7 +66,7 @@ header{border-bottom:1px solid var(--line);position:sticky;top:0;background:var(
 .card .add{margin-top:auto;width:100%;background:var(--red);color:#fff;font-weight:700;border-radius:10px;min-height:44px}
 .card .add:hover{background:var(--red-hover)}
 .card .incart[hidden]{display:none}
-.card .incart{position:absolute;top:10px;left:10px;background:var(--amber);color:var(--char);font-weight:800;font-size:13px;min-width:26px;height:26px;border-radius:13px;display:grid;place-items:center;padding:0 6px}
+.card .incart{position:absolute;top:10px;left:10px;background:var(--amber);color:#1F1B17;font-weight:800;font-size:13px;min-width:26px;height:26px;border-radius:13px;display:grid;place-items:center;padding:0 6px}
 
 /* Cart */
 .cart{border-left:1px solid var(--line);position:sticky;top:64px;height:calc(100vh - 64px);display:flex;flex-direction:column;background:var(--char)}
@@ -112,7 +112,7 @@ header{border-bottom:1px solid var(--line);position:sticky;top:0;background:var(
   .cat-strip{display:flex;gap:8px;overflow-x:auto;padding:10px 16px;position:sticky;top:64px;background:var(--char);z-index:20;border-bottom:1px solid var(--line);scrollbar-width:none}
   .cat-strip::-webkit-scrollbar{display:none}
   .cat-strip button{flex:none;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);font-weight:600;font-size:14px;min-height:40px;white-space:nowrap}
-  .cat-strip button[aria-current="true"]{background:var(--amber);border-color:var(--amber);color:var(--char)}
+  .cat-strip button[aria-current="true"]{background:var(--amber);border-color:var(--amber);color:#1F1B17}
   .items{padding:18px 16px 110px}
   .section{scroll-margin-top:124px}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
@@ -148,12 +148,12 @@ legend{font-weight:600;color:var(--sand);margin-bottom:8px;font-size:15px}
 .field label{font-weight:600;font-size:14px}
 .field input,.field textarea{font:inherit;color:var(--cream);background:var(--char);border:1.5px solid var(--line);border-radius:8px;padding:11px 12px;width:100%}
 .field input:focus,.field textarea:focus{outline:none;border-color:var(--amber)}
-input[type=date],input[type=time]{color-scheme:dark}
+input[type=date],input[type=time]{color-scheme:light}
 .radios{display:flex;gap:8px;flex-wrap:wrap}
 .radios label{display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);border-radius:8px;padding:10px 14px;font-weight:500;cursor:pointer;min-height:44px}
 .radios label:has(input:checked){border-color:var(--amber)}
 .radios input{accent-color:var(--amber)}
-.err{color:#FF8A7A;font-weight:600;display:none}
+.err{color:#B3261E;font-weight:600;display:none}
 @media (max-width:520px){.checkout form{grid-template-columns:1fr}}
 </style>
 </head>

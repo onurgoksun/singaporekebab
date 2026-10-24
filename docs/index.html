@@ -4,14 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Singapore Kebab | Turkish Kebab Catering in Singapore</title>
-<meta name="description" content="Real Turkish kebab catering in Singapore. Live kebab stations at your event, hot drop-off for office lunches, and weddings. Get a quote on WhatsApp.">
+<meta name="description" content="Turkish kebab catering in Singapore: live kebab stations at your event, hot buffet trays and meal boxes for offices, and full Turkish tables for weddings. Plan your menu in 60 seconds.">
 <link rel="canonical" href="https://singaporekebab.com/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Singapore Kebab | Turkish Kebab Catering">
-<meta property="og:description" content="Live kebab stations, office catering and weddings in Singapore.">
+<meta property="og:description" content="Live kebab stations, office catering and weddings in Singapore. Plan your menu in 60 seconds.">
 <meta property="og:url" content="https://singaporekebab.com/">
-<meta name="theme-color" content="#1C1A18">
+<meta property="og:image" content="https://singaporekebab.com/images/live-station.jpg">
+<meta name="theme-color" content="#FBF8F3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,327 +25,397 @@
   "servesCuisine": "Turkish",
   "description": "Turkish kebab catering in Singapore: live kebab stations, office catering and weddings.",
   "areaServed": "Singapore",
+  "telephone": "+65 9635 2294",
   "parentOrganization": {"@type": "Restaurant", "name": "Bodrum Turkish Doner"}
 }
 </script>
 <style>
 :root{
-  --char:#1C1A18;
-  --char-2:#2B2622;
-  --line:#3A332D;
-  --amber:#D9893A;
-  --red:#C63A2B;
-  --red-hover:#B5301F;
-  --cream:#F6EFE4;
-  --sand:#CFC4B4;
-  --brown:#5A4E42;
+  --bg:#FBF8F3; --surface:#FFFFFF; --soft:#F3ECE2;
+  --ink:#1F1B17; --muted:#655A50; --line:#E7DED2;
+  --amber:#D9893A; --amber-ink:#A85A14;
+  --red:#C63A2B; --red-hover:#AE2F21;
+  --char:#1C1A18; --cream:#F6EFE4;
+  --r-lg:22px; --r-md:14px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{background:var(--char);color:var(--cream);font:400 17px/1.6 "Figtree",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 "Figtree",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:3px}
-.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
 @media (max-width:760px){.wrap{padding:0 16px}}
-h1,h2,h3,.display{font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;line-height:.92;letter-spacing:-.005em;text-transform:uppercase}
-.muted{color:var(--sand)}
+h1,h2{font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.005em}
+h3{font-size:20px;font-weight:700;line-height:1.25}
+.muted{color:var(--muted)}
+section{padding:96px 0}
+@media (max-width:760px){section{padding:64px 0}}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px 32px;margin-bottom:40px}
+.sec-head h2{font-size:clamp(44px,5.6vw,76px);max-width:16ch}
+.sec-head p{max-width:46ch;color:var(--muted);font-size:18px}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:14px 24px;border-radius:6px;font:700 16px/1.2 "Figtree",sans-serif;text-decoration:none;border:2px solid transparent;cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 24px;border-radius:12px;font:700 16px/1.2 "Figtree",sans-serif;text-decoration:none;border:2px solid transparent;cursor:pointer}
 .btn-red{background:var(--red);color:#fff}
 .btn-red:hover{background:var(--red-hover)}
-.btn-line{border-color:var(--cream);color:var(--cream)}
-.btn-line:hover{background:rgba(246,239,228,.08)}
-.btn-dark{background:var(--char);color:var(--cream)}
-.btn-dark:hover{background:#000}
-.btn svg{width:20px;height:20px;flex:none}
+.btn-line{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-line:hover{background:var(--soft)}
+.btn-wa{background:#fff;border-color:var(--line);color:var(--ink)}
+.btn-wa:hover{border-color:#25A35A}
+.btn-wa svg{width:20px;height:20px;color:#25A35A}
 
 /* Header */
-header{border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:76px}
-.brand{font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;font-size:30px;letter-spacing:.01em;text-decoration:none;text-transform:uppercase}
-.nav-links{display:flex;gap:28px;font-weight:500;font-size:15px}
+header{position:sticky;top:0;z-index:30;background:rgba(251,248,243,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+.brand{font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;font-size:30px;text-transform:uppercase;text-decoration:none;letter-spacing:.01em;white-space:nowrap}
+.nav-links{display:flex;gap:26px;font-weight:600;font-size:15px}
 .nav-links a{text-decoration:none}
-.nav-links a:hover{color:var(--amber)}
-.nav .btn{padding:10px 18px;font-size:15px;min-height:44px}
-@media (max-width:900px){.nav-links{display:none}}
+.nav-links a:hover{color:var(--amber-ink)}
+.nav-cta{display:flex;gap:10px}
+.nav-cta .btn{min-height:44px;padding:10px 16px;font-size:15px}
+@media (max-width:980px){.nav-links{display:none}}
+@media (max-width:560px){.brand{font-size:24px}.nav-cta .btn-wa{display:none}}
 
 /* Hero */
-.hero{padding:56px 0 80px}
-.hero-grid{display:flex;flex-wrap:wrap;gap:48px;align-items:stretch}
-.hero-text{flex:1 1 520px;display:flex;flex-direction:column;justify-content:center;gap:28px;min-width:0}
-.hero h1{font-size:clamp(64px,9.4vw,136px)}
-.hero p{font-size:20px;max-width:46ch}
-.actions{display:flex;flex-wrap:wrap;gap:12px}
-.photo{background:var(--char-2);border-radius:4px;overflow:hidden}
-.photo img{width:100%;height:100%;object-fit:cover}
-.hero .photo{flex:1 1 440px;min-height:620px}
-@media (max-width:760px){.hero{padding:32px 0 56px}.hero .photo{min-height:420px}}
+.hero{padding:56px 0 72px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(56px,7.4vw,108px)}
+.hero p.lead{font-size:20px;color:var(--muted);max-width:44ch;margin:22px 0 30px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero .by{margin-top:22px;font-size:15px;color:var(--muted)}
+.hero .by b{color:var(--ink)}
+.hero-photo{position:relative}
+.hero-photo img{width:100%;aspect-ratio:4/4.6;object-fit:cover;border-radius:var(--r-lg)}
+.hero-badge{position:absolute;left:-18px;bottom:28px;background:var(--surface);border-radius:var(--r-md);padding:14px 18px;box-shadow:0 12px 30px rgba(31,27,23,.14);display:grid;gap:2px}
+.hero-badge b{font-size:16px}
+.hero-badge span{font-size:14px;color:var(--muted)}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:36px}.hero-photo img{aspect-ratio:4/3}.hero-badge{left:12px}}
+@media (max-width:760px){.hero{padding:32px 0 48px}}
 
-/* Facts strip */
-.facts{background:var(--amber);color:var(--char)}
-.facts .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding-top:22px;padding-bottom:22px;font-weight:700}
-
-/* Statement */
-.statement{padding:112px 0 96px}
-.statement .wrap{display:flex;flex-wrap:wrap;gap:40px;align-items:end}
-.statement h2{flex:1 1 600px;font-size:clamp(52px,7.2vw,104px);min-width:0}
-.statement p{flex:1 1 320px;font-size:19px;max-width:40ch}
-@media (max-width:760px){.statement{padding:72px 0 56px}}
+/* Facts */
+.facts{border-block:1px solid var(--line);background:var(--surface)}
+.facts-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.fact{padding:26px 24px;display:grid;gap:4px;border-left:1px solid var(--line)}
+.fact:first-child{border-left:0}
+.fact b{font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:28px;line-height:1}
+.fact span{font-size:15px;color:var(--muted)}
+@media (max-width:860px){.facts-grid{grid-template-columns:1fr 1fr}.fact:nth-child(3){border-left:0}.fact:nth-child(n+3){border-top:1px solid var(--line)}}
 
 /* Services */
-.services{padding:0 0 112px}
-.services .wrap{display:flex;flex-direction:column;gap:72px}
-.service{display:flex;flex-wrap:wrap;gap:48px;align-items:center}
-.service:nth-child(even){flex-direction:row-reverse}
-.service:not(:has(.photo)){flex-direction:row;padding-top:40px;border-top:1px solid var(--line)}
-.service .photo{flex:1 1 520px;min-height:460px}
-.service-text{flex:1 1 380px;display:flex;flex-direction:column;gap:18px;min-width:0;max-width:640px}
-.service h3{font-size:clamp(48px,5vw,72px);color:var(--amber)}
-.service .lead{font-size:18px}
-.service .for{font-weight:600}
-.service a.more{font-weight:700;text-underline-offset:5px}
-.service a.more:hover{color:var(--amber)}
-@media (max-width:760px){.services{padding-bottom:72px}.services .wrap{gap:56px}.service .photo{min-height:300px}}
+.services{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;text-decoration:none}
+.svc img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.svc .b{padding:20px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.svc p{color:var(--muted);font-size:15.5px;line-height:1.5}
+.svc .go{margin-top:auto;padding-top:8px;font-weight:700;color:var(--amber-ink)}
+.svc:hover{border-color:var(--amber)}
+.svc:hover .go{text-decoration:underline;text-underline-offset:4px}
+@media (max-width:1000px){.services{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.services{grid-template-columns:1fr}}
 
-/* Menu */
-.menu{background:var(--cream);color:var(--char);padding:104px 0}
-.menu-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px}
-.menu h2{font-size:clamp(56px,6.6vw,96px)}
-.menu-head p{max-width:44ch;color:var(--brown)}
-.menu-grid{display:flex;flex-wrap:wrap;gap:32px}
-.dish{flex:1 1 260px;display:flex;flex-direction:column;gap:14px}
-.dish .photo{background:#E8DCCB;height:260px}
-.dish h3{font-size:40px}
-.dish p{color:var(--brown)}
-@media (max-width:760px){.menu{padding:72px 0}}
+/* Why */
+.why{background:var(--surface);border-block:1px solid var(--line)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.why h2{font-size:clamp(44px,5.4vw,72px);margin-bottom:22px}
+.points{display:grid;gap:22px;margin-top:8px}
+.point{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.point .ic{width:44px;height:44px;border-radius:12px;background:var(--soft);display:grid;place-items:center;color:var(--amber-ink)}
+.point .ic svg{width:22px;height:22px}
+.point p{color:var(--muted);font-size:16px;margin-top:2px}
+.why-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-lg)}
+@media (max-width:900px){.why-grid{grid-template-columns:1fr;gap:36px}.why-photo{order:-1}.why-photo img{aspect-ratio:16/10}}
 
-/* Steps */
-.steps-sec{padding:104px 0}
-.steps-sec h2{font-size:clamp(56px,6.6vw,96px);margin-bottom:48px}
-.steps{list-style:none;display:flex;flex-wrap:wrap;gap:32px}
-.steps li{flex:1 1 260px;border-top:3px solid var(--amber);padding-top:20px;display:flex;flex-direction:column;gap:10px}
-.steps .num{font-size:56px;color:var(--amber);line-height:1}
-.steps h3{font-size:34px}
-@media (max-width:760px){.steps-sec{padding:72px 0}}
+/* How it works */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;font:800 18px/1 "Figtree",sans-serif;margin-bottom:16px}
+.steps p{color:var(--muted);margin-top:6px;font-size:16px}
+.how-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;margin:28px 0 56px}
+.how-cta span{color:var(--muted);font-size:15px}
+.examples-title{font-size:15px;font-weight:700;color:var(--muted);margin-bottom:14px}
+.examples{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ex{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;display:flex;flex-direction:column;gap:12px}
+.ex .tags{display:flex;flex-wrap:wrap;gap:6px}
+.ex .tags span{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--soft)}
+.ex ul{list-style:none;display:grid;gap:6px;font-size:15.5px}
+.ex li{display:flex;gap:10px;align-items:baseline}
+.ex li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--amber);flex:none;transform:translateY(-2px)}
+.ex .est{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-size:14.5px;color:var(--muted)}
+@media (max-width:900px){.steps,.examples{grid-template-columns:1fr}}
 
-/* Quote */
-.quote{background:var(--red);color:#fff;padding:96px 0}
-.quote-grid{display:flex;flex-wrap:wrap;gap:48px;align-items:start}
-.quote-text{flex:1 1 420px;display:flex;flex-direction:column;gap:20px;min-width:0}
-.quote h2{font-size:clamp(56px,6.6vw,96px)}
-.quote-text p{font-size:18px;color:#FFE9E2;max-width:40ch}
-form{flex:1 1 480px;background:var(--char);color:var(--cream);border-radius:8px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.field{display:grid;gap:6px}
-.full{grid-column:1/-1}
-label,legend{font-weight:600;font-size:15px}
-input,select,textarea{font:inherit;color:var(--cream);background:var(--char-2);border:1.5px solid var(--line);border-radius:6px;padding:12px 14px;width:100%}
-input::placeholder,textarea::placeholder{color:#8F8273}
-input:focus,textarea:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(217,137,58,.25)}
-input[type=date]{color-scheme:dark}
-textarea{min-height:100px;resize:vertical}
-fieldset{border:0}
-.radios{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-.radios label{display:flex;gap:8px;align-items:center;font-weight:500;background:var(--char-2);border:1.5px solid var(--line);border-radius:6px;padding:10px 14px;cursor:pointer;min-height:44px}
-.radios input{width:auto;accent-color:var(--amber)}
-.radios label:has(input:checked){border-color:var(--amber)}
-form .btn{grid-column:1/-1}
-.hint{grid-column:1/-1;font-size:14px;color:var(--sand);text-align:center}
-.error{grid-column:1/-1;color:#FF8A7A;font-weight:600;display:none}
-@media (max-width:760px){.quote{padding:72px 0}form{grid-template-columns:1fr;padding:22px}}
+/* Occasions */
+.occ{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.oc{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:3/4}
+.oc img{width:100%;height:100%;object-fit:cover}
+.oc figcaption{position:absolute;left:0;right:0;bottom:0;padding:48px 18px 18px;background:linear-gradient(transparent,rgba(20,16,12,.82));color:#fff;font-weight:700;font-size:17px;line-height:1.3}
+@media (max-width:900px){.occ{grid-template-columns:1fr 1fr}}
+
+/* Menu teaser */
+.teaser{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:32px;display:grid;grid-template-columns:1fr 1.2fr;gap:32px;align-items:center}
+.teaser h2{font-size:clamp(40px,4.6vw,60px);margin-bottom:14px}
+.teaser p{color:var(--muted);margin-bottom:22px}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.thumbs figure{border-radius:var(--r-md);overflow:hidden;position:relative}
+.thumbs img{width:100%;aspect-ratio:1;object-fit:cover}
+.thumbs figcaption{position:absolute;left:8px;bottom:8px;background:rgba(255,255,255,.94);border-radius:999px;padding:3px 10px;font-size:13px;font-weight:700}
+@media (max-width:900px){.teaser{grid-template-columns:1fr;padding:22px}}
+
+/* FAQ */
+.faq{max-width:860px}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;font-weight:700;font-size:18px;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:26px;font-weight:500;color:var(--amber-ink)}
+details[open] summary::after{content:"−"}
+details p{padding:0 0 22px;color:var(--muted);max-width:68ch}
+
+/* Final CTA */
+.final{background:var(--char);color:var(--cream);text-align:center}
+.final h2{font-size:clamp(52px,7vw,96px);margin-bottom:18px}
+.final p{color:#CFC4B4;margin:0 auto 30px;max-width:44ch;font-size:18px}
+.final .actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.final .btn-wa{background:transparent;border-color:#5B5148;color:var(--cream)}
 
 /* Footer */
-footer{padding:48px 0 40px;color:#A89A88;font-size:15px}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
-footer .brand{font-size:28px;color:var(--cream);display:block;margin-bottom:8px}
+footer{background:var(--char);color:#BDB2A4;border-top:1px solid #3A332D;padding:48px 0 96px;font-size:15px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+footer .brand{color:var(--cream);font-size:28px;display:block;margin-bottom:10px}
+footer h4{color:var(--cream);font-size:15px;margin-bottom:10px}
+footer ul{list-style:none;display:grid;gap:8px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--cream)}
+.copy{margin-top:36px;padding-top:20px;border-top:1px solid #3A332D;font-size:13.5px}
+@media (max-width:860px){.foot{grid-template-columns:repeat(2,minmax(0,1fr))}.foot>div:first-child{grid-column:1/-1}}
+
+.wa-float{position:fixed;right:16px;bottom:16px;z-index:25;display:flex;align-items:center;gap:8px;background:#1F8A4C;color:#fff;font-weight:700;text-decoration:none;border-radius:999px;padding:12px 18px;box-shadow:0 8px 24px rgba(31,27,23,.25)}
+.wa-float svg{width:20px;height:20px}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top">Singapore Kebab</a>
+    <a class="brand" href="./">Singapore Kebab</a>
     <nav class="nav-links" aria-label="Main">
-      <a href="#live">Live kebab station</a>
-      <a href="#office">Office catering</a>
-      <a href="#weddings">Weddings &amp; events</a>
-      <a href="menu/">Order menu</a>
+      <a href="#services">Catering</a>
+      <a href="#how">How it works</a>
+      <a href="menu/">Menu &amp; prices</a>
+      <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-red" href="plan/">Get a quote</a>
+    <div class="nav-cta">
+      <a class="btn btn-wa js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question about catering.">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"/></svg>
+        WhatsApp
+      </a>
+      <a class="btn btn-red" href="plan/">Plan my menu</a>
+    </div>
   </div>
 </header>
 
-<main id="top">
+<main>
   <section class="hero">
     <div class="wrap hero-grid">
-      <div class="hero-text">
-        <h1>Real Turkish kebab, carved at your event.</h1>
-        <p class="muted">A kebab master, a vertical spit and fresh bread, set up at your office, party or wedding. Or delivered hot for your team lunch.</p>
+      <div>
+        <h1>Turkish kebab catering, carved fresh for your crowd.</h1>
+        <p class="lead">Live kebab stations, hot buffet trays and meal boxes for offices, events and weddings across Singapore. Get a menu built around your headcount, budget and dietary needs.</p>
         <div class="actions">
-          <a class="btn btn-red" href="plan/">Plan your catering in 60 seconds</a>
-          <a class="btn btn-line" href="#live">See how live carving works</a>
+          <a class="btn btn-red" href="plan/">Plan my menu in 60 seconds</a>
+          <a class="btn btn-wa js-wa" href="#" data-msg="Hi Singapore Kebab, I'd like a catering quote.">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"/></svg>
+            WhatsApp us
+          </a>
         </div>
+        <p class="by">Cooked by the kitchen at <b>Bodrum Turkish Doner</b>, Singapore.</p>
       </div>
-      <figure class="photo"><img src="images/hero.jpg" alt="A kebab master carving meat from a vertical spit" onerror="this.parentNode.remove()"></figure>
+      <div class="hero-photo">
+        <img src="images/live-station.jpg" alt="A live kebab station at a rooftop event in Singapore with guests queuing">
+        <div class="hero-badge"><b>Live kebab station</b><span>Carved to order at your venue</span></div>
+      </div>
     </div>
   </section>
 
   <div class="facts">
-    <div class="wrap">
-      <span>Live carving for smaller groups too</span>
-      <span>Hot drop-off for office lunches</span>
-      <span>Vegetarian options on every order</span>
-      <span>Invoices and POs for companies</span>
+    <div class="wrap facts-grid">
+      <div class="fact"><b>Real Turkish kebab</b><span>Vertical spit, carved thin</span></div>
+      <div class="fact"><b>Small groups too</b><span>Team lunches to big events</span></div>
+      <div class="fact"><b>Hot and on time</b><span>Delivered at your set time</span></div>
+      <div class="fact"><b>Company ready</b><span>Invoices and POs on request</span></div>
     </div>
   </div>
 
-  <section class="statement" aria-labelledby="statement-title">
+  <section id="services">
     <div class="wrap">
-      <h2 id="statement-title">Most live stations start at 100 guests. Ours start smaller.</h2>
-      <p class="muted">So a team lunch, a small launch or a birthday can have a kebab master carving on the spot, not only the big events.</p>
-    </div>
-  </section>
-
-  <section class="services" aria-label="Catering services">
-    <div class="wrap">
-      <article class="service" id="live">
-        <figure class="photo"><img src="images/live-station.jpg" alt="A live kebab station at an event with guests" onerror="this.parentNode.remove()"></figure>
-        <div class="service-text">
-          <h3>Live kebab station</h3>
-          <p class="lead muted">Our kebab master brings the spit and carves to order. Wraps and plates are made fresh in front of your guests.</p>
-          <p class="for">For company events, parties and open houses.</p>
-          <a class="more" href="plan/">Book a live station</a>
-        </div>
-      </article>
-      <article class="service" id="office">
-        <figure class="photo"><img src="images/office.jpg" alt="Kebab meal boxes on an office meeting table" onerror="this.parentNode.remove()"></figure>
-        <div class="service-text">
-          <h3>Office catering</h3>
-          <p class="lead muted">Prepared in our kitchen and delivered hot at the time you set, as buffet trays or individual boxes.</p>
-          <p class="for">For team lunches, meetings and training days.</p>
-          <a class="more" href="plan/">Order office catering</a>
-        </div>
-      </article>
-      <article class="service" id="weddings">
-        <figure class="photo"><img src="images/weddings.jpg" alt="Baklava, Turkish tea and meze served for an event" onerror="this.parentNode.remove()"></figure>
-        <div class="service-text">
-          <h3>Weddings &amp; events</h3>
-          <p class="lead muted">The full Turkish table: live kebab carving, meze, pilav, baklava and Turkish tea, served for your guests.</p>
-          <p class="for">For weddings, engagements and celebrations.</p>
-          <a class="more" href="plan/">Plan your event</a>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="menu" id="menu" aria-labelledby="menu-title">
-    <div class="wrap">
-      <div class="menu-head">
-        <h2 id="menu-title">On the table</h2>
-        <p>Built around your headcount and budget. Vegetarian options and dietary labels on every order. <a href="menu/" style="font-weight:700">See the full menu and order online</a></p>
+      <div class="sec-head">
+        <h2>Every kind of kebab catering</h2>
+        <p>Pick a style for your event. Every order is built around your guest count and budget.</p>
       </div>
-      <div class="menu-grid">
-        <div class="dish">
-          <figure class="photo"><img src="images/doner.jpg" alt="Kebab wrapped in warm pide with sauce" onerror="this.parentNode.remove()"></figure>
-          <h3>Kebab</h3>
-          <p>Chicken and beef, slow-roasted on the vertical spit and carved thin.</p>
-        </div>
-        <div class="dish">
-          <figure class="photo"><img src="images/sides.jpg" alt="Buffet trays with pilav, salad and sauces" onerror="this.parentNode.remove()"></figure>
-          <h3>Sides</h3>
-          <p>Pide and flatbread, buttery pilav, shepherd's salad, garlic yoghurt and chilli sauce.</p>
-        </div>
-        <div class="dish">
-          <figure class="photo"><img src="images/sweets.jpg" alt="Baklava with Turkish tea" onerror="this.parentNode.remove()"></figure>
-          <h3>Sweets &amp; tea</h3>
-          <p>Baklava, ayran and Turkish tea to finish.</p>
-        </div>
+      <div class="services">
+        <a class="svc" href="plan/">
+          <img src="images/live-station.jpg" alt="" loading="lazy">
+          <div class="b"><h3>Live kebab station</h3><p>Our kebab master brings the spit and carves to order, with wraps and plates made in front of your guests.</p><span class="go">Plan a live station</span></div>
+        </a>
+        <a class="svc" href="plan/">
+          <img src="images/sides.jpg" alt="" loading="lazy">
+          <div class="b"><h3>Buffet trays</h3><p>Kebab, pilav, salads, bread and sauces, delivered hot and laid out for sharing.</p><span class="go">Plan a buffet</span></div>
+        </a>
+        <a class="svc" href="plan/">
+          <img src="images/office.jpg" alt="" loading="lazy">
+          <div class="b"><h3>Meal boxes</h3><p>One box per person, easy for meetings, trainings and team lunches.</p><span class="go">Plan meal boxes</span></div>
+        </a>
+        <a class="svc" href="plan/">
+          <img src="images/weddings.jpg" alt="" loading="lazy">
+          <div class="b"><h3>Weddings &amp; celebrations</h3><p>The full Turkish table: live kebab carving, meze, pilav, baklava and Turkish tea.</p><span class="go">Plan your celebration</span></div>
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="steps-sec" aria-labelledby="how-title">
-    <div class="wrap">
-      <h2 id="how-title">How it works</h2>
-      <ol class="steps">
-        <li><span class="num display">1</span><h3>Tell us the basics</h3><p class="muted">Date, number of guests, location, and live carving or drop-off.</p></li>
-        <li><span class="num display">2</span><h3>Get your quote</h3><p class="muted">A menu and a per-guest price for your group, with invoice details for companies.</p></li>
-        <li><span class="num display">3</span><h3>We carve or deliver</h3><p class="muted">On the day, we set up and carve at your venue, or deliver hot at the agreed time.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="quote" id="quote" aria-labelledby="quote-title">
-    <div class="wrap quote-grid">
-      <div class="quote-text">
-        <h2 id="quote-title">Feeding a crowd? Let's talk.</h2>
-        <p>Fill in what you know. Your request opens in WhatsApp, ready to send, and we reply with a menu and price.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn btn-dark" href="plan/">Plan step by step</a><a class="btn btn-line js-wa" href="#" data-msg="Hi Singapore Kebab, I'd like a catering quote.">Message us on WhatsApp</a></div>
-      </div>
-      <form id="quote-form" novalidate>
-        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
-        <div class="field"><label for="f-company">Company (optional)</label><input id="f-company" name="company" autocomplete="organization"></div>
-        <div class="field"><label for="f-date">Event date</label><input id="f-date" name="date" type="date" required></div>
-        <div class="field"><label for="f-guests">Number of guests</label><input id="f-guests" name="guests" type="number" min="1" inputmode="numeric" required></div>
-        <fieldset class="full">
-          <legend>Service</legend>
-          <div class="radios">
-            <label><input type="radio" name="service" value="Live kebab station" checked> Live station</label>
-            <label><input type="radio" name="service" value="Office catering"> Office catering</label>
-            <label><input type="radio" name="service" value="Wedding or event"> Wedding or event</label>
+  <section class="why">
+    <div class="wrap why-grid">
+      <div>
+        <h2>The real thing, not generic shawarma</h2>
+        <div class="points">
+          <div class="point">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M8 6h8l-1.5 11h-5z"/></svg></span>
+            <div><h3>Carved from a real vertical spit</h3><p>Marinated, slow-roasted and carved thin, the way kebab is made in Turkey.</p></div>
           </div>
-        </fieldset>
-        <div class="field full"><label for="f-location">Location or area</label><input id="f-location" name="location" placeholder="e.g. Raffles Place office, or Tampines" required></div>
-        <div class="field full"><label for="f-notes">Anything else (optional)</label><textarea id="f-notes" name="notes" placeholder="Serving time, budget per guest, dietary needs"></textarea></div>
-        <p class="error" id="form-error" role="alert">Please fill in your name, date, number of guests and location.</p>
-        <button class="btn btn-red" type="submit">Send request on WhatsApp</button>
-        <p class="hint">Nothing is sent until you press send in WhatsApp.</p>
-      </form>
+          <div class="point">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2.6 1.3-4.5 4-4.5"/></svg></span>
+            <div><h3>Live stations for smaller groups</h3><p>Many live stations only take large events. Tell us your number and we'll find a format that fits, even for a team lunch.</p></div>
+          </div>
+          <div class="point">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+            <div><h3>Easy for companies</h3><p>Clear per-guest pricing, dietary labels on every order, and invoices or POs when you need them.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="why-photo"><img src="images/hero.jpg" alt="A kebab master carving thin slices from a vertical kebab spit" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Your catering menu in 60 seconds</h2>
+        <p>Answer a few quick questions and send your request on WhatsApp. We reply with a menu and price for your group.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Tell us about your event</h3><p>Guests, date, how you want it served, dietary needs and your area.</p></li>
+        <li><h3>Pick your dishes</h3><p>Choose mains, sides and desserts from photos and menu prices.</p></li>
+        <li><h3>Get your quote</h3><p>We confirm the menu, price and timing with you on WhatsApp.</p></li>
+      </ol>
+      <div class="how-cta">
+        <a class="btn btn-red" href="plan/">Try the menu planner</a>
+        <span>Free, no commitment, about a minute.</span>
+      </div>
+      <p class="examples-title">Example menus</p>
+      <div class="examples">
+        <article class="ex">
+          <h3>Team lunch</h3>
+          <div class="tags"><span>20 guests</span><span>Meal boxes</span><span>Vegetarian options</span></div>
+          <ul><li>Chicken kebab over rice pilaf</li><li>Falafel boxes for vegetarians</li><li>Shepherd's salad and garlic yoghurt</li><li>Baklava</li></ul>
+          <p class="est">Example only. Your menu is built around your group.</p>
+        </article>
+        <article class="ex">
+          <h3>Company party</h3>
+          <div class="tags"><span>60 guests</span><span>Live kebab station</span><span>No beef</span></div>
+          <ul><li>Chicken and lamb kebab, carved live</li><li>Warm wraps and pita</li><li>Pilav, salad, hummus and sauces</li><li>Ayran and Turkish tea</li></ul>
+          <p class="est">Example only. Your menu is built around your group.</p>
+        </article>
+        <article class="ex">
+          <h3>Wedding reception</h3>
+          <div class="tags"><span>150 guests</span><span>Full Turkish table</span><span>Live carving</span></div>
+          <ul><li>Live kebab station with iskender</li><li>Meze, pilav and fresh pide</li><li>Baklava and kunafa</li><li>Turkish tea service</li></ul>
+          <p class="est">Example only. Your menu is built around your group.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><h2>From boardroom lunches to big celebrations</h2></div>
+      <div class="occ">
+        <figure class="oc"><img src="images/office.jpg" alt="" loading="lazy"><figcaption>Office lunches and meetings</figcaption></figure>
+        <figure class="oc"><img src="images/live-station.jpg" alt="" loading="lazy"><figcaption>Company events and launches</figcaption></figure>
+        <figure class="oc"><img src="images/weddings.jpg" alt="" loading="lazy"><figcaption>Weddings and engagements</figcaption></figure>
+        <figure class="oc"><img src="images/sides.jpg" alt="" loading="lazy"><figcaption>Birthdays, house parties and festive gatherings</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="teaser">
+        <div>
+          <h2>Ordering for a smaller group?</h2>
+          <p>Browse our full menu with photos and prices, from kebab wraps and iskender to pide and kunafa, and send your order on WhatsApp.</p>
+          <a class="btn btn-line" href="menu/">See menu and prices</a>
+        </div>
+        <div class="thumbs">
+          <figure><img src="https://images.pexels.com/photos/36720642/pexels-photo-36720642.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=300&amp;h=300&amp;fit=crop" alt="Iskender kebab" loading="lazy"><figcaption>Iskender</figcaption></figure>
+          <figure><img src="images/doner.jpg" alt="Kebab wrap" loading="lazy"><figcaption>Kebab wrap</figcaption></figure>
+          <figure><img src="https://images.pexels.com/photos/5639213/pexels-photo-5639213.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=300&amp;h=300&amp;fit=crop" alt="Turkish pide" loading="lazy"><figcaption>Pide</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><h2>Catering questions, answered</h2></div>
+      <div class="faq">
+        <details><summary>How do I get a quote?</summary><p>Use the menu planner. It takes about a minute: you tell us your guest count, date, service style, dishes and area, and your request opens in WhatsApp ready to send. We reply with a menu and price.</p></details>
+        <details><summary>What is a live kebab station?</summary><p>Our kebab master sets up a vertical spit at your venue and carves to order. Guests get fresh wraps or plates with salads and sauces. We check space, power and timing with you before the day.</p></details>
+        <details><summary>Is there a minimum number of guests?</summary><p>We cater small team lunches as well as large events. Tell us your number in the planner and we'll suggest the best format for it.</p></details>
+        <details><summary>Can you cater for halal or vegetarian guests?</summary><p>Tell us your dietary requirements in the planner. We have vegetarian dishes such as falafel, hummus and veggie moussaka, and we'll confirm what we can provide for halal requirements when we quote.</p></details>
+        <details><summary>Do you deliver across Singapore?</summary><p>Tell us your area or postal code in the planner. We'll confirm delivery and any delivery fee in your quote.</p></details>
+        <details><summary>Can my company pay by invoice?</summary><p>Yes. Let us know in the planner notes if you need an invoice or a purchase order, and we'll include the details in your quote.</p></details>
+        <details><summary>Can I change the menu?</summary><p>Yes. Every menu is built for your event, so you can swap dishes, adjust portions or add desserts and drinks before you confirm.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2>Ready to plan your menu?</h2>
+      <p>Answer a few questions and get your quote on WhatsApp. No commitment.</p>
+      <div class="actions">
+        <a class="btn btn-red" href="plan/">Plan my menu</a>
+        <a class="btn btn-wa js-wa" href="#" data-msg="Hi Singapore Kebab, I'd like a catering quote.">WhatsApp us</a>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <div>
-      <a class="brand" href="#top">Singapore Kebab</a>
-      <p>Turkish kebab catering in Singapore. Prepared by the kitchen at Bodrum Turkish Doner.</p>
+    <div class="foot">
+      <div>
+        <a class="brand" href="./">Singapore Kebab</a>
+        <p>Turkish kebab catering in Singapore, cooked by the kitchen at Bodrum Turkish Doner.</p>
+      </div>
+      <div><h4>Catering</h4><ul><li><a href="plan/">Live kebab station</a></li><li><a href="plan/">Buffet trays</a></li><li><a href="plan/">Meal boxes</a></li><li><a href="plan/">Weddings</a></li></ul></div>
+      <div><h4>Order</h4><ul><li><a href="plan/">Plan my menu</a></li><li><a href="menu/">Menu and prices</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a class="js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question.">WhatsApp +65 9635 2294</a></li></ul></div>
     </div>
-    <p>© <span id="year"></span> Singapore Kebab</p>
+    <p class="copy">© <span id="year"></span> Singapore Kebab</p>
   </div>
 </footer>
 
-<script>
-// WhatsApp number in international format, digits only (e.g. 6591234567).
-var WHATSAPP_NUMBER = "6596352294";
+<a class="wa-float js-wa" href="#" data-msg="Hi Singapore Kebab, I'd like a catering quote." aria-label="WhatsApp us">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"/></svg>
+  WhatsApp
+</a>
 
-function waLink(msg){ return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg); }
+<script>
+var WHATSAPP_NUMBER = "6596352294";
 document.querySelectorAll("a.js-wa").forEach(function(a){
-  a.href = waLink(a.getAttribute("data-msg")); a.target = "_blank"; a.rel = "noopener";
+  a.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(a.getAttribute("data-msg"));
+  a.target = "_blank"; a.rel = "noopener";
 });
 document.getElementById("year").textContent = new Date().getFullYear();
-
-var form = document.getElementById("quote-form");
-form.addEventListener("submit", function(e){
-  e.preventDefault();
-  var f = form.elements, err = document.getElementById("form-error");
-  var missing = ["name","date","guests","location"].filter(function(k){ return !f[k].value.trim(); });
-  if (missing.length){ err.style.display = "block"; f[missing[0]].focus(); return; }
-  err.style.display = "none";
-  var lines = [
-    "Hi Singapore Kebab, I'd like a catering quote.", "",
-    "Name: " + f.name.value.trim(),
-    f.company.value.trim() ? "Company: " + f.company.value.trim() : null,
-    "Date: " + f.date.value,
-    "Guests: " + f.guests.value,
-    "Service: " + form.querySelector("input[name=service]:checked").value,
-    "Location: " + f.location.value.trim(),
-    f.notes.value.trim() ? "Notes: " + f.notes.value.trim() : null,
-    "", "(sent from singaporekebab.com)"
-  ].filter(function(l){ return l !== null; });
-  window.open(waLink(lines.join("\n")), "_blank", "noopener");
-});
 </script>
 </body>
 </html>
