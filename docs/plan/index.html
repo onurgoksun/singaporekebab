@@ -50,11 +50,12 @@ main{flex:1;display:grid;place-items:center;padding:32px 16px 48px}
 .step.active{display:block;animation:in .22s ease}
 @keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.step.active{animation:none}}
-.step h1:focus{outline:none}
-.step h1{font-size:clamp(38px,6vw,52px);margin-bottom:8px}
+.step h2:focus{outline:none}
+.step h2{font-size:clamp(38px,6vw,52px);margin-bottom:8px}
 .step .help{color:var(--sand);margin-bottom:22px;max-width:52ch}
 .sub{font-weight:600;margin:22px 0 10px}
 
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 /* Stepper */
 .stepper{background:var(--char);border:1.5px solid var(--line);border-radius:16px;padding:26px 16px;display:flex;align-items:center;justify-content:center;gap:22px}
 .stepper button{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line-2);font-size:26px;font-weight:700;display:grid;place-items:center}
@@ -138,7 +139,7 @@ input[type=date]{color-scheme:light}
 .note{font-size:13px;color:var(--sand);text-align:center;margin-top:10px}
 
 .done{text-align:center;padding:12px 0}
-.done h1{margin-bottom:10px}
+.done h2{margin-bottom:10px}
 </style>
 </head>
 <body>
@@ -150,6 +151,7 @@ input[type=date]{color-scheme:light}
 </header>
 
 <main>
+  <h1 class="sr-only">Plan your Turkish kebab catering</h1>
   <div class="card" id="card">
     <div class="top">
       <button class="back" id="back" hidden>&larr; Back</button>
@@ -159,7 +161,7 @@ input[type=date]{color-scheme:light}
 
     <!-- 1 Guests -->
     <section class="step" data-step="1" aria-labelledby="s1">
-      <h1 class="display" id="s1">How many guests?</h1>
+      <h2 class="display" id="s1">How many guests?</h2>
       <p class="help">A rough number is fine. We cater from small team lunches to large events.</p>
       <div class="stepper">
         <button type="button" id="gMinus" aria-label="Fewer guests">−</button>
@@ -174,7 +176,7 @@ input[type=date]{color-scheme:light}
 
     <!-- 2 Date & time -->
     <section class="step" data-step="2" aria-labelledby="s2">
-      <h1 class="display" id="s2">When is it?</h1>
+      <h2 class="display" id="s2">When is it?</h2>
       <p class="help">Pick the day of your event and the meal.</p>
       <div class="field"><label for="date">Date</label><input id="date" type="date"></div>
       <p class="sub">What time of day?</p>
@@ -187,18 +189,18 @@ input[type=date]{color-scheme:light}
 
     <!-- 3 Service -->
     <section class="step" data-step="3" aria-labelledby="s3">
-      <h1 class="display" id="s3">How should we serve it?</h1>
+      <h2 class="display" id="s3">How should we serve it?</h2>
       <p class="help">Pick the style that fits your event.</p>
       <div class="choices" data-single="service" data-auto>
-        <button class="choice" data-v="Live kebab station"><img src="../images/live-station.jpg" alt=""><span class="t"><b>Live kebab station</b><span>Our chef carves at your venue, made to order.</span></span></button>
-        <button class="choice" data-v="Buffet trays"><img src="../images/sides.jpg" alt=""><span class="t"><b>Buffet trays</b><span>Delivered hot, laid out for sharing.</span></span></button>
-        <button class="choice" data-v="Individual meal boxes"><img src="../images/office.jpg" alt=""><span class="t"><b>Meal boxes</b><span>One box per person, easy for offices.</span></span></button>
+        <button class="choice" data-v="Live kebab station"><img src="../images/live-station-800.webp" width="800" height="600" alt=""><span class="t"><b>Live kebab station</b><span>Our chef carves at your venue, made to order.</span></span></button>
+        <button class="choice" data-v="Buffet trays"><img src="../images/sides-800.webp" width="800" height="600" alt=""><span class="t"><b>Buffet trays</b><span>Delivered hot, laid out for sharing.</span></span></button>
+        <button class="choice" data-v="Individual meal boxes"><img src="../images/office-800.webp" width="800" height="600" alt=""><span class="t"><b>Meal boxes</b><span>One box per person, easy for offices.</span></span></button>
       </div>
     </section>
 
     <!-- 4 Dietary -->
     <section class="step" data-step="4" aria-labelledby="s4">
-      <h1 class="display" id="s4">Any dietary needs?</h1>
+      <h2 class="display" id="s4">Any dietary needs?</h2>
       <p class="help">Choose all that apply.</p>
       <div class="chips" data-multi="diet">
         <button class="chip" data-v="None" data-none aria-pressed="true">None</button>
@@ -214,7 +216,7 @@ input[type=date]{color-scheme:light}
 
     <!-- 5 Menu -->
     <section class="step" data-step="5" aria-labelledby="s5">
-      <h1 class="display" id="s5">What's on the table?</h1>
+      <h2 class="display" id="s5">What's on the table?</h2>
       <p class="help">Tap the dishes you want. We'll balance the quantities for your headcount.</p>
       <p class="sub" style="margin-top:0">Mains</p>
       <div class="dishes" data-multi="mains" data-dishes="mains"></div>
@@ -235,7 +237,7 @@ input[type=date]{color-scheme:light}
 
     <!-- 6 Budget -->
     <section class="step" data-step="6" aria-labelledby="s6">
-      <h1 class="display" id="s6">Budget per guest</h1>
+      <h2 class="display" id="s6">Budget per guest</h2>
       <p class="help" id="budgetHelp">We'll build the best menu within this range.</p>
       <div class="chips" data-single="budget" data-auto>
         <button class="chip" data-v="12">S$12</button><button class="chip" data-v="15">S$15</button><button class="chip" data-v="20">S$20</button><button class="chip" data-v="25">S$25</button><button class="chip" data-v="30">S$30+</button><button class="chip" data-v="0">Not sure yet</button>
@@ -244,7 +246,7 @@ input[type=date]{color-scheme:light}
 
     <!-- 7 Location -->
     <section class="step" data-step="7" aria-labelledby="s7">
-      <h1 class="display" id="s7">Where is it?</h1>
+      <h2 class="display" id="s7">Where is it?</h2>
       <p class="help">The area is enough for a quote. We'll ask for the full address when we confirm.</p>
       <p class="sub" style="margin-top:0">Type of venue</p>
       <div class="chips" data-single="venue">
@@ -260,7 +262,7 @@ input[type=date]{color-scheme:light}
 
     <!-- 8 Confirm -->
     <section class="step" data-step="8" aria-labelledby="s8">
-      <h1 class="display" id="s8">Confirm your details</h1>
+      <h2 class="display" id="s8">Confirm your details</h2>
       <p class="help">Check everything, add your name, and send. Your request opens in WhatsApp, ready to send.</p>
       <div class="summary" id="summary"></div>
       <div class="estimate" id="estimate" hidden><span class="muted">Estimated food budget</span><b id="estVal"></b></div>
@@ -278,7 +280,7 @@ input[type=date]{color-scheme:light}
 
     <!-- Done -->
     <section class="step done" data-step="9" aria-labelledby="s9">
-      <h1 class="display" id="s9">Request ready</h1>
+      <h2 class="display" id="s9">Request ready</h2>
       <p class="muted">WhatsApp opened with your request. Press send there and we'll come back with a menu and price.</p>
       <div class="actions" style="justify-content:center;gap:10px;flex-wrap:wrap">
         <a class="btn btn-red" id="reopen" href="#" target="_blank" rel="noopener">Open WhatsApp again</a>
@@ -303,7 +305,7 @@ function show(n){
   document.querySelectorAll("#progress span").forEach(function(sp, i){ sp.classList.toggle("on", i < Math.min(n, TOTAL)); });
   if (n === 6) document.getElementById("budgetHelp").textContent = guests() + " guests, " + (state.service || "your event") + ". We'll build the best menu within this range.";
   if (n === 8) renderSummary();
-  var h = document.querySelector('.step[data-step="'+n+'"] h1'); if (h){ h.setAttribute("tabindex","-1"); h.focus({preventScroll:true}); }
+  var h = document.querySelector('.step[data-step="'+n+'"] h2'); if (h){ h.setAttribute("tabindex","-1"); h.focus({preventScroll:true}); }
   window.scrollTo(0, 0);
 }
 function guests(){ return Math.max(1, parseInt(document.getElementById("guests").value, 10) || 0); }
@@ -503,6 +505,15 @@ document.getElementById("send").onclick = function(){
 document.addEventListener("keydown", function(e){
   if (e.key === "Enter" && e.target.tagName === "INPUT" && cur < 8){ e.preventDefault(); if (valid(cur)) show(cur + 1); }
 });
+
+// Preselect service from ?service=live|buffet|boxes (links from landing pages)
+(function(){
+  var map = {live:"Live kebab station", buffet:"Buffet trays", boxes:"Individual meal boxes"};
+  var v = map[new URLSearchParams(location.search).get("service")];
+  if (!v) return;
+  state.service = v;
+  document.querySelectorAll('[data-single="service"] button').forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.v === v ? "true" : "false"); });
+})();
 
 show(1);
 </script>
