@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order Menu | Singapore Kebab</title>
+<meta name="description" content="Build your Turkish food order: döner wraps, iskender, pide, baked dishes and desserts. Pick your items and send the order on WhatsApp.">
+<link rel="canonical" href="https://singaporekebab.com/menu/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1C1A18">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --char:#1C1A18; --char-2:#2B2622; --char-3:#353029; --line:#3A332D;
+  --amber:#D9893A; --red:#C63A2B; --red-hover:#B5301F;
+  --cream:#F6EFE4; --sand:#CFC4B4; --green:#6FBF73;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--char);color:var(--cream);font:400 16px/1.5 "Figtree",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px;border-radius:4px}
+.display{font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.005em}
+.muted{color:var(--sand)}
+
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--char);z-index:30}
+.nav{max-width:1400px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-size:26px;text-decoration:none}
+.nav a.back{font-weight:600;font-size:15px;text-decoration:none;color:var(--sand)}
+.nav a.back:hover{color:var(--cream)}
+
+.layout{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:220px minmax(0,1fr) 360px;gap:0;min-height:calc(100vh - 64px)}
+
+/* Categories */
+.cats{border-right:1px solid var(--line);padding:20px 12px;position:sticky;top:64px;height:calc(100vh - 64px);overflow:auto}
+.cats h2{font-size:15px;color:var(--sand);font-weight:600;padding:0 10px 10px}
+.cat{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:10px;border-radius:10px;font-weight:600;min-height:52px}
+.cat img{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none}
+.cat:hover{background:var(--char-2)}
+.cat[aria-current="true"]{background:var(--amber);color:var(--char)}
+
+/* Items */
+.items{padding:24px 28px 120px}
+.intro{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px 24px;margin-bottom:24px}
+.intro h1{font-size:clamp(44px,5vw,64px)}
+.intro p{max-width:46ch}
+.legend{display:flex;gap:16px;font-size:14px;color:var(--sand);flex-wrap:wrap}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.section{scroll-margin-top:84px;margin-bottom:40px}
+.section h2{font-size:38px;margin-bottom:16px;color:var(--amber)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}
+.card{background:var(--char-2);border:1.5px solid var(--line);border-radius:16px;padding:18px 16px 16px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;position:relative;transition:border-color .15s}
+.card:hover{border-color:var(--amber)}
+.card .pic{width:132px;height:132px;border-radius:50%;overflow:hidden;background:var(--char-3);display:grid;place-items:center}
+.card .pic img{width:118%;height:118%;object-fit:cover}
+.card .pic .ph{font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;font-size:40px;color:var(--amber)}
+.card h3{font-size:17px;font-weight:700;line-height:1.25}
+.card .price{color:var(--sand);font-size:15px}
+.card .price b{color:var(--cream)}
+.tags{position:absolute;top:10px;right:10px;display:flex;gap:4px}
+.tag{font-size:11px;font-weight:700;padding:3px 7px;border-radius:999px}
+.tag.veg{background:#23402A;color:#B9E8BC}
+.tag.chef{background:#4A3418;color:#F2C58B}
+.card .add{margin-top:auto;width:100%;background:var(--red);color:#fff;font-weight:700;border-radius:10px;min-height:44px}
+.card .add:hover{background:var(--red-hover)}
+.card .incart[hidden]{display:none}
+.card .incart{position:absolute;top:10px;left:10px;background:var(--amber);color:var(--char);font-weight:800;font-size:13px;min-width:26px;height:26px;border-radius:13px;display:grid;place-items:center;padding:0 6px}
+
+/* Cart */
+.cart{border-left:1px solid var(--line);position:sticky;top:64px;height:calc(100vh - 64px);display:flex;flex-direction:column;background:var(--char)}
+.cart-head{padding:20px 20px 12px;display:flex;justify-content:space-between;align-items:baseline}
+.cart-head h2{font-size:34px}
+.cart-close{display:none;font-weight:600;color:var(--sand);min-height:44px;padding:0 6px}
+.cart-body{flex:1;overflow:auto;padding:0 20px}
+.empty{color:var(--sand);padding:28px 0;text-align:center}
+.line{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.line .n{font-weight:600}
+.line .v{color:var(--sand);font-size:14px}
+.line .p{font-weight:700;text-align:right}
+.qty{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;margin-top:6px}
+.qty button{width:36px;height:36px;font-size:20px;font-weight:700;border-radius:50%}
+.qty button:hover{background:var(--char-2)}
+.qty span{min-width:28px;text-align:center;font-weight:700}
+.cart-foot{border-top:1px solid var(--line);padding:16px 20px 20px;display:grid;gap:12px}
+.total{display:flex;justify-content:space-between;font-size:20px;font-weight:700}
+.note{font-size:13px;color:var(--sand)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 20px;border-radius:10px;font-weight:700;font-size:16px;text-decoration:none}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-hover)}
+.btn-red[disabled]{opacity:.45;cursor:not-allowed}
+.btn-line{border:1.5px solid var(--line)}
+
+/* Mobile */
+.cat-strip{display:none}
+.cartbar{display:none}
+@media (max-width:1100px){
+  .layout{grid-template-columns:200px minmax(0,1fr)}
+  .cart{position:fixed;inset:0 0 0 auto;width:min(420px,100%);top:0;height:100vh;z-index:50;transform:translateX(100%);transition:transform .25s ease;box-shadow:-20px 0 40px rgba(0,0,0,.4)}
+  .cart.open{transform:none}
+  .cart-close{display:block}
+  .cartbar{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:40;background:var(--red);color:#fff;border-radius:14px;min-height:58px;padding:0 18px;align-items:center;justify-content:space-between;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+  .cartbar[hidden]{display:none}
+}
+@media (max-width:760px){
+  .layout{grid-template-columns:1fr}
+  .cats{display:none}
+  .nav{padding:0 16px}
+  .brand{font-size:24px;white-space:nowrap}
+  .nav a.back .long{display:none}
+  .cat-strip{display:flex;gap:8px;overflow-x:auto;padding:10px 16px;position:sticky;top:64px;background:var(--char);z-index:20;border-bottom:1px solid var(--line);scrollbar-width:none}
+  .cat-strip::-webkit-scrollbar{display:none}
+  .cat-strip button{flex:none;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);font-weight:600;font-size:14px;min-height:40px;white-space:nowrap}
+  .cat-strip button[aria-current="true"]{background:var(--amber);border-color:var(--amber);color:var(--char)}
+  .items{padding:18px 16px 110px}
+  .section{scroll-margin-top:124px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .card{padding:14px 10px 12px}
+  .card .pic{width:104px;height:104px}
+  .card h3{font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){.cart{transition:none}}
+
+/* Option sheet */
+dialog{border:0;padding:0;background:transparent;color:inherit;max-width:none;max-height:none;margin:auto}
+dialog::backdrop{background:rgba(10,8,6,.7)}
+.sheet{width:min(460px,calc(100vw - 32px));background:var(--char-2);border:1.5px solid var(--line);border-radius:20px;padding:24px;display:grid;gap:18px}
+.sheet .top{display:flex;gap:16px;align-items:center}
+.sheet .top .pic{width:88px;height:88px;border-radius:50%;overflow:hidden;flex:none;background:var(--char-3);display:grid;place-items:center}
+.sheet .top .pic img{width:118%;height:118%;object-fit:cover}
+.sheet h3{font-size:34px}
+fieldset{border:0;display:grid;gap:8px}
+legend{font-weight:600;color:var(--sand);margin-bottom:8px;font-size:15px}
+.opt{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;min-height:52px}
+.opt:has(input:checked){border-color:var(--amber);background:rgba(217,137,58,.1)}
+.opt input{accent-color:var(--amber);width:18px;height:18px}
+.opt .l{display:flex;align-items:center;gap:10px;font-weight:600}
+.sheet .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.sheet .row .qty{margin:0}
+.sheet .actions{display:grid;grid-template-columns:auto 1fr;gap:10px}
+
+/* Checkout */
+.checkout{width:min(520px,calc(100vw - 32px));max-height:calc(100vh - 32px);overflow:auto}
+.checkout form{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+.checkout .full{grid-column:1/-1}
+.field{display:grid;gap:6px}
+.field label{font-weight:600;font-size:14px}
+.field input,.field textarea{font:inherit;color:var(--cream);background:var(--char);border:1.5px solid var(--line);border-radius:8px;padding:11px 12px;width:100%}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--amber)}
+input[type=date],input[type=time]{color-scheme:dark}
+.radios{display:flex;gap:8px;flex-wrap:wrap}
+.radios label{display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);border-radius:8px;padding:10px 14px;font-weight:500;cursor:pointer;min-height:44px}
+.radios label:has(input:checked){border-color:var(--amber)}
+.radios input{accent-color:var(--amber)}
+.err{color:#FF8A7A;font-weight:600;display:none}
+@media (max-width:520px){.checkout form{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand display" href="../">Singapore Kebab</a>
+    <a class="back" href="../">Catering<span class="long"> &amp; live stations</span></a>
+  </div>
+</header>
+
+<nav class="cat-strip" id="catStrip" aria-label="Menu categories"></nav>
+
+<div class="layout">
+  <nav class="cats" aria-label="Menu categories">
+    <h2>Menu</h2>
+    <div id="catList"></div>
+  </nav>
+
+  <main class="items">
+    <div class="intro">
+      <div>
+        <h1 class="display">Build your order</h1>
+        <p class="muted">Pick your dishes and quantities, then send the order to us on WhatsApp. We confirm the details and delivery time with you.</p>
+      </div>
+      <div class="legend">
+        <span><span class="tag chef">Chef's pick</span></span>
+        <span><span class="tag veg">Veg</span> option available</span>
+      </div>
+    </div>
+    <div id="sections"></div>
+  </main>
+
+  <aside class="cart" id="cart" aria-label="Your order">
+    <div class="cart-head">
+      <h2 class="display">Your order</h2>
+      <button class="cart-close" id="cartClose">Close</button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div class="cart-foot">
+      <div class="total"><span>Total</span><span id="total">S$0.00</span></div>
+      <p class="note" id="totalNote">Prices in SGD. Delivery and large event orders are confirmed on WhatsApp.</p>
+      <button class="btn btn-red" id="checkoutBtn" disabled>Continue to send order</button>
+    </div>
+  </aside>
+</div>
+
+<button class="cartbar" id="cartbar" hidden>
+  <span id="cartbarCount">0 items</span>
+  <span>View order · <span id="cartbarTotal">S$0.00</span></span>
+</button>
+
+<!-- Option picker -->
+<dialog id="optDialog" aria-labelledby="optTitle">
+  <form method="dialog" class="sheet" id="optForm">
+    <div class="top">
+      <div class="pic" id="optPic"></div>
+      <div>
+        <h3 class="display" id="optTitle"></h3>
+        <p class="muted" id="optSub"></p>
+      </div>
+    </div>
+    <fieldset id="optFieldset">
+      <legend>Choose one</legend>
+      <div id="optList" style="display:grid;gap:8px"></div>
+    </fieldset>
+    <div class="row">
+      <span style="font-weight:600">Quantity</span>
+      <div class="qty"><button type="button" id="optMinus" aria-label="Decrease quantity">−</button><span id="optQty">1</span><button type="button" id="optPlus" aria-label="Increase quantity">+</button></div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-line" value="cancel" formnovalidate>Cancel</button>
+      <button class="btn btn-red" id="optAdd" value="add">Add to order</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- Checkout -->
+<dialog id="coDialog" aria-labelledby="coTitle">
+  <div class="sheet checkout">
+    <h3 class="display" id="coTitle">Send your order</h3>
+    <form id="coForm" novalidate>
+      <div class="field"><label for="c-name">Your name</label><input id="c-name" name="name" autocomplete="name"></div>
+      <div class="field"><label for="c-company">Company (optional)</label><input id="c-company" name="company" autocomplete="organization"></div>
+      <div class="field"><label for="c-date">Date</label><input id="c-date" name="date" type="date"></div>
+      <div class="field"><label for="c-time">Time</label><input id="c-time" name="time" type="time"></div>
+      <fieldset class="full">
+        <legend>How do you want it?</legend>
+        <div class="radios">
+          <label><input type="radio" name="mode" value="Delivery" checked> Delivery</label>
+          <label><input type="radio" name="mode" value="Pickup"> Pickup</label>
+        </div>
+      </fieldset>
+      <div class="field full" id="addrField"><label for="c-addr">Delivery address</label><input id="c-addr" name="address" autocomplete="street-address" placeholder="Building, street, unit, postal code"></div>
+      <div class="field full"><label for="c-notes">Notes (optional)</label><textarea id="c-notes" name="notes" rows="3" placeholder="Allergies, extra sauce, cutlery needed"></textarea></div>
+      <p class="err full" id="coErr" role="alert">Please fill in your name, date, time and address.</p>
+      <div class="full" style="display:grid;grid-template-columns:auto 1fr;gap:10px">
+        <button type="button" class="btn btn-line" id="coCancel">Back</button>
+        <button type="submit" class="btn btn-red">Send order on WhatsApp</button>
+      </div>
+      <p class="note full" style="text-align:center">Nothing is sent until you press send in WhatsApp.</p>
+    </form>
+  </div>
+</dialog>
+
+<script>
+var WHATSAPP_NUMBER = "6596352294";
+var IMG = "../images/menu/";
+
+// Prices in SGD. price: null means price on request.
+var MENU = [
+  { id:"wraps", name:"Döner & wraps", items:[
+    { id:"wrap", name:"Wrap Kebab", img:"wrap", chef:true, opts:[["Chicken",7.9],["Lamb",8.9],["Mix",10]] },
+    { id:"tombik", name:"Tombik Pita", img:"tombik", opts:[["Chicken",8.9],["Lamb",9.9],["Mix",11.9]] },
+    { id:"falafel", name:"Falafel", img:"falafel", chef:true, veg:true, opts:[["Wrap",8.9,1],["Pita",9.9,1],["Plate",10,1]] },
+    { id:"chips", name:"Kebab with Chips", img:"chips", opts:[["Just fries",7,1],["Chicken",10],["Lamb",11],["Mix",13]] }
+  ]},
+  { id:"plates", name:"Kebab plates", items:[
+    { id:"iskender", name:"Iskender", img:"iskender", chef:true, opts:[["Chicken",11],["Lamb",13],["Mix",14]] },
+    { id:"ricekebab", name:"Rice Kebab", img:"rice-kebab", opts:[["Chicken",9],["Lamb",10],["Mix",12]] },
+    { id:"beyti", name:"Beyti Kebab", img:"beyti", opts:[["Chicken",10],["Lamb",11],["Mix",13]] },
+    { id:"alinazik", name:"Alinazik", img:"alinazik", opts:[["Chicken",10],["Lamb",11],["Mix",12]] },
+    { id:"kofte", name:"Izara Köfte (lamb) with Rice", img:"kofte", opts:[["Regular",15]] },
+    { id:"biryani", name:"Biryani", img:null, opts:[["Chicken",null],["Lamb",null]] }
+  ]},
+  { id:"pide", name:"Pide & bread", items:[
+    { id:"pide", name:"Turkish Pide", img:"pide", chef:true, veg:true, opts:[
+      ["Cheese (kaşarlı)",11,1],["Spinach",12,1],["Sucuk / pepperoni",12],["Chicken",13],["Lamb (kuşbaşı)",15],["Mix",17],
+      ["Sucuk & cheese",null],["Egg, sucuk & cheese",null],["Egg, lamb (kuşbaşı) & cheese",null]
+    ]},
+    { id:"bread", name:"Bread", img:"bread", veg:true, opts:[["Plain pita",4,1],["Garlic",5,1],["Cheese",6,1]] }
+  ]},
+  { id:"oven", name:"From the oven", items:[
+    { id:"moussaka", name:"Moussaka", img:"moussaka", veg:true, opts:[["Veggie",10,1],["Chicken",12],["Lamb",13],["Mix",14]] },
+    { id:"bakedpasta", name:"Baked Pasta", img:"baked-pasta", opts:[["Chicken",11],["Lamb",12],["Mix",14]] },
+    { id:"bakedrice", name:"Baked Rice", img:"baked-rice", opts:[["Chicken",12],["Lamb",13],["Mix",15]] },
+    { id:"bakedcheese", name:"Baked Cheese & Mushrooms", img:"baked-cheese", veg:true, opts:[["No meat",10,1],["Chicken",11],["Lamb",12],["Mix",14]] }
+  ]},
+  { id:"light", name:"Salads, pasta & sides", items:[
+    { id:"salad", name:"Salad", img:"salad", veg:true, opts:[["No meat",5,1],["Chicken",9],["Lamb",10],["Mix",12]] },
+    { id:"hummus", name:"Hummus with Bread", img:"hummus", veg:true, opts:[["Just hummus",7,1],["Chicken",10],["Lamb",11],["Mix",13]] },
+    { id:"pesto", name:"Pesto Pasta", img:"pesto", veg:true, opts:[["Just pasta",7,1],["Chicken",9],["Lamb",10],["Mix",12]] },
+    { id:"nuggets", name:"Chicken Nuggets with Fries", img:"nuggets", opts:[["Regular",8]] }
+  ]},
+  { id:"desserts", name:"Desserts", items:[
+    { id:"kunafa", name:"Kunafa", img:"desserts", chef:true, opts:[["Regular",12]] },
+    { id:"baklava", name:"Baklava", img:"desserts", veg:true, opts:[["Regular",10]] }
+  ]}
+];
+
+var byId = {};
+MENU.forEach(function(c){ c.items.forEach(function(it){ byId[it.id] = it; }); });
+
+function money(n){ return "S$" + n.toFixed(2); }
+function esc(s){ return String(s).replace(/[&<>"]/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch];}); }
+function picHTML(it){
+  return it.img ? '<img src="'+IMG+it.img+'.jpg" alt="" loading="lazy">' : '<span class="ph">'+esc(it.name.charAt(0))+'</span>';
+}
+function fromPrice(it){
+  var ps = it.opts.map(function(o){return o[1];}).filter(function(p){return p!=null;});
+  if (!ps.length) return '<span>Price on request</span>';
+  var min = Math.min.apply(null, ps);
+  return (it.opts.length>1 ? 'from ' : '') + '<b>'+money(min)+'</b>';
+}
+
+// Render categories + items
+var catList = document.getElementById("catList"), catStrip = document.getElementById("catStrip"), sections = document.getElementById("sections");
+MENU.forEach(function(c){
+  var first = c.items[0];
+  catList.insertAdjacentHTML("beforeend", '<button class="cat" data-cat="'+c.id+'">'+(first.img?'<img src="'+IMG+first.img+'.jpg" alt="">':'')+esc(c.name)+'</button>');
+  catStrip.insertAdjacentHTML("beforeend", '<button data-cat="'+c.id+'">'+esc(c.name)+'</button>');
+  var html = '<section class="section" id="cat-'+c.id+'" aria-labelledby="h-'+c.id+'"><h2 class="display" id="h-'+c.id+'">'+esc(c.name)+'</h2><div class="grid">';
+  c.items.forEach(function(it){
+    html += '<article class="card" data-item="'+it.id+'">'
+      + '<span class="incart" hidden></span>'
+      + '<div class="tags">'+(it.chef?'<span class="tag chef">Chef</span>':'')+(it.veg?'<span class="tag veg">Veg</span>':'')+'</div>'
+      + '<div class="pic">'+picHTML(it)+'</div>'
+      + '<h3>'+esc(it.name)+'</h3>'
+      + '<p class="price">'+fromPrice(it)+'</p>'
+      + '<button class="add" data-add="'+it.id+'" aria-label="Add '+esc(it.name)+'">Add</button>'
+      + '</article>';
+  });
+  sections.insertAdjacentHTML("beforeend", html + '</div></section>');
+});
+document.querySelectorAll("[data-cat]").forEach(function(b){
+  b.addEventListener("click", function(){
+    document.getElementById("cat-"+b.dataset.cat).scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+  });
+});
+// Highlight current category while scrolling
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if (e.isIntersecting){
+      var id = e.target.id.replace("cat-","");
+      document.querySelectorAll("[data-cat]").forEach(function(b){ b.setAttribute("aria-current", b.dataset.cat===id ? "true" : "false"); });
+      var active = catStrip.querySelector('[data-cat="'+id+'"]');
+      if (active) catStrip.scrollTo({left: active.offsetLeft - 16, behavior: "smooth"});
+    }
+  });
+}, {rootMargin: "-30% 0px -60% 0px"});
+document.querySelectorAll(".section").forEach(function(s){ io.observe(s); });
+
+// Cart state
+var cart = []; // {key, id, opt, price, qty}
+function addToCart(id, opt, price, qty){
+  var key = id + "|" + opt;
+  var line = cart.find(function(l){return l.key===key;});
+  if (line) line.qty += qty; else cart.push({key:key, id:id, opt:opt, price:price, qty:qty});
+  renderCart();
+}
+function renderCart(){
+  var body = document.getElementById("cartBody");
+  if (!cart.length){
+    body.innerHTML = '<p class="empty">Your order is empty.<br>Tap Add on any dish to start.</p>';
+  } else {
+    body.innerHTML = cart.map(function(l, i){
+      var it = byId[l.id];
+      var showOpt = it.opts.length > 1;
+      return '<div class="line"><div><div class="n">'+esc(it.name)+'</div>'+(showOpt?'<div class="v">'+esc(l.opt)+'</div>':'')
+        + '<div class="qty"><button data-dec="'+i+'" aria-label="Remove one">−</button><span>'+l.qty+'</span><button data-inc="'+i+'" aria-label="Add one">+</button></div></div>'
+        + '<div class="p">'+(l.price==null?'<span class="muted" style="font-weight:500;font-size:14px">On request</span>':money(l.price*l.qty))+'</div></div>';
+    }).join("");
+  }
+  var total = 0, count = 0, unpriced = false;
+  cart.forEach(function(l){ count += l.qty; if (l.price==null) unpriced = true; else total += l.price*l.qty; });
+  document.getElementById("total").textContent = money(total) + (unpriced ? " +" : "");
+  document.getElementById("totalNote").textContent = unpriced
+    ? "Some items are priced on request. We confirm the final total on WhatsApp."
+    : "Prices in SGD. Delivery and large event orders are confirmed on WhatsApp.";
+  document.getElementById("checkoutBtn").disabled = !cart.length;
+  var bar = document.getElementById("cartbar");
+  bar.hidden = !cart.length;
+  document.getElementById("cartbarCount").textContent = count + (count===1?" item":" items");
+  document.getElementById("cartbarTotal").textContent = money(total) + (unpriced ? " +" : "");
+  // Badges on cards
+  document.querySelectorAll(".card").forEach(function(card){
+    var n = cart.filter(function(l){return l.id===card.dataset.item;}).reduce(function(a,l){return a+l.qty;},0);
+    var b = card.querySelector(".incart"); b.hidden = !n; b.textContent = n;
+  });
+}
+document.getElementById("cartBody").addEventListener("click", function(e){
+  var d = e.target.closest("[data-dec]"), u = e.target.closest("[data-inc]");
+  if (d){ var i=+d.dataset.dec; cart[i].qty--; if (cart[i].qty<=0) cart.splice(i,1); renderCart(); }
+  if (u){ cart[+u.dataset.inc].qty++; renderCart(); }
+});
+
+// Option picker
+var optDialog = document.getElementById("optDialog"), current = null, qty = 1;
+document.getElementById("sections").addEventListener("click", function(e){
+  var b = e.target.closest("[data-add]"); if (!b) return;
+  current = byId[b.dataset.add];
+  if (current.opts.length === 1){ addToCart(current.id, current.opts[0][0], current.opts[0][1], 1); return; }
+  qty = 1; document.getElementById("optQty").textContent = 1;
+  document.getElementById("optPic").innerHTML = picHTML(current);
+  document.getElementById("optTitle").textContent = current.name;
+  document.getElementById("optSub").textContent = current.veg ? "Vegetarian options marked Veg" : "Choose your filling";
+  document.getElementById("optList").innerHTML = current.opts.map(function(o, i){
+    return '<label class="opt"><span class="l"><input type="radio" name="opt" value="'+i+'"'+(i===0?' checked':'')+'>'+esc(o[0])+(o[2]?' <span class="tag veg">Veg</span>':'')+'</span><span>'+(o[1]==null?'<span class="muted">On request</span>':money(o[1]))+'</span></label>';
+  }).join("");
+  optDialog.showModal();
+});
+document.getElementById("optMinus").onclick = function(){ qty = Math.max(1, qty-1); document.getElementById("optQty").textContent = qty; };
+document.getElementById("optPlus").onclick = function(){ qty++; document.getElementById("optQty").textContent = qty; };
+optDialog.addEventListener("close", function(){
+  if (optDialog.returnValue === "add" && current){
+    var i = +document.querySelector("#optList input:checked").value;
+    addToCart(current.id, current.opts[i][0], current.opts[i][1], qty);
+  }
+});
+optDialog.addEventListener("click", function(e){ if (e.target === optDialog) optDialog.close("cancel"); });
+
+// Mobile cart drawer
+var cartEl = document.getElementById("cart");
+document.getElementById("cartbar").onclick = function(){ cartEl.classList.add("open"); };
+document.getElementById("cartClose").onclick = function(){ cartEl.classList.remove("open"); };
+
+// Checkout
+var coDialog = document.getElementById("coDialog"), coForm = document.getElementById("coForm");
+document.getElementById("checkoutBtn").onclick = function(){ coDialog.showModal(); };
+document.getElementById("coCancel").onclick = function(){ coDialog.close(); };
+coDialog.addEventListener("click", function(e){ if (e.target === coDialog) coDialog.close(); });
+coForm.querySelectorAll("input[name=mode]").forEach(function(r){
+  r.addEventListener("change", function(){ document.getElementById("addrField").hidden = coForm.mode.value === "Pickup"; });
+});
+coForm.addEventListener("submit", function(e){
+  e.preventDefault();
+  var f = coForm.elements, pickup = coForm.mode.value === "Pickup";
+  var need = ["name","date","time"].concat(pickup ? [] : ["address"]);
+  var miss = need.filter(function(k){ return !f[k].value.trim(); });
+  var err = document.getElementById("coErr");
+  if (miss.length){ err.style.display = "block"; f[miss[0]].focus(); return; }
+  err.style.display = "none";
+  var total = 0, unpriced = false;
+  var lines = cart.map(function(l){
+    var it = byId[l.id];
+    if (l.price==null) unpriced = true; else total += l.price*l.qty;
+    return l.qty + " x " + it.name + (it.opts.length>1 ? " (" + l.opt + ")" : "") + " - " + (l.price==null ? "price on request" : money(l.price*l.qty));
+  });
+  var msg = [
+    "Hi Singapore Kebab, I'd like to place an order.", "",
+    lines.join("\n"), "",
+    "Total: " + money(total) + (unpriced ? " + items priced on request" : ""), "",
+    "Name: " + f.name.value.trim(),
+    f.company.value.trim() ? "Company: " + f.company.value.trim() : null,
+    coForm.mode.value + ": " + f.date.value + " at " + f.time.value,
+    pickup ? null : "Address: " + f.address.value.trim(),
+    f.notes.value.trim() ? "Notes: " + f.notes.value.trim() : null,
+    "", "(sent from singaporekebab.com/menu)"
+  ].filter(function(x){ return x !== null; }).join("\n");
+  window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
+});
+
+renderCart();
+</script>
+</body>
+</html>
