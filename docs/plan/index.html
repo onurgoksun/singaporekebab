@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plan Your Catering | Singapore Kebab</title>
-<meta name="description" content="Plan your Turkish kebab catering in under a minute: guests, date, live station or drop-off, menu and budget. Get your quote on WhatsApp.">
+<meta name="description" content="Plan your Turkish kebab catering in under a minute: guests, date, live station or drop-off, and dishes with real menu prices. Get your quote on WhatsApp.">
 <link rel="canonical" href="https://singaporekebab.com/plan/">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#FBF8F3">
@@ -42,7 +42,7 @@ main{flex:1;display:grid;place-items:center;padding:32px 16px 48px}
 .back:hover{color:var(--cream)}
 .back[hidden]{visibility:hidden;display:inline-flex}
 .count{font-size:14px;color:var(--sand);font-variant-numeric:tabular-nums}
-.progress{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-bottom:28px}
+.progress{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:28px}
 .progress span{height:5px;border-radius:3px;background:var(--line)}
 .progress span.on{background:var(--amber)}
 
@@ -85,19 +85,45 @@ main{flex:1;display:grid;place-items:center;padding:32px 16px 48px}
 @media (max-width:560px){.choice{flex-direction:row;align-items:stretch}.choice img{width:112px;aspect-ratio:auto;flex:none}}
 
 
-/* Dish cards */
-.dishes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-@media (max-width:560px){.dishes{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.dish{position:relative;border:1.5px solid var(--line-2);border-radius:14px;overflow:hidden;background:var(--char);text-align:left;display:flex;flex-direction:column}
-.dish:hover{border-color:var(--sand)}
-.dish[aria-pressed="true"]{border-color:var(--amber);box-shadow:0 0 0 2px var(--amber)}
-.dish img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--char-3)}
-.dish .dn{padding:9px 11px 11px;display:grid;gap:2px}
-.dish .dn b{font-size:14.5px;line-height:1.25}
-.dish .dn span{font-size:13px;color:var(--sand)}
-.dish .tick{position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:50%;background:rgba(28,26,24,.75);border:1.5px solid rgba(246,239,228,.7);display:grid;place-items:center;font-size:14px;font-weight:800;color:transparent}
-.dish[aria-pressed="true"] .tick{background:var(--amber);border-color:var(--amber);color:#1F1B17}
-.dish .veg{position:absolute;top:8px;left:8px;font-size:11px;font-weight:700;padding:3px 7px;border-radius:999px;background:#23402A;color:#B9E8BC}
+/* Menu builder */
+.mlist{display:grid;gap:10px}
+.mi{border:1.5px solid var(--line-2);border-radius:14px;background:var(--char);overflow:hidden}
+.mi.has{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber)}
+.mi-head{display:flex;align-items:center;gap:12px;width:100%;padding:8px 12px 8px 8px;text-align:left}
+.mi-head:hover .badge{border-color:var(--sand)}
+.mi-head img,.mi-head .ph{width:64px;height:64px;border-radius:10px;object-fit:cover;flex:none;background:var(--char-3)}
+.mi-head .ph{display:grid;place-items:center;font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;font-size:28px;color:var(--sand)}
+.mi-head .t{flex:1;min-width:0;display:grid;gap:2px}
+.mi-head .t b{font-size:15.5px;line-height:1.25}
+.mi-head .t span{font-size:13.5px;color:var(--sand)}
+.mi-head .t .vg{display:inline-block;font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;background:#E3F1E1;color:#2B5A2E;margin-left:6px;vertical-align:2px}
+.badge{font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;border:1.5px solid var(--line-2);white-space:nowrap}
+.mi.has .badge{background:var(--amber);border-color:var(--amber);color:#1F1B17}
+.mi-opts{border-top:1px solid var(--line);padding:2px 12px 6px}
+.opt{display:flex;align-items:center;justify-content:space-between;gap:8px 12px;padding:9px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}
+.opt:last-child{border-bottom:0}
+.opt .on{display:grid;font-weight:600;font-size:15px}
+.opt .on small{font-weight:500;font-size:13px;color:var(--sand)}
+.qty{display:flex;align-items:center;gap:6px;margin-left:auto}
+.qty button{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--line-2);font-size:20px;font-weight:700;display:grid;place-items:center;line-height:1}
+.qty button:hover{border-color:var(--amber);color:var(--amber-ink)}
+.qty input{width:52px;text-align:center;font:600 16px "Figtree",sans-serif;color:var(--cream);background:var(--char-2);border:1.5px solid var(--line-2);border-radius:8px;padding:6px 0;-moz-appearance:textfield}
+.qty input::-webkit-outer-spin-button,.qty input::-webkit-inner-spin-button{-webkit-appearance:none}
+.qty input:focus{outline:none;border-color:var(--amber)}
+.qty .fill[hidden]{display:none}
+.qty .fill{width:auto;border-radius:999px;font-size:12.5px;padding:0 10px;color:var(--amber-ink);border-color:rgba(217,137,58,.55)}
+.vegnote{font-size:13.5px;color:#2B5A2E;background:#E3F1E1;border-radius:10px;padding:8px 12px;margin-bottom:6px}
+.tally{position:sticky;bottom:0;z-index:5;margin:22px -32px -32px;padding:14px 32px 16px;background:var(--char-2);border-top:1.5px solid var(--line);border-radius:0 0 22px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+@media (max-width:560px){.tally{margin:20px -18px -24px;padding:12px 18px 14px;border-radius:0 0 18px 18px}}
+.tally .tm{font-size:13.5px;color:var(--sand);display:grid;gap:1px}
+.tally .tm b{color:var(--cream)}
+.tally .tt{font-weight:800;font-size:19px;color:var(--cream)}
+.tally .ok{color:#2E7D32;font-weight:700}
+.tally .short{color:var(--amber-ink);font-weight:700}
+.err.warn{color:var(--amber-ink)}
+.sitems{display:grid;gap:3px;margin-top:2px}
+.sitems span{font-weight:600}
+.estimate-note{font-size:13px;color:var(--sand);margin-top:8px}
 
 /* Fields */
 .field{display:grid;gap:6px;margin-bottom:14px}
@@ -155,9 +181,9 @@ input[type=date]{color-scheme:light}
   <div class="card" id="card">
     <div class="top">
       <button class="back" id="back" hidden>&larr; Back</button>
-      <span class="count" id="count">1/8</span>
+      <span class="count" id="count">1/7</span>
     </div>
-    <div class="progress" id="progress" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="progress" id="progress" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
 
     <!-- 1 Guests -->
     <section class="step" data-step="1" aria-labelledby="s1">
@@ -196,6 +222,8 @@ input[type=date]{color-scheme:light}
         <button class="choice" data-v="Buffet trays"><img src="../images/sides-800.webp" width="800" height="600" alt=""><span class="t"><b>Buffet trays</b><span>Delivered hot, laid out for sharing.</span></span></button>
         <button class="choice" data-v="Individual meal boxes"><img src="../images/office-800.webp" width="800" height="600" alt=""><span class="t"><b>Meal boxes</b><span>One box per person, easy for offices.</span></span></button>
       </div>
+      <p class="err" id="err3" role="alert">Pick how we should serve it.</p>
+      <div class="actions"><button class="btn btn-red" data-next>Next</button></div>
     </section>
 
     <!-- 4 Dietary -->
@@ -216,37 +244,19 @@ input[type=date]{color-scheme:light}
 
     <!-- 5 Menu -->
     <section class="step" data-step="5" aria-labelledby="s5">
-      <h2 class="display" id="s5">What's on the table?</h2>
-      <p class="help">Tap the dishes you want. We'll balance the quantities for your headcount.</p>
-      <p class="sub" style="margin-top:0">Mains</p>
-      <div class="dishes" data-multi="mains" data-dishes="mains"></div>
-      <p class="sub">Sides</p>
-      <div class="dishes" data-multi="sides" data-dishes="sides"></div>
-      <p class="sub">Desserts</p>
-      <div class="dishes" data-multi="sweets" data-dishes="sweets"></div>
-      <p class="sub">Drinks</p>
-      <div class="chips" data-multi="extras">
-        <button class="chip" data-v="Ayran">Ayran</button>
-        <button class="chip" data-v="Turkish tea">Turkish tea</button>
-        <button class="chip" data-v="Soft drinks">Soft drinks</button>
+      <h2 class="display" id="s5">Build your menu</h2>
+      <p class="help" id="menuHelp">Choose dishes and how many of each. Mix it up: some guests can have lamb, others chicken.</p>
+      <div id="menuBox"></div>
+      <p class="err" id="err5" role="alert"></p>
+      <div class="tally" aria-live="polite">
+        <div class="tm"><span id="tMains"></span><span id="tVeg" hidden></span><span>Food estimate <span class="tt" id="tTotal">S$0.00</span></span></div>
+        <button class="btn btn-red" data-next>Next</button>
       </div>
-      <p class="note" style="text-align:left;margin-top:14px">Prices are per portion from our menu. Catering and live station prices are quoted for your group size.</p>
-      <p class="err" id="err5" role="alert">Pick at least one main.</p>
-      <div class="actions"><button class="btn btn-red" data-next>Next</button></div>
     </section>
 
-    <!-- 6 Budget -->
+    <!-- 6 Location -->
     <section class="step" data-step="6" aria-labelledby="s6">
-      <h2 class="display" id="s6">Budget per guest</h2>
-      <p class="help" id="budgetHelp">We'll build the best menu within this range.</p>
-      <div class="chips" data-single="budget" data-auto>
-        <button class="chip" data-v="12">S$12</button><button class="chip" data-v="15">S$15</button><button class="chip" data-v="20">S$20</button><button class="chip" data-v="25">S$25</button><button class="chip" data-v="30">S$30+</button><button class="chip" data-v="0">Not sure yet</button>
-      </div>
-    </section>
-
-    <!-- 7 Location -->
-    <section class="step" data-step="7" aria-labelledby="s7">
-      <h2 class="display" id="s7">Where is it?</h2>
+      <h2 class="display" id="s6">Where is it?</h2>
       <p class="help">The area is enough for a quote. We'll ask for the full address when we confirm.</p>
       <p class="sub" style="margin-top:0">Type of venue</p>
       <div class="chips" data-single="venue">
@@ -256,16 +266,17 @@ input[type=date]{color-scheme:light}
         <input id="area" placeholder="Start typing, e.g. Jurong or 048616" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="acList">
         <ul class="ac-list" id="acList" role="listbox" hidden></ul>
       </div>
-      <p class="err" id="err7" role="alert">Tell us the type of venue and the area.</p>
+      <p class="err" id="err6" role="alert">Tell us the type of venue and the area.</p>
       <div class="actions"><button class="btn btn-red" data-next>Next</button></div>
     </section>
 
-    <!-- 8 Confirm -->
-    <section class="step" data-step="8" aria-labelledby="s8">
-      <h2 class="display" id="s8">Confirm your details</h2>
+    <!-- 7 Confirm -->
+    <section class="step" data-step="7" aria-labelledby="s7">
+      <h2 class="display" id="s7">Confirm your details</h2>
       <p class="help">Check everything, add your name, and send. Your request opens in WhatsApp, ready to send.</p>
       <div class="summary" id="summary"></div>
-      <div class="estimate" id="estimate" hidden><span class="muted">Estimated food budget</span><b id="estVal"></b></div>
+      <div class="estimate" id="estimate"><span class="muted">Food estimate at menu prices</span><b id="estVal"></b></div>
+      <p class="estimate-note" id="estNote"></p>
       <div style="margin-top:20px">
         <div class="two">
           <div class="field"><label for="name">Your name</label><input id="name" autocomplete="name"></div>
@@ -273,15 +284,15 @@ input[type=date]{color-scheme:light}
         </div>
         <div class="field"><label for="notes">Anything else? (optional)</label><textarea id="notes" rows="3" maxlength="500" placeholder="Serving time, invoice or PO needed, access to the venue"></textarea></div>
       </div>
-      <p class="err" id="err8" role="alert">Please add your name.</p>
+      <p class="err" id="err7" role="alert">Please add your name.</p>
       <button class="btn btn-red btn-wide" id="send">Get my quote on WhatsApp</button>
       <p class="note">Nothing is sent until you press send in WhatsApp.</p>
     </section>
 
     <!-- Done -->
-    <section class="step done" data-step="9" aria-labelledby="s9">
-      <h2 class="display" id="s9">Request ready</h2>
-      <p class="muted">WhatsApp opened with your request. Press send there and we'll come back with a menu and price.</p>
+    <section class="step done" data-step="8" aria-labelledby="s8">
+      <h2 class="display" id="s8">Request ready</h2>
+      <p class="muted">WhatsApp opened with your request. Press send there and we'll come back with a confirmed menu and price.</p>
       <div class="actions" style="justify-content:center;gap:10px;flex-wrap:wrap">
         <a class="btn btn-red" id="reopen" href="#" target="_blank" rel="noopener">Open WhatsApp again</a>
         <a class="btn" href="../" style="border:1.5px solid var(--line-2)">Back to home</a>
@@ -292,10 +303,10 @@ input[type=date]{color-scheme:light}
 
 <script>
 var WHATSAPP_NUMBER = "6596352294";
-var TOTAL = 8, cur = 1;
-var state = { meal:"", service:"", budget:"", venue:"" };
+var TOTAL = 7, cur = 1;
+var state = { meal:"", service:"", venue:"" };
 var steps = document.querySelectorAll(".step");
-var LABELS = {1:"Guests",2:"Date",3:"Service",4:"Dietary",5:"Menu",6:"Budget",7:"Location"};
+var LABELS = {1:"Guests",2:"Date",3:"Service",4:"Dietary",5:"Menu",6:"Location"};
 
 function show(n){
   cur = n;
@@ -303,54 +314,158 @@ function show(n){
   document.getElementById("back").hidden = n === 1 || n > TOTAL;
   document.getElementById("count").textContent = n > TOTAL ? "" : n + "/" + TOTAL;
   document.querySelectorAll("#progress span").forEach(function(sp, i){ sp.classList.toggle("on", i < Math.min(n, TOTAL)); });
-  if (n === 6) document.getElementById("budgetHelp").textContent = guests() + " guests, " + (state.service || "your event") + ". We'll build the best menu within this range.";
-  if (n === 8) renderSummary();
+  if (n === 5) renderMenu();
+  if (n === 7) renderSummary();
   var h = document.querySelector('.step[data-step="'+n+'"] h2'); if (h){ h.setAttribute("tabindex","-1"); h.focus({preventScroll:true}); }
   window.scrollTo(0, 0);
 }
 function guests(){ return Math.max(1, parseInt(document.getElementById("guests").value, 10) || 0); }
 function multi(name){ return Array.prototype.map.call(document.querySelectorAll('[data-multi="'+name+'"] [aria-pressed="true"]'), function(b){ return b.dataset.v; }); }
+function vegCount(){ return Math.max(0, parseInt(document.getElementById("vegCount").value, 10) || 0); }
+function money(n){ return "S$" + n.toLocaleString("en-SG",{minimumFractionDigits:2, maximumFractionDigits:2}); }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 
-
-// Menu dishes with photos and prices (SGD per portion, from the shop menu)
-function U(id){ return "https://images.unsplash.com/" + id + "?w=360&h=270&fit=crop&auto=format&q=70"; }
-function P(id){ return "https://images.pexels.com/photos/" + id + "/pexels-photo-" + id + ".jpeg?auto=compress&cs=tinysrgb&w=360&h=270&fit=crop"; }
-var DISHES = {
-  mains: [
-    ["Kebab wrap", 7.9, U("photo-1633321702518-7feccafb94d5"), 0, 1],
-    ["Tombik pita", 8.9, U("photo-1638537125835-82acb38d3531")],
-    ["Rice kebab", 9, P(37941279)],
-    ["Iskender", 11, P(36720642)],
-    ["Beyti kebab", 10, P(15390223)],
-    ["Köfte with rice", 15, P(37331151)],
-    ["Falafel", 8.9, U("photo-1593001872095-7d5b3868fb1d"), 1],
-    ["Turkish pide", 11, P(5639213), 1],
-    ["Moussaka", 10, P(5864352), 1]
-  ],
-  sides: [
-    ["Hummus & bread", 7, P(6419383), 1],
-    ["Salad", 5, P(6109107), 1],
-    ["Garlic bread", 5, P(10337726), 1],
-    ["Fries", 7, P(6006652), 1],
-    ["Pesto pasta", 7, P(31261499), 1],
-    ["Baked rice", 12, P(7625714)]
-  ],
-  sweets: [
-    ["Baklava", 10, P(5323489), 1],
-    ["Kunafa", 12, P(36543155), 1]
-  ]
+// Menu with real prices (SGD per portion, same as the à la carte menu).
+// Option: [name, price or null (on request), 1 if vegetarian]
+function U(id){ return "https://images.unsplash.com/" + id + "?w=160&h=160&fit=crop&auto=format&q=70"; }
+function P(id){ return "https://images.pexels.com/photos/" + id + "/pexels-photo-" + id + ".jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop"; }
+var PH = {
+  wrap:U("photo-1633321702518-7feccafb94d5"), tombik:U("photo-1638537125835-82acb38d3531"),
+  chips:U("photo-1529006557810-274b9b2fc783"), falafel:U("photo-1593001872095-7d5b3868fb1d"),
+  iskender:P(36720642), ricekebab:P(37941279), beyti:P(15390223), alinazik:P(8130659),
+  kofte:P(37331151), biryani:P(39536492), pide:P(5639213), bread:P(10337726),
+  moussaka:P(5864352), bakedpasta:P(4378159), bakedrice:P(7625714), bakedcheese:P(10359397),
+  salad:P(6109107), hummus:P(6419383), pesto:P(31261499), nuggets:P(10183543),
+  kunafa:P(36543155), baklava:P(5323489)
 };
-document.querySelectorAll("[data-dishes]").forEach(function(box){
-  box.innerHTML = DISHES[box.dataset.dishes].map(function(d){
-    var label = d[0] + (d[1] ? " (from S$" + d[1].toFixed(2) + ")" : "");
-    return '<button class="dish" data-v="'+d[0]+'" aria-pressed="'+(d[4]?"true":"false")+'" aria-label="'+label+'">'
-      + '<img src="'+d[2]+'" alt="" loading="lazy">'
-      + (d[3] ? '<span class="veg">Veg</span>' : '')
-      + '<span class="tick" aria-hidden="true">&#10003;</span>'
-      + '<span class="dn"><b>'+d[0]+'</b><span>from S$'+d[1].toFixed(2)+'</span></span></button>';
-  }).join("");
-});
+var MENU = [
+  { cat:"mains", title:"Mains", items:[
+    { id:"wrap", name:"Kebab wrap", opts:[["Chicken",7.9],["Lamb",8.9],["Mix",10]] },
+    { id:"tombik", name:"Tombik pita", opts:[["Chicken",8.9],["Lamb",9.9],["Mix",11.9]] },
+    { id:"iskender", name:"Iskender", opts:[["Chicken",11],["Lamb",13],["Mix",14]] },
+    { id:"ricekebab", name:"Rice kebab", opts:[["Chicken",9],["Lamb",10],["Mix",12]] },
+    { id:"beyti", name:"Beyti kebab", opts:[["Chicken",10],["Lamb",11],["Mix",13]] },
+    { id:"alinazik", name:"Alinazik", opts:[["Chicken",10],["Lamb",11],["Mix",12]] },
+    { id:"chips", name:"Kebab with chips", opts:[["Chicken",10],["Lamb",11],["Mix",13]] },
+    { id:"kofte", name:"Izara köfte (lamb) with rice", opts:[["Regular",15]] },
+    { id:"falafel", name:"Falafel", opts:[["Wrap",8.9,1],["Pita",9.9,1],["Plate",10,1]] },
+    { id:"pide", name:"Turkish pide", opts:[["Cheese",11,1],["Spinach",12,1],["Sucuk / pepperoni",12],["Chicken",13],["Lamb (kuşbaşı)",15],["Mix",17],["Sucuk & cheese",null],["Egg, sucuk & cheese",null],["Egg, lamb & cheese",null]] },
+    { id:"moussaka", name:"Moussaka", opts:[["Veggie",10,1],["Chicken",12],["Lamb",13],["Mix",14]] },
+    { id:"bakedpasta", name:"Baked pasta", opts:[["Chicken",11],["Lamb",12],["Mix",14]] },
+    { id:"bakedrice", name:"Baked rice", opts:[["Chicken",12],["Lamb",13],["Mix",15]] },
+    { id:"bakedcheese", name:"Baked cheese & mushrooms", opts:[["No meat",10,1],["Chicken",11],["Lamb",12],["Mix",14]] },
+    { id:"biryani", name:"Biryani", opts:[["Chicken",null],["Lamb",null]] },
+    { id:"nuggets", name:"Chicken nuggets with fries", opts:[["Regular",8]] }
+  ]},
+  { cat:"sides", title:"Sides & salads", items:[
+    { id:"hummus", name:"Hummus with bread", opts:[["Just hummus",7,1],["Chicken",10],["Lamb",11],["Mix",13]] },
+    { id:"salad", name:"Salad", opts:[["No meat",5,1],["Chicken",9],["Lamb",10],["Mix",12]] },
+    { id:"pesto", name:"Pesto pasta", opts:[["Just pasta",7,1],["Chicken",9],["Lamb",10],["Mix",12]] },
+    { id:"fries", img:"chips", name:"Fries", opts:[["Regular",7,1]] },
+    { id:"bread", name:"Bread", opts:[["Plain pita",4,1],["Garlic",5,1],["Cheese",6,1]] }
+  ]},
+  { cat:"sweets", title:"Desserts", items:[
+    { id:"baklava", name:"Baklava", opts:[["Regular",10,1]] },
+    { id:"kunafa", name:"Kunafa", opts:[["Regular",12,1]] }
+  ]},
+  { cat:"drinks", title:"Drinks", items:[
+    { id:"drinks", name:"Drinks", sub:"Ayran, Turkish tea, soft drinks", opts:[["Ayran",null,1],["Turkish tea",null,1],["Soft drinks",null,1]] }
+  ]}
+];
+var Q = {};          // "dishId|optionIndex" -> quantity
+var vegOnly = false, warned = false;
+var DISH = {}; MENU.forEach(function(c){ c.items.forEach(function(d){ d.cat = c.cat; DISH[d.id] = d; }); });
 
+function visible(d){ return d.opts.map(function(o, i){ return {o:o, i:i}; }).filter(function(x){ return !vegOnly || x.o[2]; }); }
+function lineName(d, o){ return d.id === "drinks" ? o[0] : d.name + (d.opts.length > 1 ? " (" + o[0] + ")" : ""); }
+
+function renderMenu(){
+  vegOnly = multi("diet").indexOf("Fully vegetarian") > -1;
+  // Drop quantities for options hidden by the vegetarian filter
+  Object.keys(Q).forEach(function(k){ var p = k.split("|"), o = DISH[p[0]].opts[+p[1]]; if (vegOnly && !o[2]) delete Q[k]; });
+  var html = vegOnly ? '<p class="vegnote">Fully vegetarian: showing meat-free options only.</p>' : "";
+  MENU.forEach(function(c){
+    var items = c.items.filter(function(d){ return visible(d).length; });
+    if (!items.length) return;
+    html += '<p class="sub">' + c.title + '</p><div class="mlist">' + items.map(function(d){
+      var vis = visible(d);
+      var ps = vis.map(function(x){ return x.o[1]; }).filter(function(p){ return p != null; });
+      var price = d.sub || (ps.length ? (vis.length > 1 ? "from " : "") + money(Math.min.apply(null, ps)) + (vis.length > 1 ? "" : " each") : "Price on request");
+      var allVeg = vis.every(function(x){ return x.o[2]; });
+      var img = PH[d.img || d.id];
+      var open = vis.some(function(x){ return Q[d.id + "|" + x.i]; }) || d.id === "drinks";
+      return '<div class="mi" data-id="'+d.id+'">'
+        + '<button type="button" class="mi-head" aria-expanded="'+open+'" aria-controls="o-'+d.id+'">'
+        + (img ? '<img src="'+img+'" alt="" loading="lazy" width="64" height="64">' : '<span class="ph" aria-hidden="true">'+esc(d.name.charAt(0))+'</span>')
+        + '<span class="t"><b>'+esc(d.name)+(allVeg && c.cat !== "drinks" && !vegOnly ? '<span class="vg">Veg</span>' : '')+'</b><span>'+esc(price)+'</span></span>'
+        + '<span class="badge" data-badge>Add</span></button>'
+        + '<div class="mi-opts" id="o-'+d.id+'"'+(open ? '' : ' hidden')+'>' + vis.map(function(x){
+            var k = d.id + "|" + x.i, label = esc(lineName(d, x.o));
+            return '<div class="opt"><span class="on">'+esc(x.o[0])+'<small>'+(x.o[1] == null ? "Price on request" : money(x.o[1]) + " each")+'</small></span>'
+              + '<span class="qty">'
+              + (c.cat === "mains" ? '<button type="button" class="fill" data-fill="'+k+'" hidden></button>' : '')
+              + '<button type="button" data-dec="'+k+'" aria-label="One less '+label+'">&minus;</button>'
+              + '<input type="number" min="0" max="2000" inputmode="numeric" value="0" data-q="'+k+'" aria-label="'+label+', quantity">'
+              + '<button type="button" data-inc="'+k+'" aria-label="One more '+label+'">+</button></span></div>';
+          }).join("") + '</div></div>';
+    }).join("") + '</div>';
+  });
+  document.getElementById("menuBox").innerHTML = html;
+  document.getElementById("menuHelp").textContent = guests() + " guests. Choose dishes and how many portions of each. Mix it up: some guests can have lamb, others chicken.";
+  updateMenu();
+}
+
+function totals(){
+  var t = { mains:0, vegMains:0, total:0, unpriced:false, lines:[] };
+  MENU.forEach(function(c){ c.items.forEach(function(d){ d.opts.forEach(function(o, i){
+    var q = Q[d.id + "|" + i]; if (!q) return;
+    if (c.cat === "mains"){ t.mains += q; if (o[2]) t.vegMains += q; }
+    if (o[1] == null) t.unpriced = true; else t.total += q * o[1];
+    t.lines.push({ q:q, name:lineName(d, o), price:o[1] });
+  }); }); });
+  return t;
+}
+
+function updateMenu(){
+  var t = totals(), g = guests(), need = g - t.mains;
+  document.querySelectorAll("[data-q]").forEach(function(inp){ if (inp !== document.activeElement) inp.value = Q[inp.dataset.q] || 0; });
+  document.querySelectorAll(".mi").forEach(function(mi){
+    var n = 0; mi.querySelectorAll("[data-q]").forEach(function(inp){ n += Q[inp.dataset.q] || 0; });
+    mi.classList.toggle("has", n > 0);
+    mi.querySelector("[data-badge]").textContent = n ? n + " added" : (mi.querySelector(".mi-head").getAttribute("aria-expanded") === "true" ? "Close" : "Add");
+  });
+  document.querySelectorAll("[data-fill]").forEach(function(b){
+    b.hidden = need <= 0; b.textContent = "+" + need; b.setAttribute("aria-label", "Add " + need + " to cover all guests");
+  });
+  document.getElementById("tMains").innerHTML = "Mains <b>" + t.mains + "</b> / " + g + " guests "
+    + (t.mains === 0 ? "" : need > 0 ? '<span class="short">(' + need + ' short)</span>' : '<span class="ok">&#10003; covered</span>');
+  var v = vegCount(), tv = document.getElementById("tVeg");
+  tv.hidden = !v || vegOnly;
+  if (v) tv.innerHTML = "Vegetarian mains <b>" + t.vegMains + "</b> / " + v + (t.vegMains >= v ? ' <span class="ok">&#10003;</span>' : '');
+  document.getElementById("tTotal").textContent = money(t.total) + (t.unpriced ? " +" : "");
+}
+
+function setQ(k, n){
+  n = Math.max(0, Math.min(2000, n || 0));
+  if (n) Q[k] = n; else delete Q[k];
+  warned = false; document.getElementById("err5").style.display = "none";
+  updateMenu();
+}
+(function(){
+  var box = document.getElementById("menuBox");
+  box.addEventListener("click", function(e){
+    var b = e.target.closest("button"); if (!b) return;
+    if (b.classList.contains("mi-head")){
+      var o = document.getElementById(b.getAttribute("aria-controls")), open = o.hidden;
+      o.hidden = !open; b.setAttribute("aria-expanded", open ? "true" : "false"); updateMenu(); return;
+    }
+    if (b.dataset.inc) setQ(b.dataset.inc, (Q[b.dataset.inc] || 0) + 1);
+    if (b.dataset.dec) setQ(b.dataset.dec, (Q[b.dataset.dec] || 0) - 1);
+    if (b.dataset.fill) setQ(b.dataset.fill, (Q[b.dataset.fill] || 0) + Math.max(0, guests() - totals().mains));
+  });
+  box.addEventListener("input", function(e){ if (e.target.dataset.q) setQ(e.target.dataset.q, parseInt(e.target.value, 10)); });
+  box.addEventListener("focusout", function(e){ if (e.target.dataset.q) e.target.value = Q[e.target.dataset.q] || 0; });
+})();
 
 // Address autocomplete: Singapore areas (instant) + OneMap (official SG map search)
 var AREAS = ["Admiralty","Alexandra","Ang Mo Kio","Bedok","Bishan","Boon Lay","Bras Basah","Bugis","Buona Vista","Bukit Batok","Bukit Gombak","Bukit Merah","Bukit Panjang","Bukit Timah","Changi","Changi Business Park","Chinatown","Choa Chu Kang","Clarke Quay","Clementi","Dhoby Ghaut","Downtown Core","Geylang","HarbourFront","Holland Village","Hougang","Jurong East","Jurong Island","Jurong West","Kaki Bukit","Kallang","Kent Ridge","Kranji","Lavender","Little India","MacPherson","Mandai","Marina Bay","Marine Parade","Novena","one-north","Orchard","Outram","Pasir Ris","Paya Lebar","Pioneer","Punggol","Queenstown","Raffles Place","River Valley","Robertson Quay","Science Park","Seletar","Sembawang","Sengkang","Sentosa","Serangoon","Tai Seng","Tampines","Tanjong Pagar","Tengah","Thomson","Tiong Bahru","Toa Payoh","Tuas","Ubi","Upper Thomson","Woodlands","Yishun"];
@@ -370,7 +485,7 @@ var AREAS = ["Admiralty","Alexandra","Ang Mo Kio","Bedok","Bishan","Boon Lay","B
     list.innerHTML = html; list.hidden = false; input.setAttribute("aria-expanded","true"); active = -1;
   }
   function close(){ list.hidden = true; input.setAttribute("aria-expanded","false"); input.removeAttribute("aria-activedescendant"); }
-  function pick(n){ var it = items[n]; if (!it) return; input.value = it.sub === "Area" ? it.main : it.main + (it.sub ? ", " + it.sub : ""); close(); document.getElementById("err7").style.display = "none"; }
+  function pick(n){ var it = items[n]; if (!it) return; input.value = it.sub === "Area" ? it.main : it.main + (it.sub ? ", " + it.sub : ""); close(); document.getElementById("err6").style.display = "none"; }
   function highlight(n){
     var opts = list.querySelectorAll('[role="option"]'); if (!opts.length) return;
     active = (n + opts.length) % opts.length;
@@ -449,61 +564,80 @@ document.querySelectorAll("[data-multi]").forEach(function(g){
 
 // Validation per step
 function valid(n){
-  var ok = true;
+  var ok = true, err = document.getElementById("err" + n);
   if (n === 2) ok = !!document.getElementById("date").value && !!state.meal;
-  if (n === 5) ok = multi("mains").length > 0;
-  if (n === 7) ok = !!state.venue && !!document.getElementById("area").value.trim();
-  var err = document.getElementById("err" + n); if (err) err.style.display = ok ? "none" : "block";
+  if (n === 3) ok = !!state.service;
+  if (n === 5){
+    var t = totals(), g = guests();
+    err.classList.remove("warn");
+    if (!t.mains){ ok = false; err.textContent = "Add at least one main dish."; }
+    else if (t.mains < g && !warned){
+      ok = false; warned = true; err.classList.add("warn");
+      err.textContent = "You have " + t.mains + " mains for " + g + " guests. Add more, or press Next again if that's on purpose.";
+    }
+  }
+  if (n === 6) ok = !!state.venue && !!document.getElementById("area").value.trim();
+  if (err) err.style.display = ok ? "none" : "block";
   return ok;
 }
 document.querySelectorAll("[data-next]").forEach(function(b){ b.onclick = function(){ if (valid(cur)) show(cur + 1); }; });
 document.getElementById("back").onclick = function(){ if (cur > 1) show(cur - 1); };
 
 function fmtDate(v){ if (!v) return ""; var d = new Date(v + "T00:00"); return d.toLocaleDateString("en-SG",{weekday:"short",day:"numeric",month:"long"}); }
+function itemText(l){ return l.q + " x " + l.name + " - " + (l.price == null ? "price on request" : money(l.q * l.price)); }
 function data(){
-  var diet = multi("diet"), veg = document.getElementById("vegCount").value;
+  var diet = multi("diet"), v = vegCount();
   return {
     1: guests() + " guests",
     2: fmtDate(document.getElementById("date").value) + ", " + state.meal,
     3: state.service,
-    4: diet.join(", ") + (veg ? " (" + veg + " vegetarian)" : ""),
-    5: multi("mains").concat(multi("sides"), multi("sweets"), multi("extras")).join(", "),
-    6: state.budget === "0" ? "Not sure yet" : "S$" + state.budget + (state.budget === "30" ? "+" : "") + " per guest",
-    7: state.venue + ", " + document.getElementById("area").value.trim()
+    4: diet.join(", ") + (v ? " (" + v + " vegetarian)" : ""),
+    6: state.venue + ", " + document.getElementById("area").value.trim()
   };
 }
+function estimateNote(t){
+  return (t.unpriced ? "Plus items priced on request. " : "")
+    + (state.service === "Live kebab station" ? "Live station chef and set-up, and delivery, are quoted separately. " : "Delivery is quoted separately. ")
+    + "We confirm the final price on WhatsApp.";
+}
 function renderSummary(){
-  var d = data(), html = "";
-  for (var k = 1; k <= 7; k++){
-    html += '<div class="srow"><div><div class="k">'+LABELS[k]+'</div><div class="v">'+String(d[k]).replace(/</g,"&lt;")+'</div></div><button data-edit="'+k+'">Edit</button></div>';
+  var d = data(), t = totals(), html = "";
+  for (var k = 1; k <= 6; k++){
+    var v = k === 5
+      ? '<div class="sitems">' + t.lines.map(function(l){ return '<span>' + esc(itemText(l)) + '</span>'; }).join("") + '</div>'
+      : esc(d[k]);
+    html += '<div class="srow"><div><div class="k">'+LABELS[k]+'</div><div class="v">'+v+'</div></div><button data-edit="'+k+'">Edit</button></div>';
   }
   var s = document.getElementById("summary"); s.innerHTML = html;
   s.querySelectorAll("[data-edit]").forEach(function(b){ b.onclick = function(){ show(+b.dataset.edit); }; });
-  var est = document.getElementById("estimate");
-  if (state.budget && state.budget !== "0"){ est.hidden = false; document.getElementById("estVal").textContent = "S$" + (guests() * +state.budget).toLocaleString("en-SG") + (state.budget === "30" ? "+" : ""); }
-  else est.hidden = true;
+  document.getElementById("estVal").textContent = money(t.total) + (t.unpriced ? " +" : "");
+  document.getElementById("estNote").textContent = estimateNote(t);
 }
 
 document.getElementById("send").onclick = function(){
   var name = document.getElementById("name").value.trim();
-  if (!name){ document.getElementById("err8").style.display = "block"; document.getElementById("name").focus(); return; }
-  document.getElementById("err8").style.display = "none";
-  var d = data(), company = document.getElementById("company").value.trim(), notes = document.getElementById("notes").value.trim();
+  if (!name){ document.getElementById("err7").style.display = "block"; document.getElementById("name").focus(); return; }
+  document.getElementById("err7").style.display = "none";
+  var d = data(), t = totals(), company = document.getElementById("company").value.trim(), notes = document.getElementById("notes").value.trim();
   var lines = [
     "Hi Singapore Kebab, I'd like a catering quote.", "",
-    "Guests: " + d[1], "Date: " + d[2], "Service: " + d[3], "Dietary: " + d[4], "Menu: " + d[5], "Budget: " + d[6], "Location: " + d[7], "",
+    "Guests: " + d[1], "Date: " + d[2], "Service: " + d[3], "Dietary: " + d[4], "",
+    "Menu:"
+  ].concat(t.lines.map(function(l){ return "- " + itemText(l); }), [
+    "Food estimate: " + money(t.total) + (t.unpriced ? " + items priced on request" : ""), "",
+    "Location: " + d[6], "",
     "Name: " + name, company ? "Company: " + company : null, notes ? "Notes: " + notes : null, "",
     "(sent from singaporekebab.com/plan)"
-  ].filter(function(l){ return l !== null; });
+  ]).filter(function(l){ return l !== null; });
   var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
   document.getElementById("reopen").href = url;
   window.open(url, "_blank", "noopener");
-  show(9);
+  show(8);
 };
 
 // Enter key moves forward on input steps
 document.addEventListener("keydown", function(e){
-  if (e.key === "Enter" && e.target.tagName === "INPUT" && cur < 8){ e.preventDefault(); if (valid(cur)) show(cur + 1); }
+  if (e.key === "Enter" && e.target.tagName === "INPUT" && !e.target.dataset.q && cur < 7){ e.preventDefault(); if (valid(cur)) show(cur + 1); }
 });
 
 // Preselect service from ?service=live|buffet|boxes (links from landing pages)

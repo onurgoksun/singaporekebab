@@ -87,7 +87,7 @@ PAGES = [
       ]),
     ],
     "faq": [
-      ("How much does a live kebab station cost?", "It depends on your guest count, menu and serving time. Use the planner to tell us your numbers and budget per guest, and we'll reply with a clear per-guest price."),
+      ("How much does a live kebab station cost?", "It depends on your guest count, menu and serving time. Use the planner to pick your dishes and see an estimate at menu prices, and we'll reply with a clear quote including the station set-up."),
       ("How many guests can a live station serve?", "Our kebab master carves to order, so we plan the number of stations and serving time around your guest count. Tell us your numbers and we'll recommend the right set-up."),
       ("Can you cater vegetarian guests at a live station?", "Yes. We serve falafel wraps and plates, hummus and salads alongside the kebab."),
       ("How far in advance should I book?", "As early as you can, especially for weekends and festive seasons. Send your date through the planner and we'll confirm availability."),
