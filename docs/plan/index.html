@@ -82,6 +82,21 @@ main{flex:1;display:grid;place-items:center;padding:32px 16px 48px}
 .choice .t span{font-size:13.5px;color:var(--sand);line-height:1.4}
 @media (max-width:560px){.choice{flex-direction:row;align-items:stretch}.choice img{width:112px;aspect-ratio:auto;flex:none}}
 
+
+/* Dish cards */
+.dishes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:560px){.dishes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.dish{position:relative;border:1.5px solid var(--line-2);border-radius:14px;overflow:hidden;background:var(--char);text-align:left;display:flex;flex-direction:column}
+.dish:hover{border-color:var(--sand)}
+.dish[aria-pressed="true"]{border-color:var(--amber);box-shadow:0 0 0 2px var(--amber)}
+.dish img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--char-3)}
+.dish .dn{padding:9px 11px 11px;display:grid;gap:2px}
+.dish .dn b{font-size:14.5px;line-height:1.25}
+.dish .dn span{font-size:13px;color:var(--sand)}
+.dish .tick{position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:50%;background:rgba(28,26,24,.75);border:1.5px solid rgba(246,239,228,.7);display:grid;place-items:center;font-size:14px;font-weight:800;color:transparent}
+.dish[aria-pressed="true"] .tick{background:var(--amber);border-color:var(--amber);color:var(--char)}
+.dish .veg{position:absolute;top:8px;left:8px;font-size:11px;font-weight:700;padding:3px 7px;border-radius:999px;background:#23402A;color:#B9E8BC}
+
 /* Fields */
 .field{display:grid;gap:6px;margin-bottom:14px}
 .field label{font-weight:600;font-size:14.5px}
@@ -90,6 +105,17 @@ main{flex:1;display:grid;place-items:center;padding:32px 16px 48px}
 input[type=date]{color-scheme:dark}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media (max-width:560px){.two{grid-template-columns:1fr}}
+
+
+/* Address autocomplete */
+.ac{position:relative}
+.ac-list{position:absolute;left:0;right:0;top:100%;margin-top:4px;list-style:none;background:var(--char);border:1.5px solid var(--line-2);border-radius:12px;max-height:280px;overflow:auto;z-index:20;box-shadow:0 14px 30px rgba(0,0,0,.45)}
+.ac-list li{padding:10px 14px;cursor:pointer;border-bottom:1px solid var(--line);display:grid;gap:1px}
+.ac-list li:last-child{border-bottom:0}
+.ac-list li b{font-weight:600;font-size:15px}
+.ac-list li span{font-size:12.5px;color:var(--sand)}
+.ac-list li[aria-selected="true"],.ac-list li:hover{background:var(--char-3)}
+.ac-list .src{font-size:11.5px;color:var(--sand);padding:6px 14px;cursor:default;background:var(--char-2)}
 
 /* Summary */
 .summary{background:var(--char);border:1.5px solid var(--line);border-radius:16px;overflow:hidden}
@@ -188,32 +214,20 @@ input[type=date]{color-scheme:dark}
     <!-- 5 Menu -->
     <section class="step" data-step="5" aria-labelledby="s5">
       <h1 class="display" id="s5">What's on the table?</h1>
-      <p class="help">Pick your mains, then add sides and sweets. We'll balance the quantities for your headcount.</p>
+      <p class="help">Tap the dishes you want. We'll balance the quantities for your headcount.</p>
       <p class="sub" style="margin-top:0">Mains</p>
-      <div class="chips" data-multi="mains">
-        <button class="chip" data-v="Chicken kebab" aria-pressed="true">Chicken kebab</button>
-        <button class="chip" data-v="Lamb kebab">Lamb kebab</button>
-        <button class="chip" data-v="Falafel">Falafel</button>
-        <button class="chip" data-v="Köfte">Köfte</button>
-        <button class="chip" data-v="Turkish pide">Turkish pide</button>
-      </div>
+      <div class="dishes" data-multi="mains" data-dishes="mains"></div>
       <p class="sub">Sides</p>
-      <div class="chips" data-multi="sides">
-        <button class="chip" data-v="Wraps & pita bread" aria-pressed="true">Wraps &amp; pita</button>
-        <button class="chip" data-v="Rice pilaf" aria-pressed="true">Rice pilaf</button>
-        <button class="chip" data-v="Shepherd's salad" aria-pressed="true">Salad</button>
-        <button class="chip" data-v="Hummus">Hummus</button>
-        <button class="chip" data-v="Fries">Fries</button>
-        <button class="chip" data-v="Garlic yoghurt & chilli sauce" aria-pressed="true">Sauces</button>
-      </div>
-      <p class="sub">Sweets &amp; drinks</p>
+      <div class="dishes" data-multi="sides" data-dishes="sides"></div>
+      <p class="sub">Desserts</p>
+      <div class="dishes" data-multi="sweets" data-dishes="sweets"></div>
+      <p class="sub">Drinks</p>
       <div class="chips" data-multi="extras">
-        <button class="chip" data-v="Baklava">Baklava</button>
-        <button class="chip" data-v="Kunafa">Kunafa</button>
         <button class="chip" data-v="Ayran">Ayran</button>
         <button class="chip" data-v="Turkish tea">Turkish tea</button>
         <button class="chip" data-v="Soft drinks">Soft drinks</button>
       </div>
+      <p class="note" style="text-align:left;margin-top:14px">Prices are per portion from our menu. Catering and live station prices are quoted for your group size.</p>
       <p class="err" id="err5" role="alert">Pick at least one main.</p>
       <div class="actions"><button class="btn btn-red" data-next>Next</button></div>
     </section>
@@ -235,7 +249,10 @@ input[type=date]{color-scheme:dark}
       <div class="chips" data-single="venue">
         <button class="chip" data-v="Office">Office</button><button class="chip" data-v="Home">Home</button><button class="chip" data-v="Event venue">Event venue</button><button class="chip" data-v="Outdoor / rooftop">Outdoor</button>
       </div>
-      <div class="field" style="margin-top:18px"><label for="area">Area or postal code</label><input id="area" placeholder="e.g. Raffles Place, or 048616" autocomplete="postal-code"></div>
+      <div class="field ac" style="margin-top:18px"><label for="area">Area, building or postal code</label>
+        <input id="area" placeholder="Start typing, e.g. Jurong or 048616" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="acList">
+        <ul class="ac-list" id="acList" role="listbox" hidden></ul>
+      </div>
       <p class="err" id="err7" role="alert">Tell us the type of venue and the area.</p>
       <div class="actions"><button class="btn btn-red" data-next>Next</button></div>
     </section>
@@ -291,6 +308,108 @@ function show(n){
 function guests(){ return Math.max(1, parseInt(document.getElementById("guests").value, 10) || 0); }
 function multi(name){ return Array.prototype.map.call(document.querySelectorAll('[data-multi="'+name+'"] [aria-pressed="true"]'), function(b){ return b.dataset.v; }); }
 
+
+// Menu dishes with photos and prices (SGD per portion, from the shop menu)
+function U(id){ return "https://images.unsplash.com/" + id + "?w=360&h=270&fit=crop&auto=format&q=70"; }
+function P(id){ return "https://images.pexels.com/photos/" + id + "/pexels-photo-" + id + ".jpeg?auto=compress&cs=tinysrgb&w=360&h=270&fit=crop"; }
+var DISHES = {
+  mains: [
+    ["Kebab wrap", 7.9, U("photo-1633321702518-7feccafb94d5"), 0, 1],
+    ["Tombik pita", 8.9, U("photo-1638537125835-82acb38d3531")],
+    ["Rice kebab", 9, P(37941279)],
+    ["Iskender", 11, P(36720642)],
+    ["Beyti kebab", 10, P(15390223)],
+    ["Köfte with rice", 15, P(37331151)],
+    ["Falafel", 8.9, U("photo-1593001872095-7d5b3868fb1d"), 1],
+    ["Turkish pide", 11, P(5639213), 1],
+    ["Moussaka", 10, P(5864352), 1]
+  ],
+  sides: [
+    ["Hummus & bread", 7, P(6419383), 1],
+    ["Salad", 5, P(6109107), 1],
+    ["Garlic bread", 5, P(10337726), 1],
+    ["Fries", 7, U("photo-1529006557810-274b9b2fc783"), 1],
+    ["Pesto pasta", 7, P(31261499), 1],
+    ["Baked rice", 12, P(7625714)]
+  ],
+  sweets: [
+    ["Baklava", 10, P(5323489), 1],
+    ["Kunafa", 12, P(36543155), 1]
+  ]
+};
+document.querySelectorAll("[data-dishes]").forEach(function(box){
+  box.innerHTML = DISHES[box.dataset.dishes].map(function(d){
+    var label = d[0] + (d[1] ? " (from S$" + d[1].toFixed(2) + ")" : "");
+    return '<button class="dish" data-v="'+d[0]+'" aria-pressed="'+(d[4]?"true":"false")+'" aria-label="'+label+'">'
+      + '<img src="'+d[2]+'" alt="" loading="lazy">'
+      + (d[3] ? '<span class="veg">Veg</span>' : '')
+      + '<span class="tick" aria-hidden="true">&#10003;</span>'
+      + '<span class="dn"><b>'+d[0]+'</b><span>from S$'+d[1].toFixed(2)+'</span></span></button>';
+  }).join("");
+});
+
+
+// Address autocomplete: Singapore areas (instant) + OneMap (official SG map search)
+var AREAS = ["Admiralty","Alexandra","Ang Mo Kio","Bedok","Bishan","Boon Lay","Bras Basah","Bugis","Buona Vista","Bukit Batok","Bukit Gombak","Bukit Merah","Bukit Panjang","Bukit Timah","Changi","Changi Business Park","Chinatown","Choa Chu Kang","Clarke Quay","Clementi","Dhoby Ghaut","Downtown Core","Geylang","HarbourFront","Holland Village","Hougang","Jurong East","Jurong Island","Jurong West","Kaki Bukit","Kallang","Kent Ridge","Kranji","Lavender","Little India","MacPherson","Mandai","Marina Bay","Marine Parade","Novena","one-north","Orchard","Outram","Pasir Ris","Paya Lebar","Pioneer","Punggol","Queenstown","Raffles Place","River Valley","Robertson Quay","Science Park","Seletar","Sembawang","Sengkang","Sentosa","Serangoon","Tai Seng","Tampines","Tanjong Pagar","Tengah","Thomson","Tiong Bahru","Toa Payoh","Tuas","Ubi","Upper Thomson","Woodlands","Yishun"];
+(function(){
+  var input = document.getElementById("area"), list = document.getElementById("acList");
+  var items = [], active = -1, timer = null, seq = 0;
+  function title(s){ return s.toLowerCase().replace(/\b([a-z])/g, function(m){ return m.toUpperCase(); }); }
+  function render(local, remote){
+    items = local.map(function(a){ return {main:a, sub:"Area"}; }).concat(remote);
+    if (!items.length){ close(); return; }
+    var html = "", i = 0;
+    if (local.length) html += '<li class="src" role="presentation">Areas</li>';
+    items.forEach(function(it, n){
+      if (n === local.length && remote.length) html += '<li class="src" role="presentation">Addresses and buildings</li>';
+      html += '<li role="option" id="ac'+n+'" data-i="'+n+'" aria-selected="false"><b>'+it.main.replace(/</g,"&lt;")+'</b><span>'+it.sub.replace(/</g,"&lt;")+'</span></li>';
+    });
+    list.innerHTML = html; list.hidden = false; input.setAttribute("aria-expanded","true"); active = -1;
+  }
+  function close(){ list.hidden = true; input.setAttribute("aria-expanded","false"); input.removeAttribute("aria-activedescendant"); }
+  function pick(n){ var it = items[n]; if (!it) return; input.value = it.sub === "Area" ? it.main : it.main + (it.sub ? ", " + it.sub : ""); close(); document.getElementById("err7").style.display = "none"; }
+  function highlight(n){
+    var opts = list.querySelectorAll('[role="option"]'); if (!opts.length) return;
+    active = (n + opts.length) % opts.length;
+    opts.forEach(function(o, k){ o.setAttribute("aria-selected", k === active ? "true" : "false"); });
+    input.setAttribute("aria-activedescendant", "ac" + active); opts[active].scrollIntoView({block:"nearest"});
+  }
+  input.addEventListener("input", function(){
+    var q = input.value.trim(), ql = q.toLowerCase();
+    if (q.length < 2){ close(); return; }
+    var local = AREAS.filter(function(a){ return a.toLowerCase().indexOf(ql) !== -1; })
+      .sort(function(a,b){ return (b.toLowerCase().indexOf(ql)===0) - (a.toLowerCase().indexOf(ql)===0); }).slice(0, 5);
+    render(local, []);
+    clearTimeout(timer);
+    var my = ++seq;
+    timer = setTimeout(function(){
+      fetch("https://www.onemap.gov.sg/api/common/elastic/search?returnGeom=N&getAddrDetails=Y&pageNum=1&searchVal=" + encodeURIComponent(q))
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          if (my !== seq) return;
+          var seen = {}, remote = [];
+          (d.results || []).forEach(function(r){
+            var name = r.BUILDING && r.BUILDING !== "NIL" ? title(r.BUILDING) : title(r.SEARCHVAL || "");
+            var sub = title([r.BLK_NO, r.ROAD_NAME].filter(function(x){ return x && x !== "NIL"; }).join(" ")) + (r.POSTAL && r.POSTAL !== "NIL" ? ", Singapore " + r.POSTAL : "");
+            var key = name + sub; if (seen[key] || !name) return; seen[key] = 1;
+            remote.push({main:name, sub:sub});
+          });
+          render(local, remote.slice(0, 6));
+        })
+        .catch(function(){ /* offline or blocked: local areas still work */ });
+    }, 250);
+  });
+  input.addEventListener("keydown", function(e){
+    if (list.hidden) return;
+    if (e.key === "ArrowDown"){ e.preventDefault(); highlight(active + 1); }
+    else if (e.key === "ArrowUp"){ e.preventDefault(); highlight(active - 1); }
+    else if (e.key === "Enter" && active > -1){ e.preventDefault(); e.stopPropagation(); pick(active); }
+    else if (e.key === "Escape"){ close(); }
+  });
+  list.addEventListener("mousedown", function(e){ var li = e.target.closest("[data-i]"); if (li){ e.preventDefault(); pick(+li.dataset.i); } });
+  input.addEventListener("blur", function(){ setTimeout(close, 120); });
+})();
+
 // Guests stepper
 var gi = document.getElementById("guests");
 document.getElementById("gMinus").onclick = function(){ gi.value = Math.max(5, guests() - 5); };
@@ -345,7 +464,7 @@ function data(){
     2: fmtDate(document.getElementById("date").value) + ", " + state.meal,
     3: state.service,
     4: diet.join(", ") + (veg ? " (" + veg + " vegetarian)" : ""),
-    5: multi("mains").concat(multi("sides"), multi("extras")).join(", "),
+    5: multi("mains").concat(multi("sides"), multi("sweets"), multi("extras")).join(", "),
     6: state.budget === "0" ? "Not sure yet" : "S$" + state.budget + (state.budget === "30" ? "+" : "") + " per guest",
     7: state.venue + ", " + document.getElementById("area").value.trim()
   };
