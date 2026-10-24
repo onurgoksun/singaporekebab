@@ -54,7 +54,7 @@ header{border-bottom:1px solid var(--line);position:sticky;top:0;background:var(
 .card{background:var(--char-2);border:1.5px solid var(--line);border-radius:16px;padding:18px 16px 16px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;position:relative;transition:border-color .15s}
 .card:hover{border-color:var(--amber)}
 .card .pic{width:132px;height:132px;border-radius:50%;overflow:hidden;background:var(--char-3);display:grid;place-items:center}
-.card .pic img{width:118%;height:118%;object-fit:cover}
+.card .pic img{width:100%;height:100%;object-fit:cover}
 .card .pic .ph{font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;font-size:40px;color:var(--amber)}
 .card h3{font-size:17px;font-weight:700;line-height:1.25}
 .card .price{color:var(--sand);font-size:15px}
@@ -128,7 +128,7 @@ dialog::backdrop{background:rgba(10,8,6,.7)}
 .sheet{width:min(460px,calc(100vw - 32px));background:var(--char-2);border:1.5px solid var(--line);border-radius:20px;padding:24px;display:grid;gap:18px}
 .sheet .top{display:flex;gap:16px;align-items:center}
 .sheet .top .pic{width:88px;height:88px;border-radius:50%;overflow:hidden;flex:none;background:var(--char-3);display:grid;place-items:center}
-.sheet .top .pic img{width:118%;height:118%;object-fit:cover}
+.sheet .top .pic img{width:100%;height:100%;object-fit:cover}
 .sheet h3{font-size:34px}
 fieldset{border:0;display:grid;gap:8px}
 legend{font-weight:600;color:var(--sand);margin-bottom:8px;font-size:15px}
@@ -186,6 +186,7 @@ input[type=date],input[type=time]{color-scheme:dark}
       </div>
     </div>
     <div id="sections"></div>
+    <p class="note">Photos are for illustration (Pexels and Unsplash). Portions and presentation may differ.</p>
   </main>
 
   <aside class="cart" id="cart" aria-label="Your order">
@@ -262,7 +263,18 @@ input[type=date],input[type=time]{color-scheme:dark}
 
 <script>
 var WHATSAPP_NUMBER = "6596352294";
-var IMG = "../images/menu/";
+// Free-licence photos from Unsplash (U) and Pexels (P)
+function U(id){ return "https://images.unsplash.com/" + id + "?w=400&h=400&fit=crop&auto=format&q=75"; }
+function P(id){ return "https://images.pexels.com/photos/" + id + "/pexels-photo-" + id + ".jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"; }
+var PH = {
+  wrap:U("photo-1633321702518-7feccafb94d5"), tombik:U("photo-1638537125835-82acb38d3531"),
+  chips:U("photo-1529006557810-274b9b2fc783"), falafel:U("photo-1593001872095-7d5b3868fb1d"),
+  iskender:P(36720642), ricekebab:P(37941279), beyti:P(15390223), alinazik:P(8130659),
+  kofte:P(37331151), biryani:P(39536492), pide:P(5639213), bread:P(10337726),
+  moussaka:P(5864352), bakedpasta:P(4378159), bakedrice:P(7625714), bakedcheese:P(10359397),
+  salad:P(6109107), hummus:P(6419383), pesto:P(31261499), nuggets:P(10183543),
+  kunafa:P(36543155), baklava:P(5323489)
+};
 
 // Prices in SGD. price: null means price on request.
 var MENU = [
@@ -311,7 +323,7 @@ MENU.forEach(function(c){ c.items.forEach(function(it){ byId[it.id] = it; }); })
 function money(n){ return "S$" + n.toFixed(2); }
 function esc(s){ return String(s).replace(/[&<>"]/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch];}); }
 function picHTML(it){
-  return it.img ? '<img src="'+IMG+it.img+'.jpg" alt="" loading="lazy">' : '<span class="ph">'+esc(it.name.charAt(0))+'</span>';
+  return PH[it.id] ? '<img src="'+PH[it.id]+'" alt="'+esc(it.name)+'" loading="lazy">' : '<span class="ph">'+esc(it.name.charAt(0))+'</span>';
 }
 function fromPrice(it){
   var ps = it.opts.map(function(o){return o[1];}).filter(function(p){return p!=null;});
@@ -324,7 +336,7 @@ function fromPrice(it){
 var catList = document.getElementById("catList"), catStrip = document.getElementById("catStrip"), sections = document.getElementById("sections");
 MENU.forEach(function(c){
   var first = c.items[0];
-  catList.insertAdjacentHTML("beforeend", '<button class="cat" data-cat="'+c.id+'">'+(first.img?'<img src="'+IMG+first.img+'.jpg" alt="">':'')+esc(c.name)+'</button>');
+  catList.insertAdjacentHTML("beforeend", '<button class="cat" data-cat="'+c.id+'">'+(PH[first.id]?'<img src="'+PH[first.id]+'" alt="">':'')+esc(c.name)+'</button>');
   catStrip.insertAdjacentHTML("beforeend", '<button data-cat="'+c.id+'">'+esc(c.name)+'</button>');
   var html = '<section class="section" id="cat-'+c.id+'" aria-labelledby="h-'+c.id+'"><h2 class="display" id="h-'+c.id+'">'+esc(c.name)+'</h2><div class="grid">';
   c.items.forEach(function(it){
