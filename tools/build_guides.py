@@ -69,7 +69,6 @@ GUIDES = [
 <tbody>
 <tr><th>From</th><td>Turkey</td><td>The Levant and wider Arab world</td><td>Greece</td></tr>
 <tr><th>Usual meat</th><td>Chicken, lamb or beef</td><td>Chicken, lamb or beef</td><td>Pork or chicken</td></tr>
-<tr><th>Carving</th><td>Very thin, crisp slices</td><td>Thicker pieces</td><td>Thicker pieces</td></tr>
 <tr><th>Sauce</th><td>Garlic yoghurt and chilli, or none</td><td>Garlic sauce (toum) or tahini</td><td>Tzatziki</td></tr>
 <tr><th>Bread</th><td>Pide, flatbread or thin lavash wrap</td><td>Thin flatbread</td><td>Thick pita</td></tr>
 </tbody></table></div>
@@ -106,9 +105,9 @@ GUIDES = [
 <h2>2. Iskender kebab</h2>
 <p>Named after İskender Efendi of Bursa. Döner is laid over cubes of pide bread, then topped with tomato sauce, melted butter and yoghurt on the side. Rich and comforting, and a favourite for sit-down dinners.</p>
 <h2>3. Adana kebab</h2>
-<p>From the southern city of Adana. Minced meat mixed with chilli is pressed onto a wide skewer and grilled over charcoal. It's known for its heat.</p>
+<p>From the southern city of Adana. Minced lamb mixed with red pepper is pressed onto a wide iron skewer and grilled over charcoal. It's usually spicier than other kebabs.</p>
 <h2>4. Beyti kebab</h2>
-<p>Minced meat grilled, wrapped in thin lavash bread, sliced and served with tomato sauce and yoghurt. It's named after Beyti Güler, a well-known Istanbul restaurateur.</p>
+<p>Today's beyti is usually minced meat, grilled, wrapped in thin lavash bread, sliced and served with tomato sauce and yoghurt. The dish is named after Beyti Güler, a well-known Istanbul restaurateur, whose 1960s original used lamb fillet.</p>
 <h2>5. Şiş kebab</h2>
 <p>Cubes of marinated chicken or lamb grilled on a skewer. Simple, juicy and easy to share.</p>
 <h2>6. Köfte</h2>
@@ -166,7 +165,7 @@ GUIDES = [
 <p>The Singapore Food Agency's guidelines for ordering catered meals recommend:</p>
 <ul>
 <li><strong>Eat within 4 hours.</strong> Catered food shouldn't sit at room temperature for more than 4 hours from cooking to eating, including delivery and set-up.</li>
-<li><strong>Check the "consume by" time</strong> on each box or buffet table, and discard food after it.</li>
+<li><strong>Check the "consume by" time</strong> on each box or buffet table, and discard food after it. Caterers must label it, and removing or changing the label is an offence.</li>
 <li><strong>Time the delivery.</strong> Ask for delivery no more than 1 hour before the meal.</li>
 <li><strong>Keep hot food hot</strong> (above 60°C) and cold food cold (below 5°C).</li>
 <li><strong>Use an SFA-licensed caterer.</strong> SFA publishes a list of licensed caterers.</li>
@@ -200,7 +199,7 @@ GUIDES = [
 <tr><th>Live kebab station</th><td>1 to 2 weeks ahead</td><td>3 to 4 weeks ahead</td></tr>
 <tr><th>Wedding or large celebration</th><td>1 to 2 months ahead</td><td>3 months or more</td></tr>
 </tbody></table></div>
-<p>Many Singapore caterers ask for at least two days' notice for buffets, and live stations need extra time to plan staff, equipment and the venue. These are general guides: send your date through the planner and we'll confirm what's possible.</p>
+<p>Singapore caterers often ask for at least two days' notice for buffets, and live stations need extra time to plan staff, equipment and the venue. These are general guides: send your date through the planner and we'll confirm what's possible.</p>
 <h2>Busy seasons in Singapore</h2>
 <p>Book earlier for events around these periods, when caterers fill up fast:</p>
 <ul>
