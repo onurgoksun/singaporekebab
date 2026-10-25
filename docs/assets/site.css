@@ -231,3 +231,5 @@ footer .brand img{height:120px;width:auto}
 @media (max-width:560px){.nav{height:72px}.brand img{height:58px}}
 @media (max-width:430px){.brand img{height:52px}}
 @media (max-width:430px){.fact.halal{gap:8px}.fact.halal img{width:34px;height:34px}}
+
+button,a,input,label,summary{touch-action:manipulation}

@@ -23,6 +23,7 @@
 html,body{min-height:100%}
 body{background:var(--char);color:var(--cream);font:400 16px/1.5 "Figtree",system-ui,sans-serif;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100vh}
 button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+button,a,input,label{touch-action:manipulation}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--amber);outline-offset:2px;border-radius:6px}
 .display{font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.005em}
@@ -58,14 +59,26 @@ main{flex:1;display:grid;place-items:center;padding:32px 16px 48px}
 .sub{font-weight:600;margin:22px 0 10px}
 
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-/* Stepper */
-.stepper{background:var(--char);border:1.5px solid var(--line);border-radius:16px;padding:26px 16px;display:flex;align-items:center;justify-content:center;gap:22px}
-.stepper button{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line-2);font-size:26px;font-weight:700;display:grid;place-items:center}
-.stepper button:hover{border-color:var(--amber);color:var(--amber-ink)}
-.stepper input{width:120px;text-align:center;background:none;border:0;border-bottom:2px solid var(--line-2);color:var(--cream);font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;font-size:64px;line-height:1;padding-bottom:4px;-moz-appearance:textfield}
-.stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none}
-.stepper input:focus{outline:none;border-color:var(--amber)}
-.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+/* Guests */
+.gcard{background:var(--char);border:1.5px solid var(--line);border-radius:20px;padding:22px 20px 18px}
+.gtop{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.gbtn{width:56px;height:56px;border-radius:50%;border:1.5px solid var(--line-2);background:var(--char-2);font-size:28px;font-weight:600;display:grid;place-items:center;line-height:1;flex:none;user-select:none;-webkit-user-select:none}
+.gbtn:hover{border-color:var(--amber);color:var(--amber-ink)}
+.gbtn:active{transform:scale(.94)}
+.gnum{text-align:center;min-width:0}
+.gnum input{width:150px;max-width:100%;text-align:center;background:none;border:0;color:var(--cream);font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;font-size:76px;line-height:1;padding:0;-moz-appearance:textfield}
+.gnum input::-webkit-outer-spin-button,.gnum input::-webkit-inner-spin-button{-webkit-appearance:none}
+.gnum input:focus{outline:none;color:var(--amber-ink)}
+.gnum span{display:block;font-weight:600;color:var(--sand);font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+.grange{width:100%;margin:18px 0 4px;accent-color:var(--red);height:28px}
+.gscale{display:flex;justify-content:space-between;font-size:12.5px;color:var(--sand)}
+.presets{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:16px}
+@media (max-width:560px){.presets{grid-template-columns:repeat(6,minmax(0,1fr))}.preset{grid-column:span 2}.preset:nth-child(n+4){grid-column:span 3}}
+.preset{border:1.5px solid var(--line-2);border-radius:14px;padding:10px 6px;display:grid;gap:1px;text-align:center;background:var(--char-2)}
+.preset b{font-size:18px;font-family:"Archivo",sans-serif;font-stretch:75%;font-weight:800}
+.preset span{font-size:12px;color:var(--sand);line-height:1.2}
+.preset:hover{border-color:var(--sand)}
+.preset[aria-pressed="true"]{border-color:var(--amber);background:#FCEFE0;box-shadow:0 0 0 1px var(--amber)}
 
 /* Chips */
 .chips{display:flex;flex-wrap:wrap;gap:10px}
@@ -74,17 +87,18 @@ main{flex:1;display:grid;place-items:center;padding:32px 16px 48px}
 .chip[aria-pressed="true"]{background:var(--amber);border-color:var(--amber);color:#1F1B17}
 .chip small{font-weight:500;opacity:.8}
 
-/* Choice cards */
-.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-@media (max-width:560px){.choices{grid-template-columns:1fr}}
-.choice{border:1.5px solid var(--line-2);border-radius:16px;overflow:hidden;text-align:left;display:flex;flex-direction:column;background:var(--char)}
+/* Service choices */
+.choices{display:grid;gap:10px}
+.choice{display:flex;align-items:center;gap:14px;width:100%;border:1.5px solid var(--line-2);border-radius:16px;padding:12px 16px 12px 12px;text-align:left;background:var(--char)}
 .choice:hover{border-color:var(--sand)}
-.choice[aria-pressed="true"]{border-color:var(--amber);box-shadow:0 0 0 2px var(--amber)}
-.choice img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
-.choice .t{padding:12px 14px 14px;display:grid;gap:3px}
-.choice .t b{font-size:16px}
-.choice .t span{font-size:13.5px;color:var(--sand);line-height:1.4}
-@media (max-width:560px){.choice{flex-direction:row;align-items:stretch}.choice img{width:112px;aspect-ratio:auto;flex:none}}
+.choice img{width:76px;height:76px;border-radius:50%;flex:none;object-fit:cover}
+.choice .t{flex:1;min-width:0;display:grid;gap:2px}
+.choice .t b{font-size:17px}
+.choice .t span{font-size:14px;color:var(--sand);line-height:1.4}
+.choice .rd{width:24px;height:24px;border-radius:50%;border:2px solid var(--line-2);flex:none;display:grid;place-items:center}
+.choice[aria-pressed="true"]{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber);background:#FFF8F0}
+.choice[aria-pressed="true"] .rd{border-color:var(--red);background:var(--red);box-shadow:inset 0 0 0 4px #fff}
+@media (max-width:560px){.choice img{width:64px;height:64px}.choice{gap:12px;padding:10px 14px 10px 10px}}
 
 
 /* Menu builder */
@@ -168,6 +182,17 @@ input[type=date]{color-scheme:light}
 
 .halal-note{display:inline-flex;align-items:center;gap:7px;background:#E6F2E7;color:#1E5B2A;border:1px solid #BFDCC3;border-radius:999px;padding:4px 14px 4px 4px;font-weight:700;font-size:14px;margin:4px 0 14px;line-height:1.3}
 .halal-note img{width:30px;height:30px;flex:none;border-radius:50%;background:#fff}
+/* Shortage dialog */
+.sdlg{margin:auto;border:0;border-radius:20px;padding:0;width:min(440px,calc(100% - 32px));background:#fff;color:var(--cream);box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.sdlg::backdrop{background:rgba(28,26,24,.55)}
+.sdlg .in{padding:24px 22px 20px;display:grid;gap:12px}
+.sdlg h3{font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:34px;line-height:.95}
+.sdlg .big{font-size:17px;line-height:1.45}
+.sdlg .bar{height:10px;border-radius:5px;background:var(--line);overflow:hidden}
+.sdlg .bar i{display:block;height:100%;background:var(--amber)}
+.sdlg .btns{display:grid;gap:8px;margin-top:6px}
+.btn-ghost{border:1.5px solid var(--line-2);background:#fff;color:var(--cream)}
+.short-warn{margin-top:12px;padding:12px 14px;border-radius:12px;background:#FFF4E6;border:1px solid #F0D2AE;color:#7A3E0A;font-weight:600;font-size:14.5px}
 .done{text-align:center;padding:12px 0}
 .done h2{margin-bottom:10px}
 .brand img{height:56px;width:auto;display:block}
@@ -194,14 +219,22 @@ input[type=date]{color-scheme:light}
     <!-- 1 Guests -->
     <section class="step" data-step="1" aria-labelledby="s1">
       <h2 class="display" id="s1">How many guests?</h2>
-      <p class="help">A rough number is fine. We cater from small team lunches to large events.</p>
-      <div class="stepper">
-        <button type="button" id="gMinus" aria-label="Fewer guests">−</button>
-        <input id="guests" type="number" inputmode="numeric" min="5" max="2000" value="30" aria-label="Number of guests">
-        <button type="button" id="gPlus" aria-label="More guests">+</button>
+      <p class="help">A rough number is fine. You can change it later.</p>
+      <div class="gcard">
+        <div class="gtop">
+          <button type="button" class="gbtn" id="gMinus" aria-label="5 fewer guests">&minus;</button>
+          <label class="gnum" for="guests"><input id="guests" type="number" inputmode="numeric" min="5" max="2000" value="30"><span>guests</span></label>
+          <button type="button" class="gbtn" id="gPlus" aria-label="5 more guests">+</button>
+        </div>
+        <input class="grange" id="gRange" type="range" min="5" max="300" step="5" value="30" aria-label="Number of guests">
+        <div class="gscale" aria-hidden="true"><span>5</span><span>100</span><span>200</span><span>300+</span></div>
       </div>
-      <div class="quick" role="group" aria-label="Quick pick">
-        <button class="chip" data-g="15">15</button><button class="chip" data-g="30">30</button><button class="chip" data-g="50">50</button><button class="chip" data-g="100">100</button><button class="chip" data-g="200">200+</button>
+      <div class="presets" role="group" aria-label="Quick pick">
+        <button type="button" class="preset" data-g="15"><b>15</b><span>Team lunch</span></button>
+        <button type="button" class="preset" data-g="30"><b>30</b><span>Office party</span></button>
+        <button type="button" class="preset" data-g="50"><b>50</b><span>Gathering</span></button>
+        <button type="button" class="preset" data-g="100"><b>100</b><span>Event</span></button>
+        <button type="button" class="preset" data-g="200"><b>200+</b><span>Wedding</span></button>
       </div>
       <div class="actions"><button class="btn btn-red" data-next>Next</button></div>
     </section>
@@ -224,9 +257,9 @@ input[type=date]{color-scheme:light}
       <h2 class="display" id="s3">How should we serve it?</h2>
       <p class="help">Pick the style that fits your event.</p>
       <div class="choices" data-single="service" data-auto>
-        <button class="choice" data-v="Live kebab carving"><img src="../images/live-station-800.webp" width="800" height="600" alt=""><span class="t"><b>Live kebab carving</b><span>Our chef carves at your venue, made to order.</span></span></button>
-        <button class="choice" data-v="Buffet trays"><img src="../images/sides-800.webp" width="800" height="600" alt=""><span class="t"><b>Buffet trays</b><span>Delivered hot, laid out for sharing.</span></span></button>
-        <button class="choice" data-v="Individual meal boxes"><img src="../images/office-800.webp" width="800" height="600" alt=""><span class="t"><b>Meal boxes</b><span>One box per person, easy for offices.</span></span></button>
+        <button class="choice" data-v="Live kebab carving"><img src="../images/svc-live.webp" width="76" height="76" alt=""><span class="t"><b>Live kebab carving</b><span>Our chef carves at your venue, made to order.</span></span><span class="rd" aria-hidden="true"></span></button>
+        <button class="choice" data-v="Buffet trays"><img src="../images/svc-buffet.webp" width="76" height="76" alt=""><span class="t"><b>Buffet trays</b><span>Delivered hot, laid out for sharing.</span></span><span class="rd" aria-hidden="true"></span></button>
+        <button class="choice" data-v="Individual meal boxes"><img src="../images/svc-boxes.webp" width="76" height="76" alt=""><span class="t"><b>Meal boxes</b><span>One box per person, easy for offices.</span></span><span class="rd" aria-hidden="true"></span></button>
       </div>
       <p class="err" id="err3" role="alert">Pick how we should serve it.</p>
       <div class="actions"><button class="btn btn-red" data-next>Next</button></div>
@@ -283,6 +316,7 @@ input[type=date]{color-scheme:light}
       <div class="summary" id="summary"></div>
       <div class="estimate" id="estimate"><span class="muted">Food estimate at menu prices</span><b id="estVal"></b></div>
       <p class="estimate-note" id="estNote"></p>
+      <p class="short-warn" id="shortWarn" hidden></p>
       <div style="margin-top:20px">
         <div class="two">
           <div class="field"><label for="name">Your name</label><input id="name" autocomplete="name"></div>
@@ -305,6 +339,17 @@ input[type=date]{color-scheme:light}
       </div>
     </section>
   </div>
+  <dialog class="sdlg" id="shortDlg" aria-labelledby="shortTitle">
+    <div class="in">
+      <h3 id="shortTitle">Not enough mains?</h3>
+      <p class="big" id="shortText"></p>
+      <div class="bar" aria-hidden="true"><i id="shortBar"></i></div>
+      <div class="btns">
+        <button type="button" class="btn btn-red" id="shortFix"></button>
+        <button type="button" class="btn btn-ghost" id="shortGo">Yes, continue anyway</button>
+      </div>
+    </div>
+  </dialog>
 </main>
 
 <script src="../assets/nutrition.js"></script>
@@ -380,7 +425,7 @@ var MENU = [
   ]}
 ];
 var Q = {};          // "dishId|optionIndex" -> quantity
-var vegOnly = false, warned = false;
+var vegOnly = false, shortOk = false;
 var DISH = {}; MENU.forEach(function(c){ c.items.forEach(function(d){ d.cat = c.cat; DISH[d.id] = d; }); });
 
 function visible(d){ return d.opts.map(function(o, i){ return {o:o, i:i}; }).filter(function(x){ return !vegOnly || x.o[2]; }); }
@@ -455,7 +500,7 @@ function updateMenu(){
 function setQ(k, n){
   n = Math.max(0, Math.min(2000, n || 0));
   if (n) Q[k] = n; else delete Q[k];
-  warned = false; document.getElementById("err5").style.display = "none";
+  shortOk = false; document.getElementById("err5").style.display = "none";
   updateMenu();
 }
 (function(){
@@ -538,9 +583,22 @@ var AREAS = ["Admiralty","Alexandra","Ang Mo Kio","Bedok","Bishan","Boon Lay","B
 
 // Guests stepper
 var gi = document.getElementById("guests");
-document.getElementById("gMinus").onclick = function(){ gi.value = Math.max(5, guests() - 5); };
-document.getElementById("gPlus").onclick = function(){ gi.value = guests() + 5; };
-document.querySelectorAll("[data-g]").forEach(function(b){ b.onclick = function(){ gi.value = b.dataset.g; show(2); }; });
+var gr = document.getElementById("gRange");
+function setGuests(n, from){
+  n = Math.max(5, Math.min(2000, Math.round(n) || 5));
+  if (from !== "input") gi.value = n;
+  gr.value = Math.min(300, n);
+  document.querySelectorAll("[data-g]").forEach(function(b){ b.setAttribute("aria-pressed", +b.dataset.g === n ? "true" : "false"); });
+  shortOk = false;
+}
+function stepG(d){ var n = guests(); setGuests(d > 0 ? Math.floor(n / 5) * 5 + 5 : Math.ceil(n / 5) * 5 - 5); }
+document.getElementById("gMinus").onclick = function(){ stepG(-1); };
+document.getElementById("gPlus").onclick = function(){ stepG(1); };
+gr.addEventListener("input", function(){ setGuests(+gr.value); });
+gi.addEventListener("input", function(){ if (gi.value) setGuests(+gi.value, "input"); });
+gi.addEventListener("blur", function(){ setGuests(guests()); });
+document.querySelectorAll("[data-g]").forEach(function(b){ b.onclick = function(){ setGuests(+b.dataset.g); setTimeout(function(){ show(2); }, 180); }; });
+setGuests(30);
 
 // Earliest date = tomorrow, in Singapore time
 function sgTomorrow(){ return new Date(Date.now() + 8*3600*1000 + 86400000).toISOString().slice(0,10); }
@@ -570,6 +628,25 @@ document.querySelectorAll("[data-multi]").forEach(function(g){
   });
 });
 
+// Warn when there are fewer mains than guests
+var shortDlg = document.getElementById("shortDlg"), shortThen = null;
+function askShort(then){
+  var t = totals(), g = guests(), miss = g - t.mains;
+  shortThen = then;
+  document.getElementById("shortText").innerHTML = "You have chosen mains for <b>" + t.mains + " of " + g + " guests</b>. " + miss + (miss === 1 ? " guest" : " guests") + " won't have a main dish. Are you sure?";
+  document.getElementById("shortBar").style.width = Math.round(100 * t.mains / g) + "%";
+  document.getElementById("shortFix").textContent = "Add " + miss + " more " + (miss === 1 ? "main" : "mains");
+  shortDlg.showModal();
+}
+document.getElementById("shortGo").onclick = function(){ shortOk = true; shortDlg.close(); if (shortThen) shortThen(); };
+document.getElementById("shortFix").onclick = function(){
+  shortDlg.close();
+  if (cur !== 5) show(5);
+  var first = document.querySelector(".mi.has .mi-head") || document.querySelector(".mi .mi-head");
+  if (first){ first.scrollIntoView({block:"center"}); var o = document.getElementById(first.getAttribute("aria-controls")); if (o.hidden) first.click(); }
+};
+shortDlg.addEventListener("click", function(e){ if (e.target === shortDlg) shortDlg.close(); });
+
 // Validation per step
 function valid(n){
   var ok = true, err = document.getElementById("err" + n);
@@ -581,12 +658,8 @@ function valid(n){
   if (n === 3) ok = !!state.service;
   if (n === 5){
     var t = totals(), g = guests();
-    err.classList.remove("warn");
     if (!t.mains){ ok = false; err.textContent = "Add at least one main dish."; }
-    else if (t.mains < g && !warned){
-      ok = false; warned = true; err.classList.add("warn");
-      err.textContent = "You have " + t.mains + " mains for " + g + " guests. Add more, or press Next again if that's on purpose.";
-    }
+    else if (t.mains < g && !shortOk){ askShort(function(){ show(6); }); return false; }
   }
   if (n === 6) ok = !!state.venue && !!document.getElementById("area").value.trim();
   if (err) err.style.display = ok ? "none" : "block";
@@ -624,19 +697,24 @@ function renderSummary(){
   s.querySelectorAll("[data-edit]").forEach(function(b){ b.onclick = function(){ show(+b.dataset.edit); }; });
   document.getElementById("estVal").textContent = money(t.total) + (t.unpriced ? " +" : "");
   document.getElementById("estNote").textContent = estimateNote(t);
+  var sw = document.getElementById("shortWarn"), g = guests();
+  sw.hidden = t.mains >= g;
+  sw.textContent = "Heads up: mains for " + t.mains + " of " + g + " guests.";
 }
 
 document.getElementById("send").onclick = function(){
   var name = document.getElementById("name").value.trim();
   if (!name){ document.getElementById("err7").style.display = "block"; document.getElementById("name").focus(); return; }
   document.getElementById("err7").style.display = "none";
+  if (totals().mains < guests() && !shortOk){ askShort(function(){ document.getElementById("send").click(); }); return; }
   var d = data(), t = totals(), company = document.getElementById("company").value.trim(), notes = document.getElementById("notes").value.trim();
   var lines = [
     "Hi Singapore Kebab, I'd like a catering quote.", "",
     "Guests: " + d[1], "Date: " + d[2], "Service: " + d[3], "Dietary: " + d[4], "",
     "Menu:"
   ].concat(t.lines.map(function(l){ return "- " + itemText(l); }), [
-    "Food estimate: " + money(t.total) + (t.unpriced ? " + items priced on request" : ""), "",
+    "Food estimate: " + money(t.total) + (t.unpriced ? " + items priced on request" : ""),
+    t.mains < guests() ? "Note: mains for " + t.mains + " of " + guests() + " guests" : null, "",
     "Location: " + d[6], "",
     "Name: " + name, company ? "Company: " + company : null, notes ? "Notes: " + notes : null, "",
     "(sent from singaporekebab.com/plan)"
