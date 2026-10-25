@@ -301,6 +301,7 @@ input[type=date]{color-scheme:light}
   </div>
 </main>
 
+<script src="../assets/nutrition.js"></script>
 <script>
 var WHATSAPP_NUMBER = "6596352294";
 var TOTAL = 7, cur = 1;
@@ -407,7 +408,7 @@ function renderMenu(){
               + '<button type="button" data-dec="'+k+'" aria-label="One less '+label+'">&minus;</button>'
               + '<input type="number" min="0" max="2000" inputmode="numeric" value="0" data-q="'+k+'" aria-label="'+label+', quantity">'
               + '<button type="button" data-inc="'+k+'" aria-label="One more '+label+'">+</button></span></div>';
-          }).join("") + '</div></div>';
+          }).join("") + (window.SKNutri && SKNutri.has(d.id) ? '<p style="padding:6px 0 4px"><button type="button" class="nu-link" data-info="'+d.id+'">Ingredients &amp; nutrition</button></p>' : '') + '</div></div>';
     }).join("") + '</div>';
   });
   document.getElementById("menuBox").innerHTML = html;
@@ -455,6 +456,7 @@ function setQ(k, n){
   var box = document.getElementById("menuBox");
   box.addEventListener("click", function(e){
     var b = e.target.closest("button"); if (!b) return;
+    if (b.dataset.info){ var dd = DISH[b.dataset.info]; SKNutri.open(dd.id, dd.name); return; }
     if (b.classList.contains("mi-head")){
       var o = document.getElementById(b.getAttribute("aria-controls")), open = o.hidden;
       o.hidden = !open; b.setAttribute("aria-expanded", open ? "true" : "false"); updateMenu(); return;
@@ -534,9 +536,9 @@ document.getElementById("gMinus").onclick = function(){ gi.value = Math.max(5, g
 document.getElementById("gPlus").onclick = function(){ gi.value = guests() + 5; };
 document.querySelectorAll("[data-g]").forEach(function(b){ b.onclick = function(){ gi.value = b.dataset.g; show(2); }; });
 
-// Date min = tomorrow
-var t = new Date(); t.setDate(t.getDate() + 1);
-document.getElementById("date").min = t.toISOString().slice(0,10);
+// Earliest date = tomorrow, in Singapore time
+function sgTomorrow(){ return new Date(Date.now() + 8*3600*1000 + 86400000).toISOString().slice(0,10); }
+document.getElementById("date").min = sgTomorrow();
 
 // Single-choice groups
 document.querySelectorAll("[data-single]").forEach(function(g){
@@ -565,7 +567,11 @@ document.querySelectorAll("[data-multi]").forEach(function(g){
 // Validation per step
 function valid(n){
   var ok = true, err = document.getElementById("err" + n);
-  if (n === 2) ok = !!document.getElementById("date").value && !!state.meal;
+  if (n === 2){
+    var dv = document.getElementById("date").value;
+    ok = !!dv && !!state.meal && dv >= sgTomorrow();
+    err.textContent = !dv || !state.meal ? "Pick a date and a time of day." : "Please pick a date from tomorrow onwards. For a same-day order, message us on WhatsApp.";
+  }
   if (n === 3) ok = !!state.service;
   if (n === 5){
     var t = totals(), g = guests();

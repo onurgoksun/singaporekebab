@@ -217,6 +217,7 @@ input[type=date],input[type=time]{color-scheme:light}
       <div>
         <h3 class="display" id="optTitle"></h3>
         <p class="muted" id="optSub"></p>
+        <button type="button" class="nu-link" id="optInfo" style="margin-top:4px">Ingredients &amp; nutrition</button>
       </div>
     </div>
     <fieldset id="optFieldset">
@@ -262,6 +263,7 @@ input[type=date],input[type=time]{color-scheme:light}
   </div>
 </dialog>
 
+<script src="../assets/nutrition.js"></script>
 <script>
 var WHATSAPP_NUMBER = "6596352294";
 // Free-licence photos from Unsplash (U) and Pexels (P)
@@ -347,6 +349,7 @@ MENU.forEach(function(c){
       + '<div class="pic">'+picHTML(it)+'</div>'
       + '<h3>'+esc(it.name)+'</h3>'
       + '<p class="price">'+fromPrice(it)+'</p>'
+      + '<button type="button" class="nu-link" data-info="'+it.id+'">Ingredients &amp; nutrition</button>'
       + '<button class="add" data-add="'+it.id+'" aria-label="Add '+esc(it.name)+'">Add</button>'
       + '</article>';
   });
@@ -417,6 +420,8 @@ document.getElementById("cartBody").addEventListener("click", function(e){
 // Option picker
 var optDialog = document.getElementById("optDialog"), current = null, qty = 1;
 document.getElementById("sections").addEventListener("click", function(e){
+  var info = e.target.closest("[data-info]");
+  if (info){ var di = byId[info.dataset.info]; SKNutri.open(di.id, di.name); return; }
   var b = e.target.closest("[data-add]"); if (!b) return;
   current = byId[b.dataset.add];
   if (current.opts.length === 1){ addToCart(current.id, current.opts[0][0], current.opts[0][1], 1); return; }
@@ -429,6 +434,10 @@ document.getElementById("sections").addEventListener("click", function(e){
   }).join("");
   optDialog.showModal();
 });
+document.getElementById("optInfo").onclick = function(){
+  var c = document.querySelector("#optList input:checked");
+  SKNutri.open(current.id, current.name, c ? current.opts[+c.value][0] : "");
+};
 document.getElementById("optMinus").onclick = function(){ qty = Math.max(1, qty-1); document.getElementById("optQty").textContent = qty; };
 document.getElementById("optPlus").onclick = function(){ qty++; document.getElementById("optQty").textContent = qty; };
 optDialog.addEventListener("close", function(){
@@ -449,6 +458,20 @@ var coDialog = document.getElementById("coDialog"), coForm = document.getElement
 document.getElementById("checkoutBtn").onclick = function(){ coDialog.showModal(); };
 document.getElementById("coCancel").onclick = function(){ coDialog.close(); };
 coDialog.addEventListener("click", function(e){ if (e.target === coDialog) coDialog.close(); });
+// Dates in Singapore time: no past dates, same-day orders need at least 1 hour
+function sgNow(){ return new Date(Date.now() + 8*3600*1000).toISOString(); }
+var cDate = document.getElementById("c-date");
+cDate.min = sgNow().slice(0,10);
+document.getElementById("checkoutBtn").addEventListener("click", function(){ cDate.min = sgNow().slice(0,10); });
+function whenProblem(date, time){
+  var now = sgNow(), today = now.slice(0,10);
+  if (date < today) return "That date has already passed. Please pick today or a later date.";
+  if (date === today){
+    var soon = new Date(Date.now() + 9*3600*1000).toISOString().slice(11,16);
+    if (time < soon) return "For today, please pick a time at least 1 hour from now (" + soon + " or later).";
+  }
+  return "";
+}
 coForm.querySelectorAll("input[name=mode]").forEach(function(r){
   r.addEventListener("change", function(){ document.getElementById("addrField").hidden = coForm.mode.value === "Pickup"; });
 });
@@ -458,7 +481,9 @@ coForm.addEventListener("submit", function(e){
   var need = ["name","date","time"].concat(pickup ? [] : ["address"]);
   var miss = need.filter(function(k){ return !f[k].value.trim(); });
   var err = document.getElementById("coErr");
-  if (miss.length){ err.style.display = "block"; f[miss[0]].focus(); return; }
+  if (miss.length){ err.textContent = "Please fill in your name, date, time" + (pickup ? "." : " and address."); err.style.display = "block"; f[miss[0]].focus(); return; }
+  var wp = whenProblem(f.date.value, f.time.value);
+  if (wp){ err.textContent = wp; err.style.display = "block"; f.date.focus(); return; }
   err.style.display = "none";
   var total = 0, unpriced = false;
   var lines = cart.map(function(l){
