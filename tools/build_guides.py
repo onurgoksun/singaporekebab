@@ -280,8 +280,8 @@ GUIDES = [
 
 def page(head_title, desc, canonical, body, schema, depth, og_img="live-station"):
     pre = "../" * depth
-    hdr = HEADER.replace('href="../', f'href="{pre}')
-    ftr = FOOTER.replace('href="../', f'href="{pre}')
+    hdr = HEADER.replace('href="../', f'href="{pre}').replace('src="../', f'src="{pre}')
+    ftr = FOOTER.replace('href="../', f'href="{pre}').replace('src="../', f'src="{pre}')
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -290,7 +290,9 @@ def page(head_title, desc, canonical, body, schema, depth, og_img="live-station"
 <title>{html.escape(head_title)}</title>
 <meta name="description" content="{html.escape(desc)}">
 <link rel="canonical" href="{canonical}">
-<link rel="icon" href="{pre}favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{pre}favicon.ico" sizes="any">
+<link rel="icon" href="{pre}favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="{pre}apple-touch-icon.png">
 <meta property="og:type" content="article">
 <meta property="og:title" content="{html.escape(head_title)}">
 <meta property="og:description" content="{html.escape(desc)}">

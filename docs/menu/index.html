@@ -6,7 +6,9 @@
 <title>Turkish Kebab Menu and Prices | Order Online | Singapore Kebab</title>
 <meta name="description" content="Build your Turkish food order: kebab wraps, iskender, pide, baked dishes and desserts. Pick your items and send the order on WhatsApp.">
 <link rel="canonical" href="https://singaporekebab.com/menu/">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="theme-color" content="#FBF8F3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -159,13 +161,15 @@ input[type=date],input[type=time]{color-scheme:light}
 .radios input{accent-color:var(--amber)}
 .err{color:#B3261E;font-weight:600;display:none}
 @media (max-width:520px){.checkout form{grid-template-columns:1fr}}
+.brand img{height:56px;width:auto;display:block}
+@media (max-width:560px){.brand img{height:48px}}
 </style>
 </head>
 <body>
 
 <header>
   <div class="nav">
-    <a class="brand display" href="../">Singapore Kebab</a>
+    <a class="brand" href="../" aria-label="Singapore Kebab home"><img src="../images/logo-160.webp" width="82" height="80" alt="Singapore Kebab logo"></a>
     <a class="back" href="../">Catering<span class="long"> &amp; live carving</span></a>
   </div>
 </header>

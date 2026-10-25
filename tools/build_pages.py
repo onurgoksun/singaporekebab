@@ -25,7 +25,7 @@ def img(name, alt, sizes="(max-width: 900px) 100vw, 50vw", lazy=True, h=600):
 
 HEADER = f'''<header>
   <div class="wrap nav">
-    <a class="brand" href="../">Singapore Kebab</a>
+    <a class="brand" href="../" aria-label="Singapore Kebab home"><img src="../images/logo-160.webp" width="82" height="80" alt="Singapore Kebab logo"></a>
     <nav class="nav-links" aria-label="Main">
       <a href="../live-kebab-carving/">Live kebab carving</a>
       <a href="../office-catering/">Office catering</a>
@@ -45,7 +45,7 @@ FOOTER = f'''<footer>
   <div class="wrap">
     <div class="foot">
       <div>
-        <a class="brand" href="../">Singapore Kebab</a>
+        <a class="brand" href="../" aria-label="Singapore Kebab home"><img src="../images/logo-320.webp" width="163" height="160" alt="Singapore Kebab logo" loading="lazy"></a>
         <p>Halal Turkish kebab catering in Singapore: live kebab carving, office catering and weddings. Prepared in a MUIS halal-certified kitchen.</p>
       </div>
       <div><h4>Catering</h4><ul><li><a href="../live-kebab-carving/">Live kebab carving</a></li><li><a href="../office-catering/">Office catering</a></li><li><a href="../wedding-catering/">Wedding catering</a></li></ul></div>
@@ -182,7 +182,7 @@ def build(p):
     schema = [
       {"@context": "https://schema.org", "@type": "Service", "name": p["h1"], "serviceType": p["serviceType"],
        "description": p["desc"], "url": url, "areaServed": {"@type": "Country", "name": "Singapore"},
-       "provider": {"@type": "FoodEstablishment", "name": "Singapore Kebab", "url": SITE + "/", "telephone": "+65 9635 2294", "servesCuisine": "Turkish", "address": POSTAL}},
+       "provider": {"@type": "FoodEstablishment", "name": "Singapore Kebab", "url": SITE + "/", "telephone": "+65 9635 2294", "servesCuisine": "Turkish", "address": POSTAL, "logo": SITE + "/images/logo-512.png"}},
       {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
         {"@type": "ListItem", "position": 2, "name": p["crumb"], "item": url}]},
@@ -198,7 +198,9 @@ def build(p):
 <title>{html.escape(p["title"])}</title>
 <meta name="description" content="{html.escape(p["desc"])}">
 <link rel="canonical" href="{url}">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{html.escape(p["title"])}">
 <meta property="og:description" content="{html.escape(p["desc"])}">
@@ -280,7 +282,7 @@ def build_about():
     schema = [
       {"@context": "https://schema.org", "@type": "AboutPage", "name": "About Singapore Kebab", "url": url, "description": desc},
       {"@context": "https://schema.org", "@type": "FoodEstablishment", "name": "Singapore Kebab", "url": SITE + "/",
-       "telephone": "+65 9635 2294", "email": "hello@singaporekebab.com", "servesCuisine": "Turkish",
+       "telephone": "+65 9635 2294", "email": "hello@singaporekebab.com", "servesCuisine": "Turkish", "logo": SITE + "/images/logo-512.png", "image": SITE + "/images/logo-512.png",
        "address": POSTAL, "areaServed": {"@type": "Country", "name": "Singapore"}, "hasMap": MAPS},
       {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
@@ -308,7 +310,9 @@ def build_about():
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
 <link rel="canonical" href="{url}">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc)}">
@@ -350,6 +354,7 @@ def build_about():
 
   <div class="wrap">
     <section class="lp-sec" style="padding:0 0 48px"><div class="prose">
+      <img src="../images/logo-320.webp" width="163" height="160" alt="Singapore Kebab logo: a smiling kebab chef next to a vertical kebab spit" loading="lazy" style="float:right;width:180px;height:auto;margin:0 0 12px 24px;shape-outside:circle(50%)">
       <h2>Our story</h2>
       <p>Singapore Kebab was started by Turks living in Singapore. We missed the kebab we grew up with: meat stacked on a vertical spit, carved thin while it is still crisp at the edges, and wrapped in fresh bread with a cool garlic yogurt sauce.</p>
       <p>Singapore already loves kebab, so we asked a simple question. Why not bring the real thing to the moments people here celebrate together, from a Friday team lunch to a product launch or a wedding?</p>
