@@ -8,6 +8,7 @@ import html, json, os
 ROOT = os.path.join(os.path.dirname(__file__), "..", "docs")
 SITE = "https://singaporekebab.com"
 WA = "6596352294"
+HALAL_A = "Yes. All our food is halal. Everything is prepared in our MUIS halal-certified kitchen in Little India, so you can serve it to all your guests with confidence."
 ADDRESS = "665 Buffalo Road, Little India, Singapore 210665"
 MAPS = "https://www.google.com/maps/search/?api=1&query=665+Buffalo+Road+Singapore+210665"
 POSTAL = {"@type": "PostalAddress", "streetAddress": "665 Buffalo Road", "addressLocality": "Singapore",
@@ -45,7 +46,7 @@ FOOTER = f'''<footer>
     <div class="foot">
       <div>
         <a class="brand" href="../">Singapore Kebab</a>
-        <p>Turkish kebab catering in Singapore: live kebab stations, office catering and weddings.</p>
+        <p>Halal Turkish kebab catering in Singapore: live kebab stations, office catering and weddings. Prepared in a MUIS halal-certified kitchen.</p>
       </div>
       <div><h4>Catering</h4><ul><li><a href="../live-kebab-station/">Live kebab station</a></li><li><a href="../office-catering/">Office catering</a></li><li><a href="../wedding-catering/">Wedding catering</a></li></ul></div>
       <div><h4>Order</h4><ul><li><a href="../plan/">Plan my menu</a></li><li><a href="../menu/">Menu and prices</a></li><li><a href="../guides/">Catering guides</a></li><li><a href="../about/">About us</a></li><li><a href="../#faq">FAQ</a></li></ul></div>
@@ -169,6 +170,7 @@ RELATED = [
 
 def build(p):
     url = f"{SITE}/{p['slug']}/"
+    p = dict(p, faq=[("Is your food halal?", HALAL_A)] + list(p["faq"]))
     faq_html = "".join(f"<details><summary>{html.escape(q)}</summary><p>{html.escape(a)}</p></details>" for q, a in p["faq"])
     sections = ""
     for title, blocks in p["sections"]:
@@ -215,6 +217,7 @@ def build(p):
   <section class="lp-hero">
     <div class="wrap hero-grid">
       <div>
+        <span class="halal-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7z"/></svg>100% halal · MUIS halal-certified kitchen</span>
         <h1>{html.escape(p["h1"])}</h1>
         <p class="lead" style="font-size:20px;color:var(--muted);max-width:44ch;margin:22px 0 30px">{html.escape(p["lead"])}</p>
         <div class="actions" style="display:flex;flex-wrap:wrap;gap:12px">
@@ -272,7 +275,7 @@ def build(p):
 def build_about():
     url = f"{SITE}/about/"
     title = "About Singapore Kebab | Turkish Kebab Catering in Little India"
-    desc = "Singapore Kebab is a Turkish kebab catering brand. Fresh kebab cooked daily in our Little India kitchen for offices, events and weddings across Singapore."
+    desc = "Singapore Kebab is a halal Turkish kebab catering brand. Fresh kebab cooked daily in our MUIS halal-certified kitchen in Little India for offices, events and weddings across Singapore."
     schema = [
       {"@context": "https://schema.org", "@type": "AboutPage", "name": "About Singapore Kebab", "url": url, "description": desc},
       {"@context": "https://schema.org", "@type": "FoodEstablishment", "name": "Singapore Kebab", "url": SITE + "/",
@@ -283,12 +286,13 @@ def build_about():
         {"@type": "ListItem", "position": 2, "name": "About", "item": url}]},
     ]
     values = [
+      ("100% halal", "All our food is halal and prepared in our MUIS halal-certified kitchen in Little India. Every guest at your table can enjoy the same meal."),
       ("Real Turkish kebab", "Chicken and lamb kebab cooked on a vertical spit and carved to order, the way it is done in Turkey. Not generic shawarma."),
       ("Cooked fresh on the day", "Your order is prepared on the day of your event and delivered hot, or carved live at your venue."),
       ("Clear prices", "Our menu prices are on the website. The planner shows an estimate as you build your menu, so there are no surprises."),
       ("Something for every guest", "Falafel, hummus, salads and vegetarian pide sit next to the kebab, so mixed groups are covered."),
     ]
-    vals = "".join(f'<div class="ex"><h3>{html.escape(t)}</h3><p class="muted" style="font-size:15.5px">{html.escape(d)}</p></div>' for t, d in values)
+    vals = "".join(f'<div class="ex"' + (' style="grid-column:1/-1;background:#E6F2E7;border-color:#BFDCC3"' if t == "100% halal" else '') + f'><h3>{html.escape(t)}</h3><p class="muted" style="font-size:15.5px">{html.escape(d)}</p></div>' for t, d in values)
     page = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -325,8 +329,9 @@ def build_about():
   <section class="lp-hero">
     <div class="wrap hero-grid">
       <div>
+        <span class="halal-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7z"/></svg>100% halal · MUIS halal-certified kitchen</span>
         <h1>About Singapore Kebab</h1>
-        <p class="lead" style="font-size:20px;color:var(--muted);max-width:44ch;margin:22px 0 30px">We bring real Turkish kebab to Singapore's office lunches, parties and weddings, cooked fresh every day in our kitchen in Little India.</p>
+        <p class="lead" style="font-size:20px;color:var(--muted);max-width:44ch;margin:22px 0 30px">We bring real Turkish kebab to Singapore's office lunches, parties and weddings, cooked fresh every day in our MUIS halal-certified kitchen in Little India.</p>
         <div class="actions" style="display:flex;flex-wrap:wrap;gap:12px">
           <a class="btn btn-red" href="../plan/">Plan my menu</a>
           <a class="btn btn-wa js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question.">{WA_ICON} WhatsApp us</a>
@@ -359,7 +364,7 @@ def build_about():
       <div class="visit">
         <div class="ex" style="gap:14px">
           <p class="addr">665 Buffalo Road<br>Little India<br>Singapore 210665</p>
-          <p class="muted" style="font-size:15.5px">Your food is cooked here and sent out hot. Pickup orders are collected from this address. Message us on WhatsApp first so your order is ready when you arrive.</p>
+          <p class="muted" style="font-size:15.5px">Our kitchen is MUIS halal-certified. Your food is cooked here and sent out hot. Pickup orders are collected from this address. Message us on WhatsApp first so your order is ready when you arrive.</p>
           <a class="btn btn-line" href="{MAPS}" target="_blank" rel="noopener">Open in Google Maps</a>
           <a class="btn btn-wa js-wa" href="#" data-msg="Hi Singapore Kebab, I'd like to arrange a pickup.">{WA_ICON} WhatsApp +65 9635 2294</a>
           <a class="btn btn-line" href="mailto:hello@singaporekebab.com">hello@singaporekebab.com</a>
