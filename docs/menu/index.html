@@ -67,6 +67,7 @@ header{border-bottom:1px solid var(--line);background:#FBF8F3;position:sticky;to
 .card .add{margin-top:auto;width:100%;background:var(--red);color:#fff;font-weight:700;border-radius:10px;min-height:44px}
 .card .add:hover{background:var(--red-hover)}
 .card .incart[hidden]{display:none}
+#addrField[hidden],#pickupNote[hidden]{display:none}
 .card .incart{position:absolute;top:10px;left:10px;background:var(--amber);color:#1F1B17;font-weight:800;font-size:13px;min-width:26px;height:26px;border-radius:13px;display:grid;place-items:center;padding:0 6px}
 
 /* Cart */
@@ -251,6 +252,7 @@ input[type=date],input[type=time]{color-scheme:light}
           <label><input type="radio" name="mode" value="Pickup"> Pickup</label>
         </div>
       </fieldset>
+      <p class="full muted" id="pickupNote" hidden style="font-size:14.5px">Pickup from our kitchen: <a href="https://www.google.com/maps/search/?api=1&amp;query=665+Buffalo+Road+Singapore+210665" target="_blank" rel="noopener"><b>665 Buffalo Road, Little India, Singapore 210665</b></a></p>
       <div class="field full" id="addrField"><label for="c-addr">Delivery address</label><input id="c-addr" name="address" autocomplete="street-address" placeholder="Building, street, unit, postal code"></div>
       <div class="field full"><label for="c-notes">Notes (optional)</label><textarea id="c-notes" name="notes" rows="3" placeholder="Allergies, extra sauce, cutlery needed"></textarea></div>
       <p class="err full" id="coErr" role="alert">Please fill in your name, date, time and address.</p>
@@ -473,7 +475,7 @@ function whenProblem(date, time){
   return "";
 }
 coForm.querySelectorAll("input[name=mode]").forEach(function(r){
-  r.addEventListener("change", function(){ document.getElementById("addrField").hidden = coForm.mode.value === "Pickup"; });
+  r.addEventListener("change", function(){ document.getElementById("addrField").hidden = coForm.mode.value === "Pickup"; document.getElementById("pickupNote").hidden = coForm.mode.value !== "Pickup"; });
 });
 coForm.addEventListener("submit", function(e){
   e.preventDefault();
@@ -498,7 +500,7 @@ coForm.addEventListener("submit", function(e){
     "Name: " + f.name.value.trim(),
     f.company.value.trim() ? "Company: " + f.company.value.trim() : null,
     coForm.mode.value + ": " + f.date.value + " at " + f.time.value,
-    pickup ? null : "Address: " + f.address.value.trim(),
+    pickup ? "Pickup from: 665 Buffalo Road, Singapore 210665" : "Address: " + f.address.value.trim(),
     f.notes.value.trim() ? "Notes: " + f.notes.value.trim() : null,
     "", "(sent from singaporekebab.com/menu)"
   ].filter(function(x){ return x !== null; }).join("\n");

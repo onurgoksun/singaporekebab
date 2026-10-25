@@ -411,7 +411,7 @@ def build_index():
 
 
 def build_sitemap():
-    urls = ["", "live-kebab-station/", "office-catering/", "wedding-catering/", "menu/", "plan/", "guides/"] + [f"guides/{g['slug']}/" for g in GUIDES]
+    urls = ["", "live-kebab-station/", "office-catering/", "wedding-catering/", "menu/", "plan/", "about/", "guides/"] + [f"guides/{g['slug']}/" for g in GUIDES]
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     xml += "".join(f"  <url><loc>{SITE}/{u}</loc><lastmod>{PUBLISHED}</lastmod></url>\n" for u in urls)
     xml += "</urlset>\n"

@@ -8,6 +8,10 @@ import html, json, os
 ROOT = os.path.join(os.path.dirname(__file__), "..", "docs")
 SITE = "https://singaporekebab.com"
 WA = "6596352294"
+ADDRESS = "665 Buffalo Road, Little India, Singapore 210665"
+MAPS = "https://www.google.com/maps/search/?api=1&query=665+Buffalo+Road+Singapore+210665"
+POSTAL = {"@type": "PostalAddress", "streetAddress": "665 Buffalo Road", "addressLocality": "Singapore",
+          "postalCode": "210665", "addressCountry": "SG"}
 
 WA_ICON = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"/></svg>')
 
@@ -27,6 +31,7 @@ HEADER = f'''<header>
       <a href="../wedding-catering/">Weddings</a>
       <a href="../menu/">Menu &amp; prices</a>
       <a href="../guides/">Guides</a>
+      <a href="../about/">About</a>
     </nav>
     <div class="nav-cta">
       <a class="btn btn-wa js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question about catering.">{WA_ICON} WhatsApp</a>
@@ -43,8 +48,8 @@ FOOTER = f'''<footer>
         <p>Turkish kebab catering in Singapore: live kebab stations, office catering and weddings.</p>
       </div>
       <div><h4>Catering</h4><ul><li><a href="../live-kebab-station/">Live kebab station</a></li><li><a href="../office-catering/">Office catering</a></li><li><a href="../wedding-catering/">Wedding catering</a></li></ul></div>
-      <div><h4>Order</h4><ul><li><a href="../plan/">Plan my menu</a></li><li><a href="../menu/">Menu and prices</a></li><li><a href="../guides/">Catering guides</a></li><li><a href="../#faq">FAQ</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li><a class="js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question.">WhatsApp +65 9635 2294</a></li></ul></div>
+      <div><h4>Order</h4><ul><li><a href="../plan/">Plan my menu</a></li><li><a href="../menu/">Menu and prices</a></li><li><a href="../guides/">Catering guides</a></li><li><a href="../about/">About us</a></li><li><a href="../#faq">FAQ</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a class="js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question.">WhatsApp +65 9635 2294</a></li><li><a href="mailto:hello@singaporekebab.com">hello@singaporekebab.com</a></li><li><a href="{MAPS}" target="_blank" rel="noopener">{ADDRESS}</a></li></ul></div>
     </div>
     <p class="copy">© <span id="year"></span> Singapore Kebab</p>
   </div>
@@ -174,7 +179,7 @@ def build(p):
     schema = [
       {"@context": "https://schema.org", "@type": "Service", "name": p["h1"], "serviceType": p["serviceType"],
        "description": p["desc"], "url": url, "areaServed": {"@type": "Country", "name": "Singapore"},
-       "provider": {"@type": "FoodEstablishment", "name": "Singapore Kebab", "url": SITE + "/", "telephone": "+65 9635 2294", "servesCuisine": "Turkish"}},
+       "provider": {"@type": "FoodEstablishment", "name": "Singapore Kebab", "url": SITE + "/", "telephone": "+65 9635 2294", "servesCuisine": "Turkish", "address": POSTAL}},
       {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
         {"@type": "ListItem", "position": 2, "name": p["crumb"], "item": url}]},
@@ -264,6 +269,126 @@ def build(p):
     print("built", p["slug"])
 
 
+def build_about():
+    url = f"{SITE}/about/"
+    title = "About Singapore Kebab | Turkish Kebab Catering in Little India"
+    desc = "Singapore Kebab is a Turkish kebab catering brand. Fresh kebab cooked daily in our Little India kitchen for offices, events and weddings across Singapore."
+    schema = [
+      {"@context": "https://schema.org", "@type": "AboutPage", "name": "About Singapore Kebab", "url": url, "description": desc},
+      {"@context": "https://schema.org", "@type": "FoodEstablishment", "name": "Singapore Kebab", "url": SITE + "/",
+       "telephone": "+65 9635 2294", "email": "hello@singaporekebab.com", "servesCuisine": "Turkish",
+       "address": POSTAL, "areaServed": {"@type": "Country", "name": "Singapore"}, "hasMap": MAPS},
+      {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
+        {"@type": "ListItem", "position": 2, "name": "About", "item": url}]},
+    ]
+    values = [
+      ("Real Turkish kebab", "Chicken and lamb kebab cooked on a vertical spit and carved to order, the way it is done in Turkey. Not generic shawarma."),
+      ("Cooked fresh on the day", "Your order is prepared on the day of your event and delivered hot, or carved live at your venue."),
+      ("Clear prices", "Our menu prices are on the website. The planner shows an estimate as you build your menu, so there are no surprises."),
+      ("Something for every guest", "Falafel, hummus, salads and vegetarian pide sit next to the kebab, so mixed groups are covered."),
+    ]
+    vals = "".join(f'<div class="ex"><h3>{html.escape(t)}</h3><p class="muted" style="font-size:15.5px">{html.escape(d)}</p></div>' for t, d in values)
+    page = f'''<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{html.escape(title)}</title>
+<meta name="description" content="{html.escape(desc)}">
+<link rel="canonical" href="{url}">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{html.escape(title)}">
+<meta property="og:description" content="{html.escape(desc)}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{SITE}/images/live-station-1400.webp">
+<meta name="theme-color" content="#FBF8F3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+.values{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
+@media (max-width:700px){{.values{{grid-template-columns:1fr}}}}
+.visit{{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:24px;align-items:stretch}}
+@media (max-width:900px){{.visit{{grid-template-columns:1fr}}}}
+.map{{border:0;width:100%;min-height:340px;height:100%;border-radius:var(--r-lg);background:var(--soft)}}
+.addr{{font-size:20px;font-weight:700;line-height:1.35}}
+</style>
+<script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
+</head>
+<body>
+{HEADER}
+<main>
+  <div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> / <span aria-current="page">About</span></nav></div>
+  <section class="lp-hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>About Singapore Kebab</h1>
+        <p class="lead" style="font-size:20px;color:var(--muted);max-width:44ch;margin:22px 0 30px">We bring real Turkish kebab to Singapore's office lunches, parties and weddings, cooked fresh every day in our kitchen in Little India.</p>
+        <div class="actions" style="display:flex;flex-wrap:wrap;gap:12px">
+          <a class="btn btn-red" href="../plan/">Plan my menu</a>
+          <a class="btn btn-wa js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question.">{WA_ICON} WhatsApp us</a>
+        </div>
+      </div>
+      <div class="hero-photo">{img("live-station", "A kebab chef carving kebab at a live station in Singapore", lazy=False).replace('<img ', '<img style="aspect-ratio:4/3" ')}</div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="lp-sec" style="padding:0 0 48px"><div class="prose">
+      <h2>Our story</h2>
+      <p>Singapore Kebab was started by Turks living in Singapore. We missed the kebab we grew up with: meat stacked on a vertical spit, carved thin while it is still crisp at the edges, and wrapped in fresh bread with a cool garlic yogurt sauce.</p>
+      <p>Singapore already loves kebab, so we asked a simple question. Why not bring the real thing to the moments people here celebrate together, from a Friday team lunch to a product launch or a wedding?</p>
+      <p>That is what we do. We cater Turkish kebab across Singapore, with a live kebab station at your venue or hot food delivered on time, ready to serve.</p>
+    </div></section>
+
+    <section class="lp-sec" style="padding:0 0 48px">
+      <div class="sec-head"><h2>What we care about</h2></div>
+      <div class="values">{vals}</div>
+    </section>
+
+    <section class="lp-sec" style="padding:0 0 48px"><div class="prose">
+      <h2>What we cater</h2>
+      <p><a href="../live-kebab-station/">Live kebab stations</a> for parties, launches and weddings, where our chef carves to order in front of your guests. <a href="../office-catering/">Office catering</a> with buffet trays or individual meal boxes for team lunches and dinners. <a href="../wedding-catering/">Wedding catering</a> with a full Turkish table. You can also <a href="../menu/">order from our menu</a> for smaller groups.</p>
+    </div></section>
+
+    <section class="lp-sec" id="visit" style="padding:0 0 64px">
+      <div class="sec-head"><h2>Our kitchen</h2></div>
+      <div class="visit">
+        <div class="ex" style="gap:14px">
+          <p class="addr">665 Buffalo Road<br>Little India<br>Singapore 210665</p>
+          <p class="muted" style="font-size:15.5px">Your food is cooked here and sent out hot. Pickup orders are collected from this address. Message us on WhatsApp first so your order is ready when you arrive.</p>
+          <a class="btn btn-line" href="{MAPS}" target="_blank" rel="noopener">Open in Google Maps</a>
+          <a class="btn btn-wa js-wa" href="#" data-msg="Hi Singapore Kebab, I'd like to arrange a pickup.">{WA_ICON} WhatsApp +65 9635 2294</a>
+          <a class="btn btn-line" href="mailto:hello@singaporekebab.com">hello@singaporekebab.com</a>
+        </div>
+        <iframe class="map" title="Map of our kitchen at 665 Buffalo Road, Singapore" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=665+Buffalo+Road,+Singapore+210665&amp;output=embed"></iframe>
+      </div>
+    </section>
+  </div>
+
+  <section class="final">
+    <div class="wrap">
+      <h2>Ready to plan your menu?</h2>
+      <p>Answer a few questions and get your quote on WhatsApp. No commitment.</p>
+      <div class="actions"><a class="btn btn-red" href="../plan/">Plan my menu</a><a class="btn btn-wa js-wa" href="#" data-msg="Hi Singapore Kebab, I'd like a catering quote.">WhatsApp us</a></div>
+    </div>
+  </section>
+</main>
+{FOOTER}
+</body>
+</html>
+'''
+    out = os.path.join(ROOT, "about")
+    os.makedirs(out, exist_ok=True)
+    with open(os.path.join(out, "index.html"), "w", encoding="utf-8") as f:
+        f.write(page)
+    print("built about")
+
+
 if __name__ == "__main__" and True:
     for p in PAGES:
         build(p)
+    build_about()
