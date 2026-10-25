@@ -42,7 +42,7 @@ GUIDES = [
 <li><strong>Fresh bread and simple sides.</strong> Warm pide or wraps, crunchy salad, garlic yoghurt and a bit of chilli are enough.</li>
 <li><strong>A real spit.</strong> Kebab from a vertical spit beats meat that's been pan-fried from frozen strips.</li>
 </ul>
-<p>Want to see it carved fresh at your next event? A <a href="../../live-kebab-station/">live kebab station</a> brings the spit to your venue.</p>
+<p>Want to see it carved fresh at your next event? <a href="../../live-kebab-carving/">Live kebab carving</a> brings the spit to your venue.</p>
 """,
     "faq": [
       ("What does döner mean?", "Döner comes from the Turkish verb dönmek, which means to turn. Döner kebab means turning roast, after the vertical spit that rotates next to the heat."),
@@ -116,7 +116,7 @@ GUIDES = [
 <p>Smoky grilled eggplant mashed with yoghurt and garlic, topped with meat. A south-eastern Turkish classic that pairs creamy and savoury.</p>
 <h2>Which kebabs work best for catering?</h2>
 <ul>
-<li><strong>For live stations:</strong> döner, carved to order. It's the most theatrical and the fastest to serve a queue.</li>
+<li><strong>For live carving:</strong> döner, carved to order. It's the most theatrical and the fastest to serve a queue.</li>
 <li><strong>For office lunches:</strong> kebab over rice, wraps and köfte boxes travel well and are easy to eat at a desk.</li>
 <li><strong>For dinners and weddings:</strong> iskender and beyti add a sit-down feel, with meze and baklava to finish.</li>
 </ul>
@@ -147,7 +147,7 @@ GUIDES = [
 <tbody>
 <tr><th>Office lunch (meal boxes)</th><td>1 box: kebab or falafel, rice or wrap, salad and sauce</td></tr>
 <tr><th>Lunch buffet</th><td>1 main portion of kebab, a scoop of pilav, salad, bread, 1 dessert piece</td></tr>
-<tr><th>Live kebab station</th><td>1 to 2 wraps or plates, depending on what else is served</td></tr>
+<tr><th>Live kebab carving</th><td>1 to 2 wraps or plates, depending on what else is served</td></tr>
 <tr><th>Dinner or wedding</th><td>Main kebab plus 2 to 3 sides or meze and dessert</td></tr>
 </tbody></table></div>
 <p>These are starting points, not rules. Your quote will be built around your actual guests.</p>
@@ -185,7 +185,7 @@ GUIDES = [
     "slug": "when-to-book-catering",
     "title": "When to Book Catering in Singapore: A Planning Timeline",
     "h1": "When should you book catering in Singapore?",
-    "desc": "How far ahead to book office lunches, live stations and wedding catering in Singapore, which seasons get busy, and a simple planning timeline.",
+    "desc": "How far ahead to book office lunches, live carving and wedding catering in Singapore, which seasons get busy, and a simple planning timeline.",
     "img": "live-station",
     "card": "How far ahead to book, busy seasons, and a simple timeline.",
     "body": """
@@ -196,22 +196,22 @@ GUIDES = [
 <tbody>
 <tr><th>Office lunch or meeting</th><td>2 to 3 days ahead</td><td>1 week ahead</td></tr>
 <tr><th>Company party or launch</th><td>1 to 2 weeks ahead</td><td>3 to 4 weeks ahead</td></tr>
-<tr><th>Live kebab station</th><td>1 to 2 weeks ahead</td><td>3 to 4 weeks ahead</td></tr>
+<tr><th>Live kebab carving</th><td>1 to 2 weeks ahead</td><td>3 to 4 weeks ahead</td></tr>
 <tr><th>Wedding or large celebration</th><td>1 to 2 months ahead</td><td>3 months or more</td></tr>
 </tbody></table></div>
-<p>Singapore caterers often ask for at least two days' notice for buffets, and live stations need extra time to plan staff, equipment and the venue. These are general guides: send your date through the planner and we'll confirm what's possible.</p>
+<p>Singapore caterers often ask for at least two days' notice for buffets, and live carving needs extra time to plan staff, equipment and the venue. These are general guides: send your date through the planner and we'll confirm what's possible.</p>
 <h2>Busy seasons in Singapore</h2>
 <p>Book earlier for events around these periods, when caterers fill up fast:</p>
 <ul>
 <li><strong>November to December:</strong> year-end parties, Christmas and team celebrations</li>
 <li><strong>Chinese New Year:</strong> lo hei lunches and open houses in January or February</li>
 <li><strong>Hari Raya and Deepavali:</strong> open houses and office celebrations</li>
-<li><strong>Weekends and public holidays:</strong> especially for weddings and live stations</li>
+<li><strong>Weekends and public holidays:</strong> especially for weddings and live carving</li>
 </ul>
 <h2>A simple planning timeline</h2>
 <ol class="timeline">
 <li><strong>4 to 6 weeks before:</strong> set your date, rough headcount and budget per guest. Book your caterer for big events.</li>
-<li><strong>2 to 3 weeks before:</strong> choose your menu and service style: live station, buffet or meal boxes. Check venue access, space and power.</li>
+<li><strong>2 to 3 weeks before:</strong> choose your menu and service style: live carving, buffet or meal boxes. Check venue access, space and power.</li>
 <li><strong>1 week before:</strong> collect dietary needs and confirm the serving time and delivery address.</li>
 <li><strong>2 to 3 days before:</strong> confirm your final headcount and any changes.</li>
 <li><strong>On the day:</strong> keep someone reachable for delivery, check the consume-by labels and serve on time.</li>
@@ -220,14 +220,14 @@ GUIDES = [
 <ul>
 <li>Date and serving time</li>
 <li>Number of guests and any dietary needs</li>
-<li>Live station, buffet or meal boxes</li>
+<li>Live carving, buffet or meal boxes</li>
 <li>Venue address, and notes on lifts, loading bays or building rules</li>
 <li>Budget per guest and whether you need an invoice or PO</li>
 </ul>
 <p>Our <a href="../../plan/">menu planner</a> asks for exactly these, so you can send a complete request in about a minute.</p>
 """,
     "faq": [
-      ("How many days in advance should I order catering in Singapore?", "For office lunches, aim for at least 2 to 3 days. For live stations and parties, 1 to 2 weeks or more. For weddings, 1 to 3 months. Book earlier in busy seasons like December and Chinese New Year."),
+      ("How many days in advance should I order catering in Singapore?", "For office lunches, aim for at least 2 to 3 days. For live carving and parties, 1 to 2 weeks or more. For weddings, 1 to 3 months. Book earlier in busy seasons like December and Chinese New Year."),
       ("When should I confirm the final headcount?", "Two to three days before the event is a good rule, so the caterer can prepare the right quantities."),
     ],
     "sources": [
@@ -240,10 +240,10 @@ GUIDES = [
     "h1": "Live food station ideas for your next event",
     "desc": "Why live food stations work for office parties, launches and weddings in Singapore, how to plan one, and what your venue needs.",
     "img": "live-station",
-    "card": "Why live stations work, and how to plan one well.",
+    "card": "Why live carving work, and how to plan one well.",
     "body": """
-<p>A buffet feeds people. A live station gives them something to talk about. Watching food made in front of them gets guests mingling, and the food is as fresh as it gets.</p>
-<h2>Why live stations work</h2>
+<p>A buffet feeds people. Live carving gives them something to talk about. Watching food made in front of them gets guests mingling, and the food is as fresh as it gets.</p>
+<h2>Why live carving work</h2>
 <ul>
 <li><strong>Freshness.</strong> Food is cooked or carved to order, so it doesn't sit in a tray.</li>
 <li><strong>A natural meeting point.</strong> Queues become conversations, which helps at networking events and company parties.</li>
@@ -252,12 +252,12 @@ GUIDES = [
 </ul>
 <h2>Ideas for different events</h2>
 <ul>
-<li><strong>Office celebrations:</strong> a live kebab station with wraps, pilav and salads, plus Turkish tea.</li>
+<li><strong>Office celebrations:</strong> live kebab carving with wraps, pilav and salads, plus Turkish tea.</li>
 <li><strong>Product launches:</strong> a carving station near the stage keeps guests close to the action.</li>
-<li><strong>Festive open houses:</strong> pair a live station with a dessert table of baklava and kunafa.</li>
+<li><strong>Festive open houses:</strong> pair live carving with a dessert table of baklava and kunafa.</li>
 <li><strong>Weddings:</strong> combine live carving with a sit-down Turkish feast for an evening guests remember.</li>
 </ul>
-<h2>How to plan a live station</h2>
+<h2>How to plan live carving</h2>
 <ol class="timeline">
 <li><strong>Know your numbers.</strong> Headcount and serving window decide how many stations and chefs you need.</li>
 <li><strong>Pick the spot.</strong> Somewhere guests can queue without blocking doors or the stage.</li>
@@ -265,13 +265,13 @@ GUIDES = [
 <li><strong>Plan the flow.</strong> Put plates, sauces and drinks after the station so the queue keeps moving.</li>
 <li><strong>Add sides.</strong> Salads, bread and dips on a side table let guests start while the chef carves.</li>
 </ol>
-<h2>Live kebab station or buffet?</h2>
-<p>You don't have to choose. Many events pair a live kebab station with a small buffet of sides and desserts. Guests get fresh carved kebab, and nobody waits long for food.</p>
-<p>See what's included in our <a href="../../live-kebab-station/">live kebab station</a>, or start planning in the <a href="../../plan/?service=live">menu planner</a>.</p>
+<h2>Live kebab carving or buffet?</h2>
+<p>You don't have to choose. Many events pair live kebab carving with a small buffet of sides and desserts. Guests get fresh carved kebab, and nobody waits long for food.</p>
+<p>See what's included in our <a href="../../live-kebab-carving/">live kebab carving</a>, or start planning in the <a href="../../plan/?service=live">menu planner</a>.</p>
 """,
     "faq": [
       ("What is a live food station?", "A live food station is a counter where a chef cooks or carves food to order in front of guests, instead of serving it from pre-filled trays."),
-      ("What does a venue need for a live kebab station?", "Space for the station and a queue, access to power, ventilation and permission to use cooking equipment. The caterer should confirm these with you before the day."),
+      ("What does a venue need for live kebab carving?", "Space for the station and a queue, access to power, ventilation and permission to use cooking equipment. The caterer should confirm these with you before the day."),
     ],
     "sources": [],
   },
@@ -386,7 +386,7 @@ def build_index():
   <section class="lp-hero" style="padding-bottom:40px">
     <div class="wrap">
       <h1 style="max-width:14ch">Kebab and catering guides</h1>
-      <p class="lead" style="font-size:20px;color:var(--muted);max-width:52ch;margin-top:18px">Everything about Turkish kebab, and practical tips for planning catering in Singapore: how much to order, when to book and how to run a live station.</p>
+      <p class="lead" style="font-size:20px;color:var(--muted);max-width:52ch;margin-top:18px">Everything about Turkish kebab, and practical tips for planning catering in Singapore: how much to order, when to book and how to run live carving.</p>
     </div>
   </section>
   <section style="padding-top:0">
@@ -406,12 +406,12 @@ def build_index():
     os.makedirs(out, exist_ok=True)
     with open(os.path.join(out, "index.html"), "w", encoding="utf-8") as f:
         f.write(page("Kebab and Catering Guides | Singapore Kebab",
-                     "Guides to Turkish kebab and catering in Singapore: kebab history, kebab vs shawarma, how much food to order, when to book and live station ideas.",
+                     "Guides to Turkish kebab and catering in Singapore: kebab history, kebab vs shawarma, how much food to order, when to book and live carving ideas.",
                      url, body, schema, 1))
 
 
 def build_sitemap():
-    urls = ["", "live-kebab-station/", "office-catering/", "wedding-catering/", "menu/", "plan/", "about/", "guides/"] + [f"guides/{g['slug']}/" for g in GUIDES]
+    urls = ["", "live-kebab-carving/", "office-catering/", "wedding-catering/", "menu/", "plan/", "about/", "guides/"] + [f"guides/{g['slug']}/" for g in GUIDES]
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     xml += "".join(f"  <url><loc>{SITE}/{u}</loc><lastmod>{PUBLISHED}</lastmod></url>\n" for u in urls)
     xml += "</urlset>\n"

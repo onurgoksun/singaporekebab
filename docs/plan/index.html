@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plan Your Catering | Singapore Kebab</title>
-<meta name="description" content="Plan your Turkish kebab catering in under a minute: guests, date, live station or drop-off, and dishes with real menu prices. Get your quote on WhatsApp.">
+<meta name="description" content="Plan your Turkish kebab catering in under a minute: guests, date, live carving or drop-off, and dishes with real menu prices. Get your quote on WhatsApp.">
 <link rel="canonical" href="https://singaporekebab.com/plan/">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#FBF8F3">
@@ -220,7 +220,7 @@ input[type=date]{color-scheme:light}
       <h2 class="display" id="s3">How should we serve it?</h2>
       <p class="help">Pick the style that fits your event.</p>
       <div class="choices" data-single="service" data-auto>
-        <button class="choice" data-v="Live kebab station"><img src="../images/live-station-800.webp" width="800" height="600" alt=""><span class="t"><b>Live kebab station</b><span>Our chef carves at your venue, made to order.</span></span></button>
+        <button class="choice" data-v="Live kebab carving"><img src="../images/live-station-800.webp" width="800" height="600" alt=""><span class="t"><b>Live kebab carving</b><span>Our chef carves at your venue, made to order.</span></span></button>
         <button class="choice" data-v="Buffet trays"><img src="../images/sides-800.webp" width="800" height="600" alt=""><span class="t"><b>Buffet trays</b><span>Delivered hot, laid out for sharing.</span></span></button>
         <button class="choice" data-v="Individual meal boxes"><img src="../images/office-800.webp" width="800" height="600" alt=""><span class="t"><b>Meal boxes</b><span>One box per person, easy for offices.</span></span></button>
       </div>
@@ -605,7 +605,7 @@ function data(){
 }
 function estimateNote(t){
   return (t.unpriced ? "Plus items priced on request. " : "")
-    + (state.service === "Live kebab station" ? "Live station chef and set-up, and delivery, are quoted separately. " : "Delivery is quoted separately. ")
+    + (state.service === "Live kebab carving" ? "Live carving chef and set-up, and delivery, are quoted separately. " : "Delivery is quoted separately. ")
     + "We confirm the final price on WhatsApp.";
 }
 function renderSummary(){
@@ -650,7 +650,7 @@ document.addEventListener("keydown", function(e){
 
 // Preselect service from ?service=live|buffet|boxes (links from landing pages)
 (function(){
-  var map = {live:"Live kebab station", buffet:"Buffet trays", boxes:"Individual meal boxes"};
+  var map = {live:"Live kebab carving", buffet:"Buffet trays", boxes:"Individual meal boxes"};
   var v = map[new URLSearchParams(location.search).get("service")];
   if (!v) return;
   state.service = v;

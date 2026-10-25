@@ -27,7 +27,7 @@ HEADER = f'''<header>
   <div class="wrap nav">
     <a class="brand" href="../">Singapore Kebab</a>
     <nav class="nav-links" aria-label="Main">
-      <a href="../live-kebab-station/">Live kebab station</a>
+      <a href="../live-kebab-carving/">Live kebab carving</a>
       <a href="../office-catering/">Office catering</a>
       <a href="../wedding-catering/">Weddings</a>
       <a href="../menu/">Menu &amp; prices</a>
@@ -46,9 +46,9 @@ FOOTER = f'''<footer>
     <div class="foot">
       <div>
         <a class="brand" href="../">Singapore Kebab</a>
-        <p>Halal Turkish kebab catering in Singapore: live kebab stations, office catering and weddings. Prepared in a MUIS halal-certified kitchen.</p>
+        <p>Halal Turkish kebab catering in Singapore: live kebab carving, office catering and weddings. Prepared in a MUIS halal-certified kitchen.</p>
       </div>
-      <div><h4>Catering</h4><ul><li><a href="../live-kebab-station/">Live kebab station</a></li><li><a href="../office-catering/">Office catering</a></li><li><a href="../wedding-catering/">Wedding catering</a></li></ul></div>
+      <div><h4>Catering</h4><ul><li><a href="../live-kebab-carving/">Live kebab carving</a></li><li><a href="../office-catering/">Office catering</a></li><li><a href="../wedding-catering/">Wedding catering</a></li></ul></div>
       <div><h4>Order</h4><ul><li><a href="../plan/">Plan my menu</a></li><li><a href="../menu/">Menu and prices</a></li><li><a href="../guides/">Catering guides</a></li><li><a href="../about/">About us</a></li><li><a href="../#faq">FAQ</a></li></ul></div>
       <div><h4>Contact</h4><ul><li><a class="js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question.">WhatsApp +65 9635 2294</a></li><li><a href="mailto:hello@singaporekebab.com">hello@singaporekebab.com</a></li><li><a href="{MAPS}" target="_blank" rel="noopener">{ADDRESS}</a></li></ul></div>
     </div>
@@ -68,35 +68,35 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 PAGES = [
   {
-    "slug": "live-kebab-station",
+    "slug": "live-kebab-carving",
     "service": "live",
-    "title": "Live Kebab Station Singapore | Turkish Kebab Catering",
-    "desc": "Hire a live Turkish kebab station in Singapore. Our kebab master carves chicken and lamb kebab to order at your party, launch or wedding.",
-    "crumb": "Live kebab station",
-    "h1": "Live kebab station catering in Singapore",
+    "title": "Live Kebab Carving Singapore | Halal Turkish Kebab Catering",
+    "desc": "Book halal live kebab carving in Singapore. Our kebab master carves chicken and lamb kebab to order at your party, launch or wedding.",
+    "crumb": "Live kebab carving",
+    "h1": "Live kebab carving for events in Singapore",
     "lead": "A kebab master, a vertical spit and fresh bread at your venue. Every wrap and plate is carved to order in front of your guests.",
-    "img": ("live-station", "Guests queuing at a live kebab station at an evening event in Singapore"),
-    "serviceType": "Live kebab station catering",
+    "img": ("live-station", "Guests queuing for freshly carved kebab at an evening event in Singapore"),
+    "serviceType": "Live kebab carving catering",
     "sections": [
       ("What's included", [
-        "<p>A live kebab station brings the theatre of a Turkish kebab shop to your event. Our kebab master sets up the vertical spit, carves the meat thin and builds each wrap or plate fresh, so the food is hot and the queue becomes part of the fun.</p>",
+        "<p>Live kebab carving brings the theatre of a Turkish kebab shop to your event. Our kebab master sets up the vertical spit, carves the meat thin and builds each wrap or plate fresh, so the food is hot and the queue becomes part of the fun.</p>",
         "<ul><li>Kebab master and carving station at your venue</li><li>Chicken and lamb kebab, carved to order</li><li>Warm wraps, pita and rice pilaf</li><li>Shepherd's salad, garlic yoghurt and chilli sauce</li><li>Vegetarian falafel for guests who don't eat meat</li></ul>",
         "<p>You can add Turkish extras such as hummus, baklava, kunafa, ayran or Turkish tea to make it a full Turkish table.</p>",
       ]),
       ("Great for", [
-        "<p>Company parties, product launches, open houses, birthdays, engagements, weddings and festive gatherings. A live station works indoors at office pantries and event spaces, and outdoors on rooftops and terraces when there's shelter.</p>",
+        "<p>Company parties, product launches, open houses, birthdays, engagements, weddings and festive gatherings. Live carving works indoors at office pantries and event spaces, and outdoors on rooftops and terraces when there's shelter.</p>",
       ]),
-      ("Live stations for smaller groups too", [
-        "<p>Many live stations in Singapore only take large events. Tell us your guest count in the planner and we'll suggest the best format for it, from a team celebration to a large reception.</p>",
+      ("Live carving for smaller groups too", [
+        "<p>Many live carving in Singapore only take large events. Tell us your guest count in the planner and we'll suggest the best format for it, from a team celebration to a large reception.</p>",
       ]),
       ("What we need at your venue", [
         "<p>We confirm the details with you before the day: the space for the station, access to power, ventilation, set-up time and serving time. Let us know about loading bays, lifts or building rules in the planner notes.</p>",
       ]),
     ],
     "faq": [
-      ("How much does a live kebab station cost?", "It depends on your guest count, menu and serving time. Use the planner to pick your dishes and see an estimate at menu prices, and we'll reply with a clear quote including the station set-up."),
-      ("How many guests can a live station serve?", "Our kebab master carves to order, so we plan the number of stations and serving time around your guest count. Tell us your numbers and we'll recommend the right set-up."),
-      ("Can you cater vegetarian guests at a live station?", "Yes. We serve falafel wraps and plates, hummus and salads alongside the kebab."),
+      ("How much does live kebab carving cost?", "It depends on your guest count, menu and serving time. Use the planner to pick your dishes and see an estimate at menu prices, and we'll reply with a clear quote including the station set-up."),
+      ("How many guests can one kebab chef serve?", "Our kebab master carves to order, so we plan the number of stations and serving time around your guest count. Tell us your numbers and we'll recommend the right set-up."),
+      ("Can you cater vegetarian guests at live carving?", "Yes. We serve falafel wraps and plates, hummus and salads alongside the kebab."),
       ("How far in advance should I book?", "As early as you can, especially for weekends and festive seasons. Send your date through the planner and we'll confirm availability."),
     ],
   },
@@ -122,7 +122,7 @@ PAGES = [
         "<p>Chicken kebab over rice pilaf, kebab wraps with garlic yoghurt, falafel boxes for vegetarians, shepherd's salad and hummus. Add baklava or kunafa for a sweet finish. See every dish with photos and prices on our <a href=\"../menu/\">menu page</a>.</p>",
       ]),
       ("Want something more memorable?", [
-        "<p>For team celebrations and company events, bring a <a href=\"../live-kebab-station/\">live kebab station</a> to the office and let your team watch the kebab carved fresh.</p>",
+        "<p>For team celebrations and company events, bring <a href=\"../live-kebab-carving/\">live kebab carving</a> to the office and let your team watch the kebab carved fresh.</p>",
       ]),
     ],
     "faq": [
@@ -136,10 +136,10 @@ PAGES = [
     "slug": "wedding-catering",
     "service": "live",
     "title": "Turkish Wedding Catering Singapore | Singapore Kebab",
-    "desc": "Turkish wedding catering in Singapore: a live kebab station, meze, pilav, baklava, kunafa and Turkish tea for your guests and celebrations.",
+    "desc": "Turkish wedding catering in Singapore: live kebab carving, meze, pilav, baklava, kunafa and Turkish tea for your guests and celebrations.",
     "crumb": "Wedding catering",
     "h1": "Turkish wedding catering in Singapore",
-    "lead": "A live kebab station and a full Turkish table for weddings, engagements and family celebrations.",
+    "lead": "Live kebab carving and a full Turkish table for weddings, engagements and family celebrations.",
     "img": ("weddings", "A Turkish wedding table with baklava, Turkish tea and meze in front of Gardens by the Bay"),
     "serviceType": "Wedding and celebration catering",
     "sections": [
@@ -155,7 +155,7 @@ PAGES = [
       ]),
     ],
     "faq": [
-      ("Can we mix a live station with a buffet?", "Yes. Many couples pair a live kebab station with a buffet of meze, pilav and desserts. Tell us what you have in mind in the planner."),
+      ("Can we mix live carving with a buffet?", "Yes. Many couples pair live kebab carving with a buffet of meze, pilav and desserts. Tell us what you have in mind in the planner."),
       ("Can you cater for guests with dietary needs?", "Yes. Tell us about vegetarian guests, allergies and any other requirements in the planner, and we'll confirm what we can provide in your quote."),
       ("How early should we book for a wedding?", "As early as possible, especially for weekend dates. Send your date through the planner and we'll confirm availability."),
     ],
@@ -163,7 +163,7 @@ PAGES = [
 ]
 
 RELATED = [
-  ("live-kebab-station", "Live kebab station", "Carved to order at your venue.", "live-station"),
+  ("live-kebab-carving", "Live kebab carving", "Carved to order at your venue.", "live-station"),
   ("office-catering", "Office catering", "Meal boxes and buffets for teams.", "office"),
   ("wedding-catering", "Wedding catering", "A full Turkish table for your day.", "weddings"),
 ]
@@ -344,7 +344,7 @@ def build_about():
           <a class="btn btn-wa js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question.">{WA_ICON} WhatsApp us</a>
         </div>
       </div>
-      <div class="hero-photo">{img("live-station", "A kebab chef carving kebab at a live station in Singapore", lazy=False).replace('<img ', '<img style="aspect-ratio:4/3" ')}</div>
+      <div class="hero-photo">{img("live-station", "A kebab chef carving kebab for guests at an event in Singapore", lazy=False).replace('<img ', '<img style="aspect-ratio:4/3" ')}</div>
     </div>
   </section>
 
@@ -353,7 +353,7 @@ def build_about():
       <h2>Our story</h2>
       <p>Singapore Kebab was started by Turks living in Singapore. We missed the kebab we grew up with: meat stacked on a vertical spit, carved thin while it is still crisp at the edges, and wrapped in fresh bread with a cool garlic yogurt sauce.</p>
       <p>Singapore already loves kebab, so we asked a simple question. Why not bring the real thing to the moments people here celebrate together, from a Friday team lunch to a product launch or a wedding?</p>
-      <p>That is what we do. We cater Turkish kebab across Singapore, with a live kebab station at your venue or hot food delivered on time, ready to serve.</p>
+      <p>That is what we do. We cater Turkish kebab across Singapore, with live kebab carving at your venue or hot food delivered on time, ready to serve.</p>
     </div></section>
 
     <section class="lp-sec" style="padding:0 0 48px">
@@ -363,7 +363,7 @@ def build_about():
 
     <section class="lp-sec" style="padding:0 0 48px"><div class="prose">
       <h2>What we cater</h2>
-      <p><a href="../live-kebab-station/">Live kebab stations</a> for parties, launches and weddings, where our chef carves to order in front of your guests. <a href="../office-catering/">Office catering</a> with buffet trays or individual meal boxes for team lunches and dinners. <a href="../wedding-catering/">Wedding catering</a> with a full Turkish table. You can also <a href="../menu/">order from our menu</a> for smaller groups.</p>
+      <p><a href="../live-kebab-carving/">Live kebab carving</a> for parties, launches and weddings, where our chef carves to order in front of your guests. <a href="../office-catering/">Office catering</a> with buffet trays or individual meal boxes for team lunches and dinners. <a href="../wedding-catering/">Wedding catering</a> with a full Turkish table. You can also <a href="../menu/">order from our menu</a> for smaller groups.</p>
     </div></section>
 
     <section class="lp-sec" id="visit" style="padding:0 0 64px">
