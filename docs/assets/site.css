@@ -214,6 +214,12 @@ footer a:hover{color:var(--cream)}
 @media (max-width:430px){.brand{font-size:21px}.nav{gap:10px}.nav-cta .btn{padding:10px 12px;font-size:14px}}
 
 /* Halal */
-.halal-pill{display:inline-flex;align-items:center;gap:7px;background:#E6F2E7;color:#1E5B2A;border:1px solid #BFDCC3;border-radius:999px;padding:7px 14px 7px 10px;font-weight:700;font-size:14.5px;line-height:1.2;margin-bottom:18px}
-.halal-pill svg{width:18px;height:18px;flex:none}
+.halal-pill{display:inline-flex;align-items:center;gap:7px;background:#E6F2E7;color:#1E5B2A;border:1px solid #BFDCC3;border-radius:999px;padding:5px 16px 5px 5px;font-weight:700;font-size:14.5px;line-height:1.2;margin-bottom:18px}
+.halal-pill img{width:34px;height:34px;flex:none;border-radius:50%;background:#fff}
 .fact.halal b{color:#1E5B2A}
+.fact.halal{display:flex;align-items:center;gap:12px}
+.fact.halal img{width:44px;height:44px;flex:none;border-radius:50%;background:#fff}
+.fact.halal > div{display:grid}
+.foot-halal{display:flex;align-items:center;gap:14px;margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12)}
+.foot-halal img{width:64px;height:64px;flex:none;border-radius:50%;background:#fff}
+.foot-halal p{max-width:52ch;font-size:14.5px;opacity:.85}

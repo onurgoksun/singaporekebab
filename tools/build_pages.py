@@ -52,6 +52,7 @@ FOOTER = f'''<footer>
       <div><h4>Order</h4><ul><li><a href="../plan/">Plan my menu</a></li><li><a href="../menu/">Menu and prices</a></li><li><a href="../guides/">Catering guides</a></li><li><a href="../about/">About us</a></li><li><a href="../#faq">FAQ</a></li></ul></div>
       <div><h4>Contact</h4><ul><li><a class="js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question.">WhatsApp +65 9635 2294</a></li><li><a href="mailto:hello@singaporekebab.com">hello@singaporekebab.com</a></li><li><a href="{MAPS}" target="_blank" rel="noopener">{ADDRESS}</a></li></ul></div>
     </div>
+    <div class="foot-halal"><img src="../images/muis-halal.webp" width="64" height="64" alt="MUIS Halal Singapore logo" loading="lazy"><p>All our food is halal. Prepared in our MUIS halal-certified kitchen at 665 Buffalo Road, Singapore.</p></div>
     <p class="copy">© <span id="year"></span> Singapore Kebab</p>
   </div>
 </footer>
@@ -217,7 +218,7 @@ def build(p):
   <section class="lp-hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="halal-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7z"/></svg>100% halal · MUIS halal-certified kitchen</span>
+        <span class="halal-pill"><img src="../images/muis-halal.webp" width="34" height="34" alt="MUIS Halal Singapore logo">100% halal · MUIS halal-certified kitchen</span>
         <h1>{html.escape(p["h1"])}</h1>
         <p class="lead" style="font-size:20px;color:var(--muted);max-width:44ch;margin:22px 0 30px">{html.escape(p["lead"])}</p>
         <div class="actions" style="display:flex;flex-wrap:wrap;gap:12px">
@@ -292,7 +293,13 @@ def build_about():
       ("Clear prices", "Our menu prices are on the website. The planner shows an estimate as you build your menu, so there are no surprises."),
       ("Something for every guest", "Falafel, hummus, salads and vegetarian pide sit next to the kebab, so mixed groups are covered."),
     ]
-    vals = "".join(f'<div class="ex"' + (' style="grid-column:1/-1;background:#E6F2E7;border-color:#BFDCC3"' if t == "100% halal" else '') + f'><h3>{html.escape(t)}</h3><p class="muted" style="font-size:15.5px">{html.escape(d)}</p></div>' for t, d in values)
+    def vcard(t, d):
+        h = f'<h3>{html.escape(t)}</h3><p class="muted" style="font-size:15.5px">{html.escape(d)}</p>'
+        if t == "100% halal":
+            return ('<div class="ex" style="grid-column:1/-1;background:#E6F2E7;border-color:#BFDCC3;flex-direction:row;align-items:center;gap:20px">'
+                    '<img src="../images/muis-halal.webp" width="96" height="96" alt="MUIS Halal Singapore logo" style="flex:none;border-radius:50%;background:#fff"><div>' + h + '</div></div>')
+        return '<div class="ex">' + h + '</div>'
+    vals = "".join(vcard(t, d) for t, d in values)
     page = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -329,7 +336,7 @@ def build_about():
   <section class="lp-hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="halal-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7z"/></svg>100% halal · MUIS halal-certified kitchen</span>
+        <span class="halal-pill"><img src="../images/muis-halal.webp" width="34" height="34" alt="MUIS Halal Singapore logo">100% halal · MUIS halal-certified kitchen</span>
         <h1>About Singapore Kebab</h1>
         <p class="lead" style="font-size:20px;color:var(--muted);max-width:44ch;margin:22px 0 30px">We bring real Turkish kebab to Singapore's office lunches, parties and weddings, cooked fresh every day in our MUIS halal-certified kitchen in Little India.</p>
         <div class="actions" style="display:flex;flex-wrap:wrap;gap:12px">
