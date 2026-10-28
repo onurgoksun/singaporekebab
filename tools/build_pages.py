@@ -4,6 +4,8 @@ Run:  python3 tools/build_pages.py   (from the repo root)
 Edit the PAGES content below, then run again.
 """
 import html, json, os
+VIDS = {"office": {"file": "office-catering", "title": "Sad sandwiches? Cancel lah!", "desc": "Live kebab carving right in your office: swap the boring team lunch for fresh Turkish kebab.", "dur": "PT26S", "label": "Office lunch"}, "wedding": {"file": "wedding", "title": "Make your wedding legendary lah!", "desc": "Live kebab carving at a Singapore wedding: the guests queue up, even the bride.", "dur": "PT24S", "label": "Weddings"}}
+
 
 ROOT = os.path.join(os.path.dirname(__file__), "..", "docs")
 SITE = "https://singaporekebab.com"
@@ -71,6 +73,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 PAGES = [
   {
     "slug": "live-kebab-carving",
+    "video": "wedding",
     "service": "live",
     "title": "Live Kebab Carving Singapore | Halal Turkish Kebab Catering",
     "desc": "Book halal live kebab carving in Singapore. Our kebab master carves chicken and lamb kebab to order at your party, launch or wedding.",
@@ -104,6 +107,7 @@ PAGES = [
   },
   {
     "slug": "office-catering",
+    "video": "office",
     "service": "boxes",
     "title": "Office Lunch Catering Singapore | Kebab Meal Boxes",
     "desc": "Office lunch catering in Singapore: hot Turkish kebab meal boxes and buffet trays for team lunches and meetings. Invoices and POs on request.",
@@ -136,6 +140,7 @@ PAGES = [
   },
   {
     "slug": "wedding-catering",
+    "video": "wedding",
     "service": "live",
     "title": "Turkish Wedding Catering Singapore | Singapore Kebab",
     "desc": "Turkish wedding catering in Singapore: live kebab carving, meze, pilav, baklava, kunafa and Turkish tea for your guests and celebrations.",
@@ -192,6 +197,14 @@ def build(p):
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in p["faq"]]},
     ]
     im, alt = p["img"]
+    vid_html = ""
+    if p.get("video"):
+        v = VIDS[p["video"]]
+        vid_html = (f'<section class="lp-sec" style="padding:0 0 48px"><div class="prose"><h2>See it in action</h2></div>'
+                    f'<figure class="vid vid-single"><video controls playsinline preload="none" poster="../videos/{v["file"]}.jpg" width="720" height="1280">'
+                    f'<source src="../videos/{v["file"]}.mp4" type="video/mp4"></video><figcaption><b>{v["label"]}</b> · {html.escape(v["title"])}</figcaption></figure></section>')
+        schema.append({"@context": "https://schema.org", "@type": "VideoObject", "name": v["title"] + " | Singapore Kebab", "description": v["desc"],
+                       "thumbnailUrl": f'{SITE}/videos/{v["file"]}.jpg', "contentUrl": f'{SITE}/videos/{v["file"]}.mp4', "uploadDate": "2026-10-29", "duration": v["dur"]})
     page = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -235,7 +248,7 @@ def build(p):
   </section>
   <div class="wrap">
     <div class="split">
-      <div>{sections}</div>
+      <div>{sections}{vid_html}</div>
       <aside class="lp-aside">
         <div class="ex" style="gap:14px">
           <h3>Get your quote</h3>

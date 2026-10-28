@@ -233,3 +233,12 @@ footer .brand img{height:120px;width:auto}
 @media (max-width:430px){.fact.halal{gap:8px}.fact.halal img{width:34px;height:34px}}
 
 button,a,input,label,summary{touch-action:manipulation}
+
+/* Videos */
+.vids{display:grid;grid-template-columns:repeat(2,minmax(0,300px));gap:20px;justify-content:center}
+.vid{margin:0}
+.vid video{width:100%;height:auto;aspect-ratio:9/16;display:block;border-radius:20px;background:#1C1A18;object-fit:cover;box-shadow:0 14px 34px rgba(31,27,23,.18)}
+.vid figcaption{font-size:14.5px;color:var(--muted);margin-top:10px;text-align:center}
+.vid figcaption b{color:var(--ink)}
+@media (max-width:560px){.vids{gap:12px}.vid figcaption{font-size:13px}}
+.vid-single{max-width:320px;margin:0 auto}
