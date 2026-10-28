@@ -302,7 +302,7 @@ def page(head_title, desc, canonical, body, schema, depth, og_img="live-station"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{pre}assets/site.css?v=20261029b">
+<link rel="stylesheet" href="{pre}assets/site.css?v=20261029c">
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
 </head>
 <body>

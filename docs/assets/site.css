@@ -34,7 +34,7 @@ section{padding:96px 0}
 .btn-wa svg{width:20px;height:20px;color:#25A35A}
 
 /* Header */
-header{position:sticky;top:0;z-index:30;background:rgba(251,248,243,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+body>header{position:sticky;top:0;z-index:30;background:rgba(251,248,243,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
 .brand{font-family:"Archivo",sans-serif;font-stretch:62%;font-weight:900;font-size:30px;text-transform:uppercase;text-decoration:none;letter-spacing:.01em;white-space:nowrap}
 .nav-links{display:flex;gap:22px;font-weight:600;font-size:15px;white-space:nowrap}
