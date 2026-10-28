@@ -302,7 +302,7 @@ def page(head_title, desc, canonical, body, schema, depth, og_img="live-station"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{pre}assets/site.css?v=20261029">
+<link rel="stylesheet" href="{pre}assets/site.css?v=20261029b">
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
 </head>
 <body>
@@ -412,7 +412,7 @@ def build_index():
 
 
 def build_sitemap():
-    urls = ["", "live-kebab-carving/", "office-catering/", "wedding-catering/", "menu/", "plan/", "about/", "guides/"] + [f"guides/{g['slug']}/" for g in GUIDES]
+    urls = ["", "live-kebab-carving/", "office-catering/", "wedding-catering/", "mini-buffet-catering/", "bento-catering/", "party-catering/", "christmas-catering/", "menu/", "plan/", "about/", "guides/"] + [f"guides/{g['slug']}/" for g in GUIDES]
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     xml += "".join(f"  <url><loc>{SITE}/{u}</loc><lastmod>{PUBLISHED}</lastmod></url>\n" for u in urls)
     xml += "</urlset>\n"

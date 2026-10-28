@@ -20,7 +20,7 @@ POSTAL = {"@type": "PostalAddress", "streetAddress": "665 Buffalo Road", "addres
 WA_ICON = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"/></svg>')
 
 
-PX = {'live-station': 25067333, 'office': 28683057, 'weddings': 36766850, 'hero': 35255190, 'doner': 29306495, 'sides': 2291367}
+PX = {"boxes": 8102212, "party": 12253095, "christmas": 4959845, 'live-station': 25067333, 'office': 28683057, 'weddings': 36766850, 'hero': 35255190, 'doner': 29306495, 'sides': 2291367}
 
 def PXU(name, w):
     i = PX[name]
@@ -57,7 +57,7 @@ FOOTER = f'''<footer>
         <a class="brand" href="../" aria-label="Singapore Kebab home"><img src="../images/logo-320.webp" width="163" height="160" alt="Singapore Kebab logo" loading="lazy"></a>
         <p>Turkish kebab catering in Singapore: live kebab carving, office catering and weddings.</p>
       </div>
-      <div><h4>Catering</h4><ul><li><a href="../live-kebab-carving/">Live kebab carving</a></li><li><a href="../office-catering/">Office catering</a></li><li><a href="../wedding-catering/">Wedding catering</a></li></ul></div>
+      <div><h4>Catering</h4><ul><li><a href="../live-kebab-carving/">Live kebab carving</a></li><li><a href="../office-catering/">Office catering</a></li><li><a href="../wedding-catering/">Wedding catering</a></li><li><a href="../mini-buffet-catering/">Mini buffet</a></li><li><a href="../bento-catering/">Bento &amp; meal boxes</a></li><li><a href="../party-catering/">Party catering</a></li><li><a href="../christmas-catering/">Christmas catering</a></li></ul></div>
       <div><h4>Order</h4><ul><li><a href="../plan/">Plan my menu</a></li><li><a href="../menu/">Menu and prices</a></li><li><a href="../guides/">Catering guides</a></li><li><a href="../about/">About us</a></li><li><a href="../#faq">FAQ</a></li></ul></div>
       <div><h4>Contact</h4><ul><li><a class="js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question.">WhatsApp +65 9635 2294</a></li><li><a href="mailto:hello@singaporekebab.com">hello@singaporekebab.com</a></li><li><a href="{GBP_REVIEW}" target="_blank" rel="noopener">★ Review us on Google</a></li><li><a href="{MAPS}" target="_blank" rel="noopener">{ADDRESS}</a></li></ul></div>
     </div>
@@ -113,7 +113,7 @@ PAGES = [
     "slug": "office-catering",
     "video": "office",
     "service": "boxes",
-    "title": "Office Lunch Catering Singapore | Kebab Meal Boxes",
+    "title": "Office & Corporate Catering Singapore | Kebab Meal Boxes",
     "desc": "Office lunch catering in Singapore: hot Turkish kebab meal boxes and buffet trays for team lunches and meetings. Invoices and POs on request.",
     "crumb": "Office catering",
     "h1": "Office lunch catering in Singapore",
@@ -169,6 +169,127 @@ PAGES = [
       ("Can we mix live carving with a buffet?", "Yes. Many couples pair live kebab carving with a buffet of meze, pilav and desserts. Tell us what you have in mind in the planner."),
       ("Can you cater for guests with dietary needs?", "Yes. Tell us about vegetarian guests, allergies and any other requirements in the planner, and we'll confirm what we can provide in your quote."),
       ("How early should we book for a wedding?", "As early as possible, especially for weekend dates. Send your date through the planner and we'll confirm availability."),
+    ],
+  },
+  {
+    "slug": "mini-buffet-catering",
+    "service": "buffet",
+    "title": "Mini Buffet Catering Singapore | Turkish Kebab Buffet",
+    "desc": "Mini buffet catering in Singapore for small groups: Turkish kebab, rice pilaf, salads, hummus and desserts in trays, delivered hot to your office or home.",
+    "crumb": "Mini buffet catering",
+    "h1": "Mini buffet catering in Singapore",
+    "lead": "A Turkish kebab buffet sized for small groups: team lunches, house parties and gatherings, delivered hot and ready to serve.",
+    "img": ("sides", "Hot buffet dishes in stainless steel chafing trays"),
+    "serviceType": "Mini buffet catering",
+    "sections": [
+      ("What goes into a kebab mini buffet", [
+        "<p>A mini buffet gives a small group the feel of a full spread without ordering for a hundred people. A typical Turkish kebab buffet from us includes:</p>",
+        "<ul><li>Chicken or lamb kebab, or a mix of both</li><li>Buttery rice pilaf or warm pita bread</li><li>Shepherd's salad and hummus</li><li>Garlic yoghurt and chilli sauces</li><li>Falafel for vegetarian guests</li><li>Baklava or kunafa to finish</li></ul>",
+        "<p>You choose the dishes and the quantities, so the buffet fits your group, not a fixed package.</p>",
+      ]),
+      ("How much should you order?", [
+        "<p>Plan one main portion per guest, then add sides and a little extra if your group has big eaters. Our guide on <a href=\"../guides/how-much-food-per-person/\">how much food to order per person</a> walks you through it, and the <a href=\"../plan/?service=buffet\">menu planner</a> counts mains against your guest number as you build the menu.</p>",
+      ]),
+      ("See the prices before you ask", [
+        "<p>Every dish has its price on our <a href=\"../menu/\">menu page</a>, and the planner shows a running estimate as you add dishes. We confirm delivery and the final total with you on WhatsApp.</p>",
+      ]),
+      ("Bigger group or a special occasion?", [
+        "<p>For larger events, add <a href=\"../live-kebab-carving/\">live kebab carving</a>: our chef carves the kebab fresh at your venue while guests queue for wraps and plates.</p>",
+      ]),
+    ],
+    "faq": [
+      ("What size of group is a mini buffet for?", "Mini buffets work well for small groups such as team lunches, birthdays and house gatherings. Tell us your number in the planner and we'll suggest the right quantities."),
+      ("Is the food delivered hot?", "Yes. Your buffet is cooked on the day and delivered hot at the time you set, ready to serve."),
+      ("Can I mix chicken and lamb?", "Yes. You choose how many portions of each dish and each option, so some guests can have chicken and others lamb."),
+      ("Do you have vegetarian dishes for a buffet?", "Yes. Falafel, hummus, salads, veggie moussaka and cheese or spinach pide all work well on a buffet."),
+    ],
+  },
+  {
+    "slug": "bento-catering",
+    "service": "boxes",
+    "title": "Bento & Meal Box Catering Singapore | Kebab Meal Boxes",
+    "desc": "Bento and meal box catering in Singapore: individual Turkish kebab boxes for meetings, trainings and events, labelled and delivered on time.",
+    "crumb": "Bento and meal boxes",
+    "h1": "Bento and meal box catering in Singapore",
+    "lead": "One box per person with hot kebab, rice or wraps, salad and sauce. Easy to hand out at meetings, trainings, seminars and events.",
+    "img": ("boxes", "Colleagues having lunch together from takeaway boxes in an office"),
+    "serviceType": "Bento and meal box catering",
+    "sections": [
+      ("Why meal boxes work", [
+        "<ul><li>No queue and no serving: every guest gets their own box</li><li>Easy to count, easy to label, easy to hand out</li><li>Good for meetings, trainings, seminars and site visits</li><li>Mix different boxes in one order</li></ul>",
+      ]),
+      ("Popular boxes", [
+        "<h3>Rice kebab box</h3><p>Chicken, lamb or mixed kebab over buttery rice pilaf with salad and sauces.</p>",
+        "<h3>Kebab wrap box</h3><p>A kebab wrap with fresh salad, garlic yoghurt and chilli sauce. Easy to eat at a desk.</p>",
+        "<h3>Falafel box</h3><p>Crispy falafel with hummus, salad and tahini sauce for vegetarian guests.</p>",
+        "<p>See every option with photos, ingredients and prices on our <a href=\"../menu/\">menu page</a>.</p>",
+      ]),
+      ("Ordering for a big group", [
+        "<p>Use the <a href=\"../plan/?service=boxes\">menu planner</a> to choose how many boxes of each kind you need. It counts boxes against your guest number and shows an estimate at menu prices. We confirm delivery time and the final total on WhatsApp.</p>",
+      ]),
+    ],
+    "faq": [
+      ("Can each box be labelled?", "Yes. Tell us in the planner notes how you'd like boxes labelled, for example by dish or by vegetarian, and we'll label them for you."),
+      ("Can I order different boxes in one order?", "Yes. Choose any mix of dishes and options, such as chicken rice boxes, lamb wraps and falafel boxes."),
+      ("Do you provide invoices for companies?", "Yes. Mention that you need an invoice or a purchase order in the planner notes and we'll include the details in your quote."),
+      ("How early should I order meal boxes?", "For office orders we suggest at least 2 to 3 days ahead, and earlier for large numbers. Send your date through the planner and we'll confirm."),
+    ],
+  },
+  {
+    "slug": "party-catering",
+    "service": "buffet",
+    "title": "Party Catering Singapore | Birthday & House Party Kebab Catering",
+    "desc": "Party catering in Singapore: Turkish kebab buffets and live kebab carving for birthdays, house parties, engagements and gatherings.",
+    "crumb": "Party catering",
+    "h1": "Party catering in Singapore",
+    "lead": "Birthdays, house parties, engagements and get-togethers. Feed your guests something they'll talk about: real Turkish kebab, carved fresh.",
+    "img": ("party", "A guest serving food from a party buffet"),
+    "serviceType": "Party catering",
+    "sections": [
+      ("Two ways to cater your party", [
+        "<h3>Kebab buffet</h3><p>Kebab, rice pilaf, salads, hummus, bread and sauces delivered hot in trays. Easy for house parties and birthdays at home.</p>",
+        "<h3>Live kebab carving</h3><p>Our chef brings the vertical spit and carves to order. Guests queue, watch and take photos. It turns dinner into part of the party. <a href=\"../live-kebab-carving/\">See live kebab carving</a>.</p>",
+      ]),
+      ("Something for every guest", [
+        "<ul><li>Chicken and lamb kebab</li><li>Falafel, hummus and salads for vegetarians</li><li>Chicken nuggets and fries for kids</li><li>Baklava and kunafa for dessert</li></ul>",
+      ]),
+      ("Plan it in a minute", [
+        "<p>Tell us your guest count, date, dishes and area in the <a href=\"../plan/?service=buffet\">menu planner</a>. You'll see an estimate at menu prices, and your request opens in WhatsApp, ready to send.</p>",
+      ]),
+    ],
+    "faq": [
+      ("Can you cater a party at home?", "Yes. We deliver buffets to homes across Singapore. For live kebab carving we check space, power and ventilation with you before the day."),
+      ("Do you have food for kids?", "Yes. Chicken nuggets with fries and simple kebab wraps are popular with kids."),
+      ("How far ahead should I book party catering?", "As early as you can, especially for weekends. For live carving, 1 to 2 weeks ahead is a good guide."),
+      ("Can I see the prices first?", "Yes. Every dish has its price on our menu page, and the planner shows a running estimate as you build your menu."),
+    ],
+  },
+  {
+    "slug": "christmas-catering",
+    "service": "live",
+    "title": "Christmas Catering Singapore 2026 | Year-End Party Kebab Catering",
+    "desc": "Christmas and year-end party catering in Singapore: live kebab carving and Turkish kebab buffets for office parties and home gatherings. Book your date early.",
+    "crumb": "Christmas catering",
+    "h1": "Christmas and year-end party catering",
+    "lead": "Swap the usual turkey and ham for something your guests won't forget: live Turkish kebab carving and hot kebab buffets for December parties.",
+    "img": ("christmas", "A festive buffet table set for a party"),
+    "serviceType": "Christmas and year-end party catering",
+    "sections": [
+      ("Office year-end parties", [
+        "<p>A live kebab station is a crowd-pleaser at company year-end parties. Our chef carves to order while your team queues, chats and takes photos. Pair it with a buffet of rice pilaf, salads, hummus and baklava. <a href=\"../office-catering/\">More on office catering</a>.</p>",
+      ]),
+      ("Christmas at home", [
+        "<p>Hosting family and friends? A Turkish kebab buffet arrives hot and ready to serve, so you can spend the evening with your guests instead of in the kitchen. Kids love the kebab wraps and nuggets with fries.</p>",
+      ]),
+      ("Book your December date early", [
+        "<p>December weekends and the weeks before Christmas fill up fast. Send your date through the <a href=\"../plan/?service=live\">menu planner</a> as soon as you know it, and we'll confirm availability. Our guide on <a href=\"../guides/when-to-book-catering/\">when to book catering</a> has more tips.</p>",
+      ]),
+    ],
+    "faq": [
+      ("When should I book Christmas catering?", "As early as possible. December weekends and the days before Christmas are the busiest dates of the year."),
+      ("Can you do live kebab carving at an office party?", "Yes. We check space, power, ventilation and building rules with you before the day."),
+      ("Do you cater Christmas parties at home?", "Yes. We deliver hot buffets to homes across Singapore, ready to serve."),
+      ("Do you provide invoices for company parties?", "Yes. Mention that you need an invoice or a purchase order in the planner notes."),
     ],
   },
 ]
@@ -228,7 +349,7 @@ def build(p):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/site.css?v=20261029">
+<link rel="stylesheet" href="../assets/site.css?v=20261029b">
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
 </head>
 <body>
@@ -335,7 +456,7 @@ def build_about():
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/site.css?v=20261029">
+<link rel="stylesheet" href="../assets/site.css?v=20261029b">
 <style>
 .values{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
 @media (max-width:700px){{.values{{grid-template-columns:1fr}}}}
