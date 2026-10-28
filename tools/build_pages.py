@@ -20,9 +20,15 @@ POSTAL = {"@type": "PostalAddress", "streetAddress": "665 Buffalo Road", "addres
 WA_ICON = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"/></svg>')
 
 
+PX = {'live-station': 25067333, 'office': 28683057, 'weddings': 36766850, 'hero': 35255190, 'doner': 29306495, 'sides': 2291367}
+
+def PXU(name, w):
+    i = PX[name]
+    return f"https://images.pexels.com/photos/{i}/pexels-photo-{i}.jpeg?auto=compress&amp;cs=tinysrgb&amp;w={w}"
+
+
 def img(name, alt, sizes="(max-width: 900px) 100vw, 50vw", lazy=True, h=600):
-    big = 1400 if name in ("live-station", "office", "weddings") else (1024 if name == "hero" else 900)
-    return (f'<img src="../images/{name}-800.webp" srcset="../images/{name}-800.webp 800w, ../images/{name}-1400.webp {big}w" '
+    return (f'<img src="{PXU(name, 800)}" srcset="{PXU(name, 800)} 800w, {PXU(name, 1400)} 1400w" '
             f'sizes="{sizes}" width="800" height="{h}" alt="{html.escape(alt)}"' + (' loading="lazy"' if lazy else ' fetchpriority="high"') + '>')
 
 
@@ -78,7 +84,7 @@ PAGES = [
     "crumb": "Live kebab carving",
     "h1": "Live kebab carving for events in Singapore",
     "lead": "A kebab master, a vertical spit and fresh bread at your venue. Every wrap and plate is carved to order in front of your guests.",
-    "img": ("live-station", "Guests queuing for freshly carved kebab at an evening event in Singapore"),
+    "img": ("live-station", "A chef slicing Turkish doner kebab from a vertical spit"),
     "serviceType": "Live kebab carving catering",
     "sections": [
       ("What's included", [
@@ -112,7 +118,7 @@ PAGES = [
     "crumb": "Office catering",
     "h1": "Office lunch catering in Singapore",
     "lead": "Hot Turkish kebab meal boxes and buffet trays for team lunches, meetings and training days, delivered at the time you set.",
-    "img": ("office", "A team in a Singapore office sharing kebab meal boxes with Marina Bay in the background"),
+    "img": ("office", "A team enjoying a buffet lunch in a modern office"),
     "serviceType": "Corporate and office catering",
     "sections": [
       ("Two easy formats", [
@@ -145,7 +151,7 @@ PAGES = [
     "crumb": "Wedding catering",
     "h1": "Turkish wedding catering in Singapore",
     "lead": "Live kebab carving and a full Turkish table for weddings, engagements and family celebrations.",
-    "img": ("weddings", "A Turkish wedding table with baklava, Turkish tea and meze in front of Gardens by the Bay"),
+    "img": ("weddings", "A wedding banquet hall with floral decor and a buffet"),
     "serviceType": "Wedding and celebration catering",
     "sections": [
       ("The full Turkish table", [
@@ -217,7 +223,7 @@ def build(p):
 <meta property="og:title" content="{html.escape(p["title"])}">
 <meta property="og:description" content="{html.escape(p["desc"])}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{SITE}/images/{im}-1400.webp">
+<meta property="og:image" content="{PXU(im, 1200)}">
 <meta name="theme-color" content="#FBF8F3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -324,7 +330,7 @@ def build_about():
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{SITE}/images/live-station-1400.webp">
+<meta property="og:image" content="{PXU('live-station', 1200)}">
 <meta name="theme-color" content="#FBF8F3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -5,7 +5,7 @@ Edit GUIDES below and run again. Remember to keep sitemap.xml in sync (this scri
 """
 import html, json, os, sys
 sys.path.insert(0, os.path.dirname(__file__))
-from build_pages import HEADER, FOOTER, SITE, ROOT, WA_ICON
+from build_pages import HEADER, FOOTER, SITE, ROOT, WA_ICON, PXU
 
 PUBLISHED = "2026-10-25"
 
@@ -297,7 +297,7 @@ def page(head_title, desc, canonical, body, schema, depth, og_img="live-station"
 <meta property="og:title" content="{html.escape(head_title)}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="{SITE}/images/{og_img}-1400.webp">
+<meta property="og:image" content="{PXU(og_img, 1200)}">
 <meta name="theme-color" content="#FBF8F3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -317,9 +317,8 @@ def page(head_title, desc, canonical, body, schema, depth, og_img="live-station"
 
 
 def gimg(name, pre, alt="", lazy=True, sizes="(max-width: 900px) 100vw, 33vw"):
-    big = 1400 if name in ("live-station", "office", "weddings") else (1024 if name == "hero" else 900)
     h = 1200 if name == "hero" else 600
-    return (f'<img src="{pre}images/{name}-800.webp" srcset="{pre}images/{name}-800.webp 800w, {pre}images/{name}-1400.webp {big}w" '
+    return (f'<img src="{PXU(name, 800)}" srcset="{PXU(name, 800)} 800w, {PXU(name, 1400)} 1400w" '
             f'sizes="{sizes}" width="800" height="{h}" alt="{html.escape(alt)}"' + (' loading="lazy"' if lazy else ' fetchpriority="high"') + '>')
 
 
@@ -361,7 +360,7 @@ def build_article(g):
 '''
     schema = [
       {"@context": "https://schema.org", "@type": "Article", "headline": g["h1"], "description": g["desc"], "url": url,
-       "image": f"{SITE}/images/{g['img']}-1400.webp", "datePublished": PUBLISHED, "dateModified": PUBLISHED,
+       "image": PXU(g['img'], 1200).replace("&amp;", "&"), "datePublished": PUBLISHED, "dateModified": PUBLISHED,
        "author": {"@type": "Organization", "name": "Singapore Kebab", "url": SITE + "/"},
        "publisher": {"@type": "Organization", "name": "Singapore Kebab", "url": SITE + "/"}},
       {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
