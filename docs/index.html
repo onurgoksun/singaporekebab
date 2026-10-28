@@ -67,6 +67,7 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
+        <p class="eyebrow">Live kebab carving · Office lunches · Weddings</p>
         <h1>Turkish kebab catering, carved fresh for your crowd.</h1>
         <p class="lead">Live kebab carving, hot buffet trays and meal boxes for offices, events and weddings across Singapore. Get a menu built around your headcount and dietary needs.</p>
         <div class="actions">
@@ -78,9 +79,17 @@
         </div>
         <p class="by">Freshly prepared in our kitchen in Little India and delivered hot to your venue.</p>
       </div>
-      <div class="hero-photo">
-        <img fetchpriority="high" src="images/live-station-800.webp" srcset="images/live-station-800.webp 800w, images/live-station-1400.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" width="800" height="600" alt="Live kebab carving at a rooftop event in Singapore with guests queuing">
-        <div class="hero-badge"><b>Live kebab carving</b><span>Carved to order at your venue</span></div>
+      <div class="hero-reels">
+        <figure class="reel">
+          <video muted loop playsinline autoplay preload="metadata" poster="videos/office-catering.jpg" width="720" height="1280" aria-label="Video: Singapore Kebab live kebab carving at an office lunch"><source src="videos/office-catering.mp4" type="video/mp4"></video>
+          <span class="reel-tag">Office lunch</span>
+          <button type="button" class="reel-snd" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3z"/><path class="w" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/><path class="x" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M16 9l5 6M21 9l-5 6"/></svg><span>Tap for sound</span></button>
+        </figure>
+        <figure class="reel">
+          <video muted loop playsinline autoplay preload="metadata" poster="videos/wedding.jpg" width="720" height="1280" aria-label="Video: Singapore Kebab live kebab carving at a wedding"><source src="videos/wedding.mp4" type="video/mp4"></video>
+          <span class="reel-tag">Weddings</span>
+          <button type="button" class="reel-snd" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3z"/><path class="w" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/><path class="x" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M16 9l5 6M21 9l-5 6"/></svg><span>Tap for sound</span></button>
+        </figure>
       </div>
     </div>
   </section>
@@ -141,13 +150,6 @@
         </div>
       </div>
       <div class="why-photo"><img src="images/hero-800.webp" srcset="images/hero-800.webp 800w, images/hero-1400.webp 1024w" sizes="(max-width: 900px) 100vw, 50vw" width="800" height="1200" alt="A kebab master carving thin slices from a vertical kebab spit" loading="lazy"></div>
-    </div>
-  </section>
-
-  <section id="videos" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head"><h2>See us in action</h2><p>Live kebab carving at offices and weddings across Singapore. Tap to play.</p></div>
-      <div class="vids"><figure class="vid"><video controls playsinline preload="none" poster="videos/office-catering.jpg" width="720" height="1280"><source src="videos/office-catering.mp4" type="video/mp4"></video><figcaption><b>Office lunch</b> · Sad sandwiches? Cancel lah!</figcaption></figure><figure class="vid"><video controls playsinline preload="none" poster="videos/wedding.jpg" width="720" height="1280"><source src="videos/wedding.mp4" type="video/mp4"></video><figcaption><b>Weddings</b> · Make your wedding legendary lah!</figcaption></figure></div>
     </div>
   </section>
 
@@ -285,6 +287,27 @@ document.querySelectorAll("a.js-wa").forEach(function(a){
   a.target = "_blank"; a.rel = "noopener";
 });
 document.getElementById("year").textContent = new Date().getFullYear();
+
+// Hero reels: autoplay muted while visible, tap for sound (one at a time)
+(function(){
+  var reels = [].slice.call(document.querySelectorAll(".reel"));
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  reels.forEach(function(r){
+    var v = r.querySelector("video"), b = r.querySelector(".reel-snd");
+    if (reduce){ v.removeAttribute("autoplay"); v.pause(); }
+    function setSound(on){
+      reels.forEach(function(o){ var ov = o.querySelector("video"), ob = o.querySelector(".reel-snd");
+        if (o !== r || !on){ ov.muted = true; ob.setAttribute("aria-pressed","false"); ob.querySelector("span").textContent = "Tap for sound"; } });
+      if (on){ v.muted = false; v.currentTime = 0; v.play(); b.setAttribute("aria-pressed","true"); b.querySelector("span").textContent = "Sound on"; }
+    }
+    b.addEventListener("click", function(e){ e.stopPropagation(); setSound(v.muted); });
+    v.addEventListener("click", function(){ setSound(v.muted); });
+  });
+  if ("IntersectionObserver" in window && !reduce){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ var v = e.target; if (e.isIntersecting) v.play().catch(function(){}); else v.pause(); }); }, {threshold:.25});
+    reels.forEach(function(r){ io.observe(r.querySelector("video")); });
+  }
+})();
 </script>
 </body>
 </html>
