@@ -66,6 +66,7 @@ ING = {
   "Kunafa":                  ((370, 7.0, 45.0, 25.0, 18.0, 10.0, 0.8, 0.5), ["gluten", "milk", "nuts"]),
   "Ayran":                   ((37, 1.7, 2.4, 2.4, 2.0, 1.3, 0.0, 0.5), ["milk"]),
   "Turkish tea (no sugar)":  ((1, 0.0, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0), []),
+  "Soft drink (regular cola)": ((42, 0.0, 10.6, 10.6, 0.0, 0.0, 0.0, 0.0), []),
 }
 
 C, L = "Chicken kebab meat", "Lamb kebab meat"
@@ -154,14 +155,19 @@ dish("pesto", "Pasta tossed in basil pesto with a little cheese.", p)
 dish("nuggets", "Crispy chicken nuggets with fries and ketchup.", {"Regular": [("Chicken nuggets", 120), ("Fries", 130), ("Ketchup", 20)]})
 dish("baklava", "Thin layers of pastry with chopped nuts, baked in butter and finished with syrup.", {"Regular": [("Baklava", 100)]})
 dish("kunafa", "Shredded pastry with melted cheese inside, baked and soaked in syrup, topped with pistachio.", {"Regular": [("Kunafa", 150)]})
+dish("ayran", "A cold, lightly salted yoghurt drink. The classic partner for kebab.", {"Regular": [("Ayran", 250)]})
+dish("tea", "Turkish black tea, brewed strong and served in a tulip glass.", {"Regular": [("Turkish tea (no sugar)", 100)]})
+dish("softdrink", "A chilled can of soft drink.", {"Regular": [("Soft drink (regular cola)", 330)]})
 dish("drinks", "Drinks to go with your meal.", {
   "Ayran": [("Ayran", 250)],
   "Turkish tea": [("Turkish tea (no sugar)", 100)],
-  "Soft drinks": [],
+  "Soft drinks": [("Soft drink (regular cola)", 330)],
 })
 
 NOTE = {
-  ("drinks", "Soft drinks"): "Nutrition depends on the brand and size. It is printed on the can or bottle.",
+  ("drinks", "Soft drinks"): "Values shown are for a 330 ml can of regular cola. Other drinks vary; the exact values are printed on the can.",
+  ("softdrink", "Regular"): "Values shown are for a 330 ml can of regular cola. Other drinks vary; the exact values are printed on the can.",
+  ("tea", "Regular"): "Served without sugar. Each sugar cube adds about 10 kcal.",
   ("drinks", "Turkish tea"): "Served without sugar. Each sugar cube adds about 10 kcal.",
 }
 

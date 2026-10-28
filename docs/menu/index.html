@@ -270,7 +270,7 @@ input[type=date],input[type=time]{color-scheme:light}
   </div>
 </dialog>
 
-<script src="../assets/nutrition.js?v=20261029"></script>
+<script src="../assets/nutrition.js?v=20261029b"></script>
 <script>
 var WHATSAPP_NUMBER = "6596352294";
 // Free-licence photos from Unsplash (U) and Pexels (P)
@@ -286,7 +286,7 @@ var PH = {
   kunafa:P(36543155), baklava:P(5323489)
 };
 
-// Prices in SGD. price: null means price on request.
+// Prices in SGD.
 var MENU = [
   { id:"wraps", name:"Kebabs & wraps", items:[
     { id:"wrap", name:"Wrap Kebab", img:"wrap", chef:true, opts:[["Chicken",7.9],["Lamb",8.9],["Mix",10]] },
@@ -300,12 +300,12 @@ var MENU = [
     { id:"beyti", name:"Beyti Kebab", img:"beyti", opts:[["Chicken",10],["Lamb",11],["Mix",13]] },
     { id:"alinazik", name:"Alinazik", img:"alinazik", opts:[["Chicken",10],["Lamb",11],["Mix",12]] },
     { id:"kofte", name:"Izara Köfte (lamb) with Rice", img:"kofte", opts:[["Regular",15]] },
-    { id:"biryani", name:"Biryani", img:null, opts:[["Chicken",null],["Lamb",null]] }
+    { id:"biryani", name:"Biryani", img:null, opts:[["Chicken",12],["Lamb",14]] }
   ]},
   { id:"pide", name:"Pide & bread", items:[
     { id:"pide", name:"Turkish Pide", img:"pide", chef:true, veg:true, opts:[
       ["Cheese (kaşarlı)",11,1],["Spinach",12,1],["Sucuk / pepperoni",12],["Chicken",13],["Lamb (kuşbaşı)",15],["Mix",17],
-      ["Sucuk & cheese",null],["Egg, sucuk & cheese",null],["Egg, lamb (kuşbaşı) & cheese",null]
+      ["Sucuk & cheese",13],["Egg, sucuk & cheese",14],["Egg, lamb (kuşbaşı) & cheese",16]
     ]},
     { id:"bread", name:"Bread", img:"bread", veg:true, opts:[["Plain pita",4,1],["Garlic",5,1],["Cheese",6,1]] }
   ]},
@@ -324,6 +324,11 @@ var MENU = [
   { id:"desserts", name:"Desserts", items:[
     { id:"kunafa", name:"Kunafa", img:"desserts", chef:true, opts:[["Regular",12]] },
     { id:"baklava", name:"Baklava", img:"desserts", veg:true, opts:[["Regular",10]] }
+  ]},
+  { id:"drinks", name:"Drinks", items:[
+    { id:"ayran", name:"Ayran", img:null, veg:true, opts:[["Regular",2.5]] },
+    { id:"tea", name:"Turkish Tea", img:null, veg:true, opts:[["Regular",2]] },
+    { id:"softdrink", name:"Soft Drink (can)", img:null, veg:true, opts:[["Regular",2.5]] }
   ]}
 ];
 

@@ -11,6 +11,7 @@ ROOT = os.path.join(os.path.dirname(__file__), "..", "docs")
 SITE = "https://singaporekebab.com"
 WA = "6596352294"
 ADDRESS = "665 Buffalo Road, Little India, Singapore 210665"
+IG = "https://www.instagram.com/singaporekebab/"
 GBP = "https://g.page/r/CVsNwreVUFrREBQ"
 GBP_REVIEW = "https://g.page/r/CVsNwreVUFrREBM/review"
 MAPS = "https://www.google.com/maps/search/?api=1&query=665+Buffalo+Road+Singapore+210665"
@@ -59,7 +60,7 @@ FOOTER = f'''<footer>
       </div>
       <div><h4>Catering</h4><ul><li><a href="../live-kebab-carving/">Live kebab carving</a></li><li><a href="../office-catering/">Office catering</a></li><li><a href="../wedding-catering/">Wedding catering</a></li><li><a href="../mini-buffet-catering/">Mini buffet</a></li><li><a href="../bento-catering/">Bento &amp; meal boxes</a></li><li><a href="../party-catering/">Party catering</a></li><li><a href="../christmas-catering/">Christmas catering</a></li></ul></div>
       <div><h4>Order</h4><ul><li><a href="../plan/">Plan my menu</a></li><li><a href="../menu/">Menu and prices</a></li><li><a href="../guides/">Catering guides</a></li><li><a href="../about/">About us</a></li><li><a href="../#faq">FAQ</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li><a class="js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question.">WhatsApp +65 9635 2294</a></li><li><a href="mailto:hello@singaporekebab.com">hello@singaporekebab.com</a></li><li><a href="{GBP_REVIEW}" target="_blank" rel="noopener">★ Review us on Google</a></li><li><a href="{MAPS}" target="_blank" rel="noopener">{ADDRESS}</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a class="js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question.">WhatsApp +65 9635 2294</a></li><li><a href="mailto:hello@singaporekebab.com">hello@singaporekebab.com</a></li><li><a href="{IG}" target="_blank" rel="noopener">Instagram @singaporekebab</a></li><li><a href="{GBP_REVIEW}" target="_blank" rel="noopener">★ Review us on Google</a></li><li><a href="{MAPS}" target="_blank" rel="noopener">{ADDRESS}</a></li></ul></div>
     </div>
     <p class="copy">© <span id="year"></span> Singapore Kebab</p>
   </div>
@@ -313,7 +314,7 @@ def build(p):
     schema = [
       {"@context": "https://schema.org", "@type": "Service", "name": p["h1"], "serviceType": p["serviceType"],
        "description": p["desc"], "url": url, "areaServed": {"@type": "Country", "name": "Singapore"},
-       "provider": {"@type": "FoodEstablishment", "name": "Singapore Kebab", "url": SITE + "/", "telephone": "+65 9635 2294", "servesCuisine": "Turkish", "address": POSTAL, "logo": SITE + "/images/logo-512.png", "sameAs": [GBP]}},
+       "provider": {"@type": "FoodEstablishment", "name": "Singapore Kebab", "url": SITE + "/", "telephone": "+65 9635 2294", "servesCuisine": "Turkish", "address": POSTAL, "logo": SITE + "/images/logo-512.png", "sameAs": [GBP, IG]}},
       {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
         {"@type": "ListItem", "position": 2, "name": p["crumb"], "item": url}]},
@@ -421,7 +422,7 @@ def build_about():
       {"@context": "https://schema.org", "@type": "AboutPage", "name": "About Singapore Kebab", "url": url, "description": desc},
       {"@context": "https://schema.org", "@type": "FoodEstablishment", "name": "Singapore Kebab", "url": SITE + "/",
        "telephone": "+65 9635 2294", "email": "hello@singaporekebab.com", "servesCuisine": "Turkish", "logo": SITE + "/images/logo-512.png", "image": SITE + "/images/logo-512.png",
-       "address": POSTAL, "areaServed": {"@type": "Country", "name": "Singapore"}, "hasMap": MAPS, "sameAs": [GBP]},
+       "address": POSTAL, "areaServed": {"@type": "Country", "name": "Singapore"}, "hasMap": MAPS, "sameAs": [GBP, IG]},
       {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
         {"@type": "ListItem", "position": 2, "name": "About", "item": url}]},
