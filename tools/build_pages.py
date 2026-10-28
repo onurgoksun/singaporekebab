@@ -10,6 +10,8 @@ SITE = "https://singaporekebab.com"
 WA = "6596352294"
 HALAL_A = "Yes. All our food is halal. Everything is prepared in our MUIS halal-certified kitchen in Little India, so you can serve it to all your guests with confidence."
 ADDRESS = "665 Buffalo Road, Little India, Singapore 210665"
+GBP = "https://g.page/r/CVsNwreVUFrREBQ"
+GBP_REVIEW = "https://g.page/r/CVsNwreVUFrREBM/review"
 MAPS = "https://www.google.com/maps/search/?api=1&query=665+Buffalo+Road+Singapore+210665"
 POSTAL = {"@type": "PostalAddress", "streetAddress": "665 Buffalo Road", "addressLocality": "Singapore",
           "postalCode": "210665", "addressCountry": "SG"}
@@ -50,7 +52,7 @@ FOOTER = f'''<footer>
       </div>
       <div><h4>Catering</h4><ul><li><a href="../live-kebab-carving/">Live kebab carving</a></li><li><a href="../office-catering/">Office catering</a></li><li><a href="../wedding-catering/">Wedding catering</a></li></ul></div>
       <div><h4>Order</h4><ul><li><a href="../plan/">Plan my menu</a></li><li><a href="../menu/">Menu and prices</a></li><li><a href="../guides/">Catering guides</a></li><li><a href="../about/">About us</a></li><li><a href="../#faq">FAQ</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li><a class="js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question.">WhatsApp +65 9635 2294</a></li><li><a href="mailto:hello@singaporekebab.com">hello@singaporekebab.com</a></li><li><a href="{MAPS}" target="_blank" rel="noopener">{ADDRESS}</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a class="js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question.">WhatsApp +65 9635 2294</a></li><li><a href="mailto:hello@singaporekebab.com">hello@singaporekebab.com</a></li><li><a href="{GBP_REVIEW}" target="_blank" rel="noopener">★ Review us on Google</a></li><li><a href="{MAPS}" target="_blank" rel="noopener">{ADDRESS}</a></li></ul></div>
     </div>
     <div class="foot-halal"><img src="../images/muis-halal.webp" width="64" height="64" alt="MUIS Halal Singapore logo" loading="lazy"><p>All our food is halal. Prepared in our MUIS halal-certified kitchen at 665 Buffalo Road, Singapore.</p></div>
     <p class="copy">© <span id="year"></span> Singapore Kebab</p>
@@ -182,7 +184,7 @@ def build(p):
     schema = [
       {"@context": "https://schema.org", "@type": "Service", "name": p["h1"], "serviceType": p["serviceType"],
        "description": p["desc"], "url": url, "areaServed": {"@type": "Country", "name": "Singapore"},
-       "provider": {"@type": "FoodEstablishment", "name": "Singapore Kebab", "url": SITE + "/", "telephone": "+65 9635 2294", "servesCuisine": "Turkish", "address": POSTAL, "logo": SITE + "/images/logo-512.png"}},
+       "provider": {"@type": "FoodEstablishment", "name": "Singapore Kebab", "url": SITE + "/", "telephone": "+65 9635 2294", "servesCuisine": "Turkish", "address": POSTAL, "logo": SITE + "/images/logo-512.png", "sameAs": [GBP]}},
       {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
         {"@type": "ListItem", "position": 2, "name": p["crumb"], "item": url}]},
@@ -283,7 +285,7 @@ def build_about():
       {"@context": "https://schema.org", "@type": "AboutPage", "name": "About Singapore Kebab", "url": url, "description": desc},
       {"@context": "https://schema.org", "@type": "FoodEstablishment", "name": "Singapore Kebab", "url": SITE + "/",
        "telephone": "+65 9635 2294", "email": "hello@singaporekebab.com", "servesCuisine": "Turkish", "logo": SITE + "/images/logo-512.png", "image": SITE + "/images/logo-512.png",
-       "address": POSTAL, "areaServed": {"@type": "Country", "name": "Singapore"}, "hasMap": MAPS},
+       "address": POSTAL, "areaServed": {"@type": "Country", "name": "Singapore"}, "hasMap": MAPS, "sameAs": [GBP]},
       {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
         {"@type": "ListItem", "position": 2, "name": "About", "item": url}]},
@@ -380,6 +382,7 @@ def build_about():
           <a class="btn btn-line" href="{MAPS}" target="_blank" rel="noopener">Open in Google Maps</a>
           <a class="btn btn-wa js-wa" href="#" data-msg="Hi Singapore Kebab, I'd like to arrange a pickup.">{WA_ICON} WhatsApp +65 9635 2294</a>
           <a class="btn btn-line" href="mailto:hello@singaporekebab.com">hello@singaporekebab.com</a>
+          <a class="btn btn-line" href="{GBP_REVIEW}" target="_blank" rel="noopener">★ Review us on Google</a>
         </div>
         <iframe class="map" title="Map of our kitchen at 665 Buffalo Road, Singapore" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=665+Buffalo+Road,+Singapore+210665&amp;output=embed"></iframe>
       </div>
