@@ -160,7 +160,7 @@ GUIDES = [
 <li><strong>No-shows.</strong> Office events often see a few people drop out. Confirm the headcount a few days before.</li>
 </ul>
 <h2>Plan for mixed diets</h2>
-<p>Singapore teams are diverse. Ask your guests early about vegetarian, halal, no-beef and allergy needs, and count them separately. A good rule is to order vegetarian portions for every vegetarian guest plus a few extra, because non-vegetarians often try them too.</p>
+<p>Singapore teams are diverse. Ask your guests early about vegetarian, no-beef and allergy needs, and count them separately. A good rule is to order vegetarian portions for every vegetarian guest plus a few extra, because non-vegetarians often try them too.</p>
 <h2>Food safety tips from SFA</h2>
 <p>The Singapore Food Agency's guidelines for ordering catered meals recommend:</p>
 <ul>

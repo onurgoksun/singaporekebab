@@ -10,7 +10,6 @@ VIDS = {"office": {"file": "office-catering", "title": "Sad sandwiches? Cancel l
 ROOT = os.path.join(os.path.dirname(__file__), "..", "docs")
 SITE = "https://singaporekebab.com"
 WA = "6596352294"
-HALAL_A = "Yes. All our food is halal. Everything is prepared in our MUIS halal-certified kitchen in Little India, so you can serve it to all your guests with confidence."
 ADDRESS = "665 Buffalo Road, Little India, Singapore 210665"
 GBP = "https://g.page/r/CVsNwreVUFrREBQ"
 GBP_REVIEW = "https://g.page/r/CVsNwreVUFrREBM/review"
@@ -50,13 +49,12 @@ FOOTER = f'''<footer>
     <div class="foot">
       <div>
         <a class="brand" href="../" aria-label="Singapore Kebab home"><img src="../images/logo-320.webp" width="163" height="160" alt="Singapore Kebab logo" loading="lazy"></a>
-        <p>Halal Turkish kebab catering in Singapore: live kebab carving, office catering and weddings. Prepared in a MUIS halal-certified kitchen.</p>
+        <p>Turkish kebab catering in Singapore: live kebab carving, office catering and weddings.</p>
       </div>
       <div><h4>Catering</h4><ul><li><a href="../live-kebab-carving/">Live kebab carving</a></li><li><a href="../office-catering/">Office catering</a></li><li><a href="../wedding-catering/">Wedding catering</a></li></ul></div>
       <div><h4>Order</h4><ul><li><a href="../plan/">Plan my menu</a></li><li><a href="../menu/">Menu and prices</a></li><li><a href="../guides/">Catering guides</a></li><li><a href="../about/">About us</a></li><li><a href="../#faq">FAQ</a></li></ul></div>
       <div><h4>Contact</h4><ul><li><a class="js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question.">WhatsApp +65 9635 2294</a></li><li><a href="mailto:hello@singaporekebab.com">hello@singaporekebab.com</a></li><li><a href="{GBP_REVIEW}" target="_blank" rel="noopener">★ Review us on Google</a></li><li><a href="{MAPS}" target="_blank" rel="noopener">{ADDRESS}</a></li></ul></div>
     </div>
-    <div class="foot-halal"><img src="../images/muis-halal.webp" width="64" height="64" alt="MUIS Halal Singapore logo" loading="lazy"><p>All our food is halal. Prepared in our MUIS halal-certified kitchen at 665 Buffalo Road, Singapore.</p></div>
     <p class="copy">© <span id="year"></span> Singapore Kebab</p>
   </div>
 </footer>
@@ -75,8 +73,8 @@ PAGES = [
     "slug": "live-kebab-carving",
     "video": "wedding",
     "service": "live",
-    "title": "Live Kebab Carving Singapore | Halal Turkish Kebab Catering",
-    "desc": "Book halal live kebab carving in Singapore. Our kebab master carves chicken and lamb kebab to order at your party, launch or wedding.",
+    "title": "Live Kebab Carving Singapore | Turkish Kebab Catering",
+    "desc": "Book live kebab carving in Singapore. Our kebab master carves chicken and lamb kebab to order at your party, launch or wedding.",
     "crumb": "Live kebab carving",
     "h1": "Live kebab carving for events in Singapore",
     "lead": "A kebab master, a vertical spit and fresh bread at your venue. Every wrap and plate is carved to order in front of your guests.",
@@ -178,7 +176,6 @@ RELATED = [
 
 def build(p):
     url = f"{SITE}/{p['slug']}/"
-    p = dict(p, faq=[("Is your food halal?", HALAL_A)] + list(p["faq"]))
     faq_html = "".join(f"<details><summary>{html.escape(q)}</summary><p>{html.escape(a)}</p></details>" for q, a in p["faq"])
     sections = ""
     for title, blocks in p["sections"]:
@@ -235,7 +232,6 @@ def build(p):
   <section class="lp-hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="halal-pill"><img src="../images/muis-halal.webp" width="34" height="34" alt="MUIS Halal Singapore logo">100% halal · MUIS halal-certified kitchen</span>
         <h1>{html.escape(p["h1"])}</h1>
         <p class="lead" style="font-size:20px;color:var(--muted);max-width:44ch;margin:22px 0 30px">{html.escape(p["lead"])}</p>
         <div class="actions" style="display:flex;flex-wrap:wrap;gap:12px">
@@ -293,7 +289,7 @@ def build(p):
 def build_about():
     url = f"{SITE}/about/"
     title = "About Singapore Kebab | Turkish Kebab Catering in Little India"
-    desc = "Singapore Kebab is a halal Turkish kebab catering brand. Fresh kebab cooked daily in our MUIS halal-certified kitchen in Little India for offices, events and weddings across Singapore."
+    desc = "Singapore Kebab is a Turkish kebab catering brand. Fresh kebab cooked daily in our kitchen in Little India for offices, events and weddings across Singapore."
     schema = [
       {"@context": "https://schema.org", "@type": "AboutPage", "name": "About Singapore Kebab", "url": url, "description": desc},
       {"@context": "https://schema.org", "@type": "FoodEstablishment", "name": "Singapore Kebab", "url": SITE + "/",
@@ -304,7 +300,6 @@ def build_about():
         {"@type": "ListItem", "position": 2, "name": "About", "item": url}]},
     ]
     values = [
-      ("100% halal", "All our food is halal and prepared in our MUIS halal-certified kitchen in Little India. Every guest at your table can enjoy the same meal."),
       ("Real Turkish kebab", "Chicken and lamb kebab cooked on a vertical spit and carved to order, the way it is done in Turkey. Not generic shawarma."),
       ("Cooked fresh on the day", "Your order is prepared on the day of your event and delivered hot, or carved live at your venue."),
       ("Clear prices", "Our menu prices are on the website. The planner shows an estimate as you build your menu, so there are no surprises."),
@@ -312,9 +307,6 @@ def build_about():
     ]
     def vcard(t, d):
         h = f'<h3>{html.escape(t)}</h3><p class="muted" style="font-size:15.5px">{html.escape(d)}</p>'
-        if t == "100% halal":
-            return ('<div class="ex" style="grid-column:1/-1;background:#E6F2E7;border-color:#BFDCC3;flex-direction:row;align-items:center;gap:20px">'
-                    '<img src="../images/muis-halal.webp" width="96" height="96" alt="MUIS Halal Singapore logo" style="flex:none;border-radius:50%;background:#fff"><div>' + h + '</div></div>')
         return '<div class="ex">' + h + '</div>'
     vals = "".join(vcard(t, d) for t, d in values)
     page = f'''<!doctype html>
@@ -355,9 +347,8 @@ def build_about():
   <section class="lp-hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="halal-pill"><img src="../images/muis-halal.webp" width="34" height="34" alt="MUIS Halal Singapore logo">100% halal · MUIS halal-certified kitchen</span>
         <h1>About Singapore Kebab</h1>
-        <p class="lead" style="font-size:20px;color:var(--muted);max-width:44ch;margin:22px 0 30px">We bring real Turkish kebab to Singapore's office lunches, parties and weddings, cooked fresh every day in our MUIS halal-certified kitchen in Little India.</p>
+        <p class="lead" style="font-size:20px;color:var(--muted);max-width:44ch;margin:22px 0 30px">We bring real Turkish kebab to Singapore's office lunches, parties and weddings, cooked fresh every day in our kitchen in Little India.</p>
         <div class="actions" style="display:flex;flex-wrap:wrap;gap:12px">
           <a class="btn btn-red" href="../plan/">Plan my menu</a>
           <a class="btn btn-wa js-wa" href="#" data-msg="Hi Singapore Kebab, I have a question.">{WA_ICON} WhatsApp us</a>
@@ -391,7 +382,7 @@ def build_about():
       <div class="visit">
         <div class="ex" style="gap:14px">
           <p class="addr">665 Buffalo Road<br>Little India<br>Singapore 210665</p>
-          <p class="muted" style="font-size:15.5px">Our kitchen is MUIS halal-certified. Your food is cooked here and sent out hot. Pickup orders are collected from this address. Message us on WhatsApp first so your order is ready when you arrive.</p>
+          <p class="muted" style="font-size:15.5px">Your food is cooked here and sent out hot. Pickup orders are collected from this address. Message us on WhatsApp first so your order is ready when you arrive.</p>
           <a class="btn btn-line" href="{MAPS}" target="_blank" rel="noopener">Open in Google Maps</a>
           <a class="btn btn-wa js-wa" href="#" data-msg="Hi Singapore Kebab, I'd like to arrange a pickup.">{WA_ICON} WhatsApp +65 9635 2294</a>
           <a class="btn btn-line" href="mailto:hello@singaporekebab.com">hello@singaporekebab.com</a>
